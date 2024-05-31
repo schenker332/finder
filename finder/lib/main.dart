@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
-        // the app
-        // Notice that the counter didn't reset back to zero; the application
+        to zero; the application
         // state is not lost during the reload. To reset the state, use hot
         // restart instead.
         //
