@@ -28,62 +28,58 @@ class FoodCard extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
-            child: Image.asset(
-              imagePath, // Verwende den übergebenen Bildpfad
+            child: Image.network(
+              imagePath,
               width: double.infinity,
               height: 150,
               fit: BoxFit.cover,
             ),
           ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
                   children: [
-                    Text(
-                      title, // Verwende den übergebenen Titel
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                    if (isVegan)
+                      Chip(
+                        label: Text('vegan'),
+                        backgroundColor: Colors.green[100],
                       ),
-                    ),
-                    Row(
-                      children: [
-                        if (isVegan)
-                          Chip(
-                            label: Text('vegan'),
-                            backgroundColor: Colors.green[100],
-                          ),
-                        Spacer(),
-                        ...List.generate(price.round().clamp(0, 3), (index) => Icon(Icons.euro, size: 20)),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.timer, size: 20),
-                        SizedBox(width: 5),
-                        Icon(Icons.water_drop_outlined, size: 20),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      description, // Verwende die übergebene Beschreibung
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      availability, // Verwende die übergebene Verfügbarkeit
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.yellow[700],
-                      ),
-                    ),
+                    Spacer(),
+                    ...List.generate(price.round(), (index) => Icon(Icons.euro, size: 20)),
                   ],
                 ),
-              ),
+                Row(
+                  children: [
+                    Icon(Icons.timer, size: 20),
+                    SizedBox(width: 5),
+                    Icon(Icons.water_drop_outlined, size: 20),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Text(
+                  description,
+                  style: TextStyle(fontSize: 16),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  availability,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellow[700],
+                  ),
+                ),
+              ],
             ),
           ),
         ],

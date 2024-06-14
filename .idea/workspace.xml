@@ -7,8 +7,12 @@
     <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="salwas version working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finder/lib/HomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/HomePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/Models/user.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/data.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/food_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/food_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/fooditems.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/myApp.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/nudeln_part.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/start_page.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +28,9 @@
         <option value="Dart File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -56,7 +63,7 @@
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "merdans-branch",
+    "git-widget-placeholder": "Niclas-Branch",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/merdancetin/StudioProjects/finder/finder",

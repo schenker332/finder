@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:foodfinder_app/HomePage.dart';
+import 'HomePage.dart';
 
 void main() {
   runApp(MyFirstApp());
