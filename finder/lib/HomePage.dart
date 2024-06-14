@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodfinder_app/data.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,7 +10,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Hallo " + currentUser.firstname + "!",
+            "Hallo Franziska!", //Username Nutzername
             style: Theme.of(context).textTheme.titleLarge!.copyWith(),
           ),
           actions: [
@@ -26,7 +25,7 @@ class HomePage extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    currentUser.firstletter,
+                    "F",  //Initialien
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.primary,
                           fontSize: 27,
