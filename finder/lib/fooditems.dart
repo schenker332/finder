@@ -28,7 +28,7 @@ List<FoodItem> foodItems = [
     availability: 'Heute',
   ),
   FoodItem(
-    title: 'Nudeln',
+    title: 'Nudel',
     imagePath: 'lib/assets/nudeln_mit_walnuessen.png',
     isVegan: true,
     price: 6,
