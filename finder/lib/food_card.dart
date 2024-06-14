@@ -57,7 +57,7 @@ class FoodCard extends StatelessWidget {
                             backgroundColor: Colors.green[100],
                           ),
                         Spacer(),
-                        ...List.generate(price.round(), (index) => Icon(Icons.euro, size: 20)),
+                        ...List.generate(price.round().clamp(0, 3), (index) => Icon(Icons.euro, size: 20)),
                       ],
                     ),
                     Row(
