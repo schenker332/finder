@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'foodcard.dart';
+import 'food_card.dart';
 import 'fooditems.dart';
 
 void main() {
