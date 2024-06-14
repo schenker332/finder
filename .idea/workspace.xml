@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="newest version">
+      <change afterPath="$PROJECT_DIR$/finder/fonts/Afacad-VariableFont_wght.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finder/lib/HomePage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finder/lib/Models/user.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finder/lib/data.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finder/lib/myApp.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finder/lib/nudeln_part.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/finder/lib/start_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/finder/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/finder/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/food_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/food_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/finder/macos/Flutter/Flutter-Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/finder/macos/Flutter/Flutter-Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/finder/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/finder/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +41,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -32,6 +55,7 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2hEnbcDq0kn22SmqseQKMF3zYgK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,12 +71,27 @@
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "merdans-branch",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/merdancetin/StudioProjects/finder/finder",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "dart.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/finder" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/finder/lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/finder" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/finder/lib/main.dart" />
@@ -119,7 +158,21 @@
     <option name="localTasksCounter" value="7" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
     <MESSAGE value="hi" />
     <MESSAGE value="newest version" />
     <option name="LAST_COMMIT_MESSAGE" value="newest version" />
