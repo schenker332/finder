@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:foodfinder_app/HomePage.dart';
+// import 'package:foodfinder_app/HomePage.dart';
+import 'RecipePage.dart';
 
 void main() {
-  runApp(MyFirstApp());
+  runApp(const MyFirstApp());
 }
 
 class MyFirstApp extends StatelessWidget {
@@ -23,11 +24,11 @@ class MyFirstApp extends StatelessWidget {
           onSecondary: const Color(0xFF71BD71),
         ),
         scaffoldBackgroundColor: const Color(0xFFFFFBF9),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: const Color(0xFFFFFBF9),
         ),
         primaryColor: const Color(0xFFFBF9),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
         textTheme: TextTheme(
@@ -43,7 +44,7 @@ class MyFirstApp extends StatelessWidget {
           ),
         ),
       ),
-      home: HomePage(),
+      home: const RecipePage(),
     );
   }
 }
