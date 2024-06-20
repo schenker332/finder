@@ -1,92 +1,57 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:foodfinder_app/pages/create_screen.dart';
 import 'package:foodfinder_app/pages/favorite_screen.dart';
 import 'package:foodfinder_app/pages/home_screen.dart';
 import 'package:foodfinder_app/pages/plan_screen.dart';
 import 'package:foodfinder_app/pages/search_screen.dart';
 
-void main() {
-  runApp(const MyFirstApp());
-}
-
-class MyFirstApp extends StatefulWidget {
-  const MyFirstApp({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyFirstApp> createState() => _MyFirstAppState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyFirstAppState extends State<MyFirstApp> {
+class _HomePageState extends State<HomePage> {
   int currentPage = 0;
-  List<Widget> screens = [
-    const HomeScreen(),
-    const SearchScreen(),
-    const CreateScreen(),
-    const PlanScreen(),
-    const FavoriteScreen()
-  ];
+  List<Widget> screens = [HomeScreen(), SearchScreen(), CreateScreen(), PlanScreen(), FavoriteScreen() ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "FoodFinder",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.white,
-          primary: Colors.white,
-          onPrimary: const Color(0xFFF5DC51),
-          secondary: const Color(0xFFED736B),
-          onSecondary: const Color(0xFF71BD71),
-        ),
-        scaffoldBackgroundColor: const Color(0xFFFFFBF9),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFFFFBF9),
-        ),
-        //primaryColor: const Color(0xFFFBF9),
-        textTheme: TextTheme(
-          titleLarge: GoogleFonts.afacad(
-            fontSize: 32,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-          bodyMedium: GoogleFonts.afacad(
-            color: Colors.black,
-            fontSize: 10,
-            letterSpacing: 0,
-          ),
-        ),
-      ),
-      home: SafeArea(
-        child: Scaffold(
-          body: Column(
-            children: [
-              Expanded(child: screens[currentPage]),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 50,
-                  right: 50,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1,
-                    ),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            Expanded(
+              child: screens[currentPage]
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 50,
+                right: 50,
+              ),
+              child: Container(
+                width: double.infinity,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 1,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                ),
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                       GestureDetector(
-                        onTap: () {
+                        onTap: (){
                           currentPage = 0;
-                          setState(() {});
+                          setState(() {
+
+                          });
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10),
@@ -94,93 +59,106 @@ class _MyFirstAppState extends State<MyFirstApp> {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Theme.of(context).colorScheme.primary,
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: const Icon(CupertinoIcons.home),
+                            child: Icon(CupertinoIcons.home),
                           ),
                         ),
                       ),
+
                       GestureDetector(
-                        onTap: () {
+                        onTap: (){
                           currentPage = 1;
-                          setState(() {});
+                          setState(() {
+
+                          });
                         },
                         child: Container(
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: const Icon(CupertinoIcons.search),
+                          child: Icon(CupertinoIcons.search),
                         ),
                       ),
+
                       GestureDetector(
-                        onTap: () {
+                        onTap: (){
                           currentPage = 2;
-                          setState(() {});
+                          setState(() {
+
+                          });
                         },
                         child: Container(
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: const Icon(CupertinoIcons.add_circled),
+                          child: Icon(CupertinoIcons.add_circled),
                         ),
                       ),
+
                       GestureDetector(
-                        onTap: () {
+                        onTap: (){
                           currentPage = 3;
-                          setState(() {});
+                          setState(() {
+
+                          });
                         },
                         child: Container(
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.primary,
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: const Icon(CupertinoIcons.calendar_today),
+                          child: Icon(CupertinoIcons.calendar_today),
                         ),
                       ),
+
                       GestureDetector(
-                        onTap: () {
+                        onTap: (){
                           currentPage = 4;
-                          setState(() {});
+                          setState(() {
+
+                          });
                         },
+
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: Container(
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Theme.of(context).colorScheme.primary,
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: const Icon(
+                            child: Icon(
                               CupertinoIcons.heart,
                               size: 25,
                               color: Colors.black,
@@ -188,12 +166,13 @@ class _MyFirstAppState extends State<MyFirstApp> {
                           ),
                         ),
                       ),
-                    ],
+                  ],
                   ),
-                ),
               ),
-            ],
+
           ),
+
+        ],
         ),
       ),
     );
