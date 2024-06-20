@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,9 @@ class HomeScreen extends StatelessWidget {
                   child: Text(
                     "F",  //Initialien
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 27,
-                      fontWeight: FontWeight.bold,
+                          color: Theme.of(context).colorScheme.primary,
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -41,23 +41,23 @@ class HomeScreen extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
+      
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 18),
-                  child: Text(
-                    "Wochenplan",
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 24,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18),
+                    child: Text(
+                      "Wochenplan",
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 24,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 15),
-                  child: Icon(CupertinoIcons.arrow_right),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Icon(CupertinoIcons.arrow_right),
+                  ),
               ],
             ),
             Padding(
@@ -99,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                           ),
-
+                          
                         ),
                       ),
                     ),
@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.primary,
                                 child: Row(
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
                                       width: 40,
@@ -153,7 +153,7 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                       child: Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                            MainAxisAlignment.center,
                                         children: [
                                           Icon(Icons.euro, size: 10),
                                           Icon(Icons.euro, size: 10),
@@ -187,7 +187,7 @@ class HomeScreen extends StatelessWidget {
                                         child: Row(
                                           //crossAxisAlignment: CrossAxisAlignment.center,
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           children: [
                                             Icon(
                                               Icons.water_drop_outlined,
@@ -245,7 +245,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
 
-
+      
       ),
     );
   }
