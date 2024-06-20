@@ -9,7 +9,7 @@ class IngredientcardDesign extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
+      padding: const EdgeInsets.only(left: 10, right: 10,top: 5, bottom: 5),
       child: Container(
         width: double.infinity,
         height: 40,
@@ -26,7 +26,6 @@ class IngredientcardDesign extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-
                 children: [
                   Icon(Icons.circle_outlined, size:15, ),
                   SizedBox(width: 7,),
@@ -51,7 +50,6 @@ class IngredientcardDesign extends StatelessWidget {
               ),
             ]
         ),
-
       ),
     );
   }

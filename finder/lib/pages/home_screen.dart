@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/ingredientcard.dart';
 import 'package:foodfinder_app/Widgets/foodcard_design.dart';
 import 'package:foodfinder_app/Widgets/ingredientcard_design.dart';
-
 import '../Data/foodcard.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -90,11 +89,10 @@ class HomeScreen extends StatelessWidget {
                     const Icon(
                       Icons.circle,
                       color: Colors.grey,
-                      size: 7,
+                      size: 9,
                     ),
                 ],
               ),
-
             )),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,7 +122,6 @@ class HomeScreen extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 18),
