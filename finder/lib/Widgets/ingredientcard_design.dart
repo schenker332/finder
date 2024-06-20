@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/ingredientcard.dart';
 
@@ -13,7 +12,7 @@ class IngredientcardDesign extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 40,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(40),
@@ -27,8 +26,8 @@ class IngredientcardDesign extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Icon(Icons.circle_outlined, size:15, ),
-                  SizedBox(width: 7,),
+                  const Icon(Icons.circle_outlined, size:15, ),
+                  const SizedBox(width: 7,),
                   Text(
                       ingredientcard.ingredientname,
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(

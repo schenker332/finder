@@ -15,7 +15,7 @@ class FoodcardDesign extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 132,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(15),
@@ -57,43 +57,75 @@ class FoodcardDesign extends StatelessWidget {
               flex: 5,
               child: Padding(
                 padding: const EdgeInsets.all(5),
-                child: Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        foodcard.title,
-                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontSize: 18,
-                          letterSpacing: 1.5,
-                          fontWeight: FontWeight.bold,
-                        ),
+                child: Column(
+                  children: [
+                    Text(
+                      foodcard.title,
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 18,
+                        letterSpacing: 1.5,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Container(
-                        width: 190,
-                        height: 25,
-                        color: Theme.of(context).colorScheme.primary,
-                        child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: 40,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.onSecondary,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  foodcard.foodart,
-                                  style:Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontSize: 10,
-                                    letterSpacing: 0,
-                                  ),
+                    ),
+                    Container(
+                      width: 190,
+                      height: 25,
+                      color: Theme.of(context).colorScheme.primary,
+                      child: Row(
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 15,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Text(
+                                foodcard.foodart,
+                                style:Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  fontSize: 10,
+                                  letterSpacing: 0,
                                 ),
                               ),
                             ),
-                            Container(
+                          ),
+                          Container(
+                            width: 40,
+                            height: 15,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: Colors.black, width: 1),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.euro, size: 10),
+                                Icon(Icons.euro, size: 10),
+                                Icon(Icons.euro, size: 10),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: 30,
+                            height: 15,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: Colors.black, width: 1),
+                            ),
+                            child: const Center(
+                              child:  Icon(
+                                Icons.schedule,
+                                size: 10,
+                              ),
+                            ),
+                          ),
+                          Container(
                               width: 40,
                               height: 15,
                               decoration: BoxDecoration(
@@ -102,87 +134,53 @@ class FoodcardDesign extends StatelessWidget {
                                     color: Colors.black, width: 1),
                               ),
                               child: const Row(
+                                //crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment:
                                 MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.euro, size: 10),
-                                  Icon(Icons.euro, size: 10),
-                                  Icon(Icons.euro, size: 10),
+                                   Icon(
+                                    Icons.water_drop_outlined,
+                                    size: 10,
+                                  ),
+                                   Icon(
+                                    Icons.water_drop_outlined,
+                                    size: 10,
+                                  ),
                                 ],
-                              ),
-                            ),
-                            Container(
-                              width: 30,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                    color: Colors.black, width: 1),
-                              ),
-                              child: const Center(
-                                child: const Icon(
-                                  Icons.schedule,
-                                  size: 10,
-                                ),
-                              ),
-                            ),
-                            Container(
-                                width: 40,
-                                height: 15,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      color: Colors.black, width: 1),
-                                ),
-                                child: const Row(
-                                  //crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.center,
-                                  children: [
-                                    const Icon(
-                                      Icons.water_drop_outlined,
-                                      size: 10,
-                                    ),
-                                    const Icon(
-                                      Icons.water_drop_outlined,
-                                      size: 10,
-                                    ),
-                                  ],
-                                ))
-                          ],
-                        ),
+                              ))
+                        ],
                       ),
-                      Container(
-                          width: 190,
-                          height: 45,
-                          //color: Colors.cyan,
-                          child: Column(
-                            children: [
-                              Text(
-                                foodcard.description,
-                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                  fontSize: 10.5,
-                                  letterSpacing: 0,
-                                ),
+                    ),
+                    SizedBox(
+                        width: 190,
+                        height: 45,
+                        //color: Colors.cyan,
+                        child: Column(
+                          children: [
+                            Text(
+                              foodcard.description,
+                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                fontSize: 10.5,
+                                letterSpacing: 0,
                               ),
-                            ],
-                          ))
-                    ],
-                  ),
+                            ),
+                          ],
+                        ))
+                  ],
                 ),
               ),
             ),
-            Expanded(
+            const Expanded(
               flex: 1,
               child: Padding(
-                  padding: const EdgeInsets.only(
+                  padding:  EdgeInsets.only(
                     top: 70,
                     right: 20,
                   ),
-                  child: Container(
+                  child: SizedBox(
                     width: 40,
                     height: 15,
-                    child: const Icon(
+                    child: Icon(
                       Icons.favorite,
                       size: 20,
                     ),
