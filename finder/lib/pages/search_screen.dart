@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import 'package:flutter/cupertino.dart';
+=======
+>>>>>>> origin/main
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -6,6 +9,7 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -80,6 +84,10 @@ class SearchScreen extends StatelessWidget {
           ],
         ),
       ),
+=======
+    return Container(
+      color: Colors.red,
+>>>>>>> origin/main
     );
   }
 }

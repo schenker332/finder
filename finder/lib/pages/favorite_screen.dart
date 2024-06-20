@@ -6,6 +6,7 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -38,5 +39,10 @@ class FavoriteScreen extends StatelessWidget {
         ],
       ),
     ));
+=======
+    return Container(
+      color: Colors.yellowAccent,
+    );
+>>>>>>> origin/main
   }
 }

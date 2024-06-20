@@ -6,6 +6,7 @@ class PlanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -38,5 +39,10 @@ class PlanScreen extends StatelessWidget {
         ],
       ),
     ));
+=======
+    return Container(
+      color: Colors.grey,
+    );
+>>>>>>> origin/main
   }
 }

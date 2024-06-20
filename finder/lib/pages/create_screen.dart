@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 import 'package:flutter/material.dart';
 
 class CreateScreen extends StatelessWidget {
@@ -5,6 +9,7 @@ class CreateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -37,5 +42,10 @@ class CreateScreen extends StatelessWidget {
         ],
       ),
     ));
+=======
+    return Container(
+      color: Colors.purpleAccent,
+    );
+>>>>>>> origin/main
   }
 }

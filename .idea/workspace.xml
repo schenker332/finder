@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="Second Commit!">
-      <change afterPath="$PROJECT_DIR$/finder/lib/Archive/HomePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="newest version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/HomePage.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/food_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Archive/food_card.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/fooditems.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Archive/fooditems.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/myApp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Archive/myApp.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/nudeln_part.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Archive/nudeln_part.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/pages/favorite_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/favorite_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/pages/plan_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/plan_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/pages/search_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/search_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/start_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Archive/start_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/finder/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/finder/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,88 +23,36 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/salwas-branch" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2hEnbcDq0kn22SmqseQKMF3zYgK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/merdancetin/StudioProjects/finder/finder&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;dart.settings&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/finder" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/finder/lib" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Salwa\StudioProjects\finder\finder\lib\Archive" />
-      <recent name="$PROJECT_DIR$/finder" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/finder/lib/main.dart" />
@@ -189,55 +116,12 @@
       <option name="project" value="LOCAL" />
       <updated>1718359623631</updated>
     </task>
-    <task id="LOCAL-00007" summary="salwas version working">
-      <option name="closed" value="true" />
-      <created>1718372213492</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1718372213492</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Second Commit!">
-      <option name="closed" value="true" />
-      <created>1718395413823</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1718395413823</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/.." />
-    </ignored-roots>
     <MESSAGE value="hi" />
     <MESSAGE value="newest version" />
-    <MESSAGE value="salwas version working" />
-    <MESSAGE value="Second Commit!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Second Commit!" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/finder/lib/pages/plan_screen.dart</url>
-          <line>10</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="newest version" />
   </component>
 </project>
