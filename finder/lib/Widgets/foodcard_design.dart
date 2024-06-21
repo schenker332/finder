@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/foodcard.dart';
 
-
-class FoodcardDesign extends StatelessWidget {
+class FoodcardDesign extends StatefulWidget {
   final Foodcard foodcard;
   const FoodcardDesign({super.key, required this.foodcard});
 
+  @override
+  _FoodcardDesignState createState() => _FoodcardDesignState();
+}
+
+class _FoodcardDesignState extends State<FoodcardDesign> {
+  bool isLiked = false; // ADDED
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Container(
@@ -43,13 +47,12 @@ class FoodcardDesign extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
-                      foodcard.imageURL,
+                      widget.foodcard.imageURL, // MODIFIED
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
                     ),
                   ),
-
                 ),
               ),
             ),
@@ -60,7 +63,7 @@ class FoodcardDesign extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      foodcard.title,
+                      widget.foodcard.title, // MODIFIED
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontSize: 18,
                         letterSpacing: 1.5,
@@ -72,8 +75,7 @@ class FoodcardDesign extends StatelessWidget {
                       height: 25,
                       color: Theme.of(context).colorScheme.primary,
                       child: Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             width: 40,
@@ -84,8 +86,8 @@ class FoodcardDesign extends StatelessWidget {
                             ),
                             child: Center(
                               child: Text(
-                                foodcard.foodart,
-                                style:Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                widget.foodcard.foodart, // MODIFIED
+                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                   fontSize: 10,
                                   letterSpacing: 0,
                                 ),
@@ -101,8 +103,7 @@ class FoodcardDesign extends StatelessWidget {
                                   color: Colors.black, width: 1),
                             ),
                             child: const Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.euro, size: 10),
                                 Icon(Icons.euro, size: 10),
@@ -119,72 +120,79 @@ class FoodcardDesign extends StatelessWidget {
                                   color: Colors.black, width: 1),
                             ),
                             child: const Center(
-                              child:  Icon(
+                              child: Icon(
                                 Icons.schedule,
                                 size: 10,
                               ),
                             ),
                           ),
                           Container(
-                              width: 40,
-                              height: 15,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                    color: Colors.black, width: 1),
-                              ),
-                              child: const Row(
-                                //crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: [
-                                   Icon(
-                                    Icons.water_drop_outlined,
-                                    size: 10,
-                                  ),
-                                   Icon(
-                                    Icons.water_drop_outlined,
-                                    size: 10,
-                                  ),
-                                ],
-                              ))
+                            width: 40,
+                            height: 15,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: Colors.black, width: 1),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.water_drop_outlined,
+                                  size: 10,
+                                ),
+                                Icon(
+                                  Icons.water_drop_outlined,
+                                  size: 10,
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
                     SizedBox(
-                        width: 190,
-                        height: 45,
-                        //color: Colors.cyan,
-                        child: Column(
-                          children: [
-                            Text(
-                              foodcard.description,
-                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                fontSize: 10.5,
-                                letterSpacing: 0,
-                              ),
+                      width: 190,
+                      height: 45,
+                      child: Column(
+                        children: [
+                          Text(
+                            widget.foodcard.description, // MODIFIED
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontSize: 10.5,
+                              letterSpacing: 0,
                             ),
-                          ],
-                        ))
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
-            const Expanded(
+            Expanded(
               flex: 1,
               child: Padding(
-                  padding:  EdgeInsets.only(
-                    top: 70,
-                    right: 20,
-                  ),
-                  child: SizedBox(
-                    width: 40,
-                    height: 15,
-                    child: Icon(
-                      Icons.favorite,
+                padding: const EdgeInsets.only(
+                  top: 70,
+                  right: 20,
+                ),
+                child: SizedBox(
+                  width: 40,
+                  height: 40,
+                  child: IconButton(
+                    icon: Icon(
+                      isLiked ? Icons.favorite : Icons.favorite_border,
                       size: 20,
                     ),
-                  )),
+                    onPressed: () {
+                      setState(() {
+                        isLiked = !isLiked;
+                      });
+                    },
+                  ),
+                ),
+              ),
             ),
           ],
         ),
