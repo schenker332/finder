@@ -44,7 +44,15 @@ class MyFirstApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const RecipePage(),
+      home: RecipePage(
+        zutaten: [
+          ['200', 'ml', 'Pesto'],
+          ['100', 'g','Walnüsse'],
+          ['400', 'ml', 'Pasta'],
+          ['', '', 'Basilikum'],
+          ['1', 'Prise', 'Salz']
+        ],
+      ),
     );
   }
 }
