@@ -31,7 +31,7 @@ List<FoodItem> foodItems = [
     title: 'Nudel',
     imagePath: 'lib/assets/nudeln_mit_walnuessen.png',
     isVegan: true,
-    price: 6,
+    price: 7,
     description: 'iker für den schnellen Genuss.',
     availability: 'Heute',
   ),
