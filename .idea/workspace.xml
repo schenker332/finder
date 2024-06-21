@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="salwas version working">
+    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="newest version">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/HomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/HomePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/Models/user.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/data.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/finder/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/finder/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/finder/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/finder/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +38,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,27 +63,13 @@
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "merdans-branch",
+    "git-widget-placeholder": "salwas-branch",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/merdancetin/StudioProjects/finder/finder",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "dart.settings",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/finder" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/finder/lib" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/finder" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/finder/lib/main.dart" />
@@ -140,27 +133,16 @@
       <option name="project" value="LOCAL" />
       <updated>1718359623631</updated>
     </task>
-    <task id="LOCAL-00007" summary="salwas version working">
+    <task id="LOCAL-00007" summary="newest version">
       <option name="closed" value="true" />
-      <created>1718372213492</created>
+      <created>1718369443128</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1718372213492</updated>
+      <updated>1718369443128</updated>
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -168,7 +150,6 @@
     </ignored-roots>
     <MESSAGE value="hi" />
     <MESSAGE value="newest version" />
-    <MESSAGE value="salwas version working" />
-    <option name="LAST_COMMIT_MESSAGE" value="salwas version working" />
+    <option name="LAST_COMMIT_MESSAGE" value="newest version" />
   </component>
 </project>

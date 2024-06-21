@@ -90,7 +90,7 @@ flutter:
   fonts:
     - family: Afacad
       fonts:
-        - asset: fonts/Afacad-VariableFont_wght.ttf
+          - asset: fonts/Afacad-VariableFont_wght.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
