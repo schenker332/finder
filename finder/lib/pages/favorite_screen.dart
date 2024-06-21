@@ -37,7 +37,7 @@ class FavoriteScreen extends StatelessWidget {
               ),
             ],
           ),
-
+          //TODO implement Gespeichert LIST
         ),
     );
   }

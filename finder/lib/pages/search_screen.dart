@@ -37,6 +37,10 @@ class SearchScreen extends StatelessWidget {
           ],
         ),
 
+
+        //TODO implement search bar
+
+
       ),
     );
   }
