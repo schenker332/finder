@@ -17,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Foodcard> allcards = [];
   List<Ingredientcard> allingredients = [];
+  final FoodcardStorage storage = FoodcardStorage();
 
   @override
   void initState() {
@@ -25,14 +26,20 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadFoodcards() async {
-    FoodcardStorage storage = FoodcardStorage();
     List<Foodcard> loadedCards = await storage.getFoodcards();
-    List<Ingredientcard> loadedIngredients = await storage.getIngredients(); // Assuming you have a similar method for ingredients
+    List<Ingredientcard> loadedIngredients = await storage.getIngredients();
 
     setState(() {
       allcards = loadedCards;
       allingredients = loadedIngredients;
     });
+  }
+
+  Future<void> _addNewFoodcard(Foodcard newCard) async {
+    setState(() {
+      allcards.add(newCard);
+    });
+    await storage.saveFoodcards(allcards);
   }
 
   @override
@@ -201,7 +208,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-      ),
+        ),
+
     );
   }
 }

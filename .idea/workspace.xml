@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="newest version">
-      <change afterPath="$PROJECT_DIR$/finder/lib/Data/foodcard_storage.dart" afterDir="false" />
+    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="save half&#10; version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/Data/foodcard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Data/foodcard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/Data/ingredientcard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Data/ingredientcard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/Widgets/foodcard_design.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Widgets/foodcard_design.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/Widgets/ingredientcard_design.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Widgets/ingredientcard_design.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/finder/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/finder/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/finder/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718973759961</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="save half&#10; version">
+      <option name="closed" value="true" />
+      <created>1718976955975</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718976955975</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -158,6 +159,7 @@
     </ignored-roots>
     <MESSAGE value="hi" />
     <MESSAGE value="newest version" />
-    <option name="LAST_COMMIT_MESSAGE" value="newest version" />
+    <MESSAGE value="save half&#10; version" />
+    <option name="LAST_COMMIT_MESSAGE" value="save half&#10; version" />
   </component>
 </project>
