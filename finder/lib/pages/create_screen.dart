@@ -37,6 +37,37 @@ class CreateScreen extends StatelessWidget {
             ),
           ],
         ),
+        body: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 100),
+                  child: Text("Mein Rezept",
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 20,
+                      letterSpacing: 0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 100),
+                  child: Text("KI Rezept",
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 20,
+                      letterSpacing: 0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+
+          ],
+        ),
 
       ),
     );

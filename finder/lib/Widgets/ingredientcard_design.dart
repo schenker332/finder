@@ -34,7 +34,6 @@ class IngredientcardDesign extends StatelessWidget {
                         fontSize: 16,
                         letterSpacing: 0,
                         fontWeight: FontWeight.bold,
-
                       )
                   ),
                 ],
