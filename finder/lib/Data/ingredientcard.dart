@@ -1,18 +1,19 @@
-class Ingredientcard{
+import 'package:json_annotation/json_annotation.dart';
+
+part 'ingredientcard.g.dart';
+
+@JsonSerializable()
+class Ingredientcard {
+  final String id;
   final String ingredientname;
   final String ingredientcount;
 
-  Ingredientcard({required this.ingredientname, required this.ingredientcount});
+  const Ingredientcard({
+    required this.id,
+    required this.ingredientname,
+    required this.ingredientcount,
+  });
+
+  factory Ingredientcard.fromJson(Map<String, dynamic> json) => _$IngredientcardFromJson(json);
+  Map<String, dynamic> toJson() => _$IngredientcardToJson(this);
 }
-
-List<Ingredientcard> allingredients =[
-  Ingredientcard(ingredientname: "Mehl", ingredientcount: "500g"),
-  Ingredientcard(ingredientname: "Kartoffeln", ingredientcount: "5stk."),
-  Ingredientcard(ingredientname: "Milch", ingredientcount: "200g"),
-  Ingredientcard(ingredientname: "Tomaten", ingredientcount: "3stk."),
-  Ingredientcard(ingredientname: "Öl", ingredientcount: "1l"),
-  Ingredientcard(ingredientname: "Bananen", ingredientcount: "4stk."),
-  Ingredientcard(ingredientname: "Reis", ingredientcount: "1kg"),
-  Ingredientcard(ingredientname: "Erdbeeren", ingredientcount: "100g"),
-
-];

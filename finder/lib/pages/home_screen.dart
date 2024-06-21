@@ -4,9 +4,36 @@ import 'package:foodfinder_app/Data/ingredientcard.dart';
 import 'package:foodfinder_app/Widgets/foodcard_design.dart';
 import 'package:foodfinder_app/Widgets/ingredientcard_design.dart';
 import '../Data/foodcard.dart';
+import 'plan_screen.dart';
+import '../Data/foodcard_storage.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Foodcard> allcards = [];
+  List<Ingredientcard> allingredients = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFoodcards();
+  }
+
+  Future<void> _loadFoodcards() async {
+    FoodcardStorage storage = FoodcardStorage();
+    List<Foodcard> loadedCards = await storage.getFoodcards();
+    List<Ingredientcard> loadedIngredients = await storage.getIngredients(); // Assuming you have a similar method for ingredients
+
+    setState(() {
+      allcards = loadedCards;
+      allingredients = loadedIngredients;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +41,7 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Hallo Franziska!", //Username Nutzername
+            "Hallo Franziska!", // Username Nutzername
             style: Theme.of(context).textTheme.titleLarge!.copyWith(),
           ),
           actions: [
@@ -29,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    "F",  //Initialien
+                    "F", // Initialien
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).colorScheme.primary,
                       fontSize: 27,
@@ -57,9 +84,17 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding:  EdgeInsets.only(right: 15),
-                  child: Icon(CupertinoIcons.arrow_right),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PlanScreen()),
+                      );
+                    },
+                    child: const Icon(CupertinoIcons.arrow_right),
+                  ),
                 ),
               ],
             ),
@@ -67,33 +102,35 @@ class HomeScreen extends StatelessWidget {
               flex: 3,
               child: PageView(
                 scrollDirection: Axis.horizontal,
-                  children: [...allcards.map((oneCard) => FoodcardDesign(foodcard: oneCard)),],
+                children: allcards.map((oneCard) => FoodcardDesign(foodcard: oneCard)).toList(),
               ),
             ),
-            Center(child: Container(
-              width: 118,
-              height: 17,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-                borderRadius: BorderRadius.circular(17),
-                border: Border.all(
-                  color: Colors.black,
-                  width: 1,
+            Center(
+              child: Container(
+                width: 118,
+                height: 17,
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.circular(17),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 1,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    for (int i = 0; i < 5; i++)
+                      const Icon(
+                        Icons.circle,
+                        color: Colors.grey,
+                        size: 9,
+                      ),
+                  ],
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  for (int i = 0; i < 5; i++)
-                    const Icon(
-                      Icons.circle,
-                      color: Colors.grey,
-                      size: 9,
-                    ),
-                ],
-              ),
-            )),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -108,16 +145,24 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding:  EdgeInsets.only(right: 15),
-                  child: Icon(CupertinoIcons.arrow_right),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PlanScreen()),
+                      );
+                    },
+                    child: const Icon(CupertinoIcons.arrow_right),
+                  ),
                 ),
               ],
             ),
             Expanded(
               flex: 4,
               child: ListView(
-                children: [...allingredients.map((oneCard) => IngredientcardDesign(ingredientcard: oneCard)),],
+                children: allingredients.map((oneCard) => IngredientcardDesign(ingredientcard: oneCard)).toList(),
               ),
             ),
             Row(
@@ -134,16 +179,24 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding:  EdgeInsets.only(right: 15),
-                  child: Icon(CupertinoIcons.arrow_right),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PlanScreen()),
+                      );
+                    },
+                    child: const Icon(CupertinoIcons.arrow_right),
+                  ),
                 ),
               ],
             ),
             Expanded(
               flex: 3,
               child: ListView(
-                children: [...allcards.map((oneCard) => FoodcardDesign(foodcard: oneCard)),],
+                children: allcards.map((oneCard) => FoodcardDesign(foodcard: oneCard)).toList(),
               ),
             ),
           ],
