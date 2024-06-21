@@ -102,7 +102,9 @@ class _MyFirstAppState extends State<MyFirstApp> {
                                 width: 1,
                               ),
                             ),
-                            child: Icon(CupertinoIcons.home),
+                            child: Icon(
+                              currentPage == 0 ? CupertinoIcons.circle_fill : CupertinoIcons.circle
+                            ),
                           ),
                         ),
                       ),
