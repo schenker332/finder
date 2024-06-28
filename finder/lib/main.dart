@@ -22,13 +22,21 @@ class _MyFirstAppState extends State<MyFirstApp> {
   int currentPage = 0;
   List<Widget> screens = [HomeScreen(), SearchScreen(), CreateScreen(), PlanScreen(), FavoriteScreen() ];
 
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
 
     return MaterialApp(
       title: "FoodFinder",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+
+
+      theme: ThemeData(                                 //hier wird das Theme festgelegt
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.white,
           primary: Colors.white,
@@ -54,9 +62,12 @@ class _MyFirstAppState extends State<MyFirstApp> {
           ),
         ),
       ),
+
+
+
+
       home: SafeArea(
         child: Scaffold(
-
           body: Column(
             children: [
               Expanded(
@@ -67,7 +78,14 @@ class _MyFirstAppState extends State<MyFirstApp> {
                   left: 50,
                   right: 50,
                 ),
-                child: Container(
+
+
+
+
+
+
+
+                child: Container(        //hier gehts los mit der Navigation
                   width: double.infinity,
                   height: 60,
                   decoration: BoxDecoration(
@@ -80,7 +98,13 @@ class _MyFirstAppState extends State<MyFirstApp> {
                   ),
 
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,    //hier werden die einzelnen Seiten in den Container gepackt
+
+
+
+
+
+
                     children: [
                       GestureDetector(
                         onTap: (){
@@ -107,6 +131,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                         ),
                       ),
 
+
                       GestureDetector(
                         onTap: (){
                           currentPage = 1;
@@ -128,6 +153,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                           child: Icon(CupertinoIcons.search),
                         ),
                       ),
+
 
                       GestureDetector(
                         onTap: (){
@@ -151,6 +177,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                         ),
                       ),
 
+
                       GestureDetector(
                         onTap: (){
                           currentPage = 3;
@@ -172,6 +199,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                           child: Icon(CupertinoIcons.calendar_today),
                         ),
                       ),
+
 
                       GestureDetector(
                         onTap: (){
@@ -202,9 +230,24 @@ class _MyFirstAppState extends State<MyFirstApp> {
                           ),
                         ),
                       ),
+
+
+
+
+
                     ],
                   ),
-                ),
+                ),  //hier passiert die ganze Navigation
+
+
+
+
+
+
+
+
+
+
 
               ),
 

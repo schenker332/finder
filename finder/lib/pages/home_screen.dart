@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:foodfinder_app/Data/ingredientcard.dart';
 import 'package:foodfinder_app/Widgets/foodcard_design.dart';
 import 'package:foodfinder_app/Widgets/ingredientcard_design.dart';
