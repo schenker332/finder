@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/foodcard.dart';
 
+
+
 class FoodcardDesign extends StatefulWidget {
   final Foodcard foodcard;
   const FoodcardDesign({super.key, required this.foodcard});
@@ -16,6 +18,8 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
+
+      //Erstellt den Container für die gesamte Anzeige des Rezepts
       child: Container(
         width: double.infinity,
         height: 132,
@@ -28,8 +32,12 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
             width: 2,
           ),
         ),
+
+
         child: Row(
           children: [
+
+            //Erstellt die Container für die Anzeige des Bildes des Rezepts
             Expanded(
               flex: 3,
               child: Padding(
@@ -56,12 +64,16 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                 ),
               ),
             ),
+
+            //Erstellt die Container für die Anzeige des Titels, der Art, Preise, Zeit und Wasserbedarf des Rezepts
             Expanded(
               flex: 5,
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: Column(
                   children: [
+
+                    //Erstellt die Container für die Anzeige des Titels des Rezepts
                     Text(
                       widget.foodcard.title, // MODIFIED
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -70,6 +82,8 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
+                    //Erstellt die Container für die Anzeige der Art, Preise, Zeit und Wasserbedarf, diese werden als Children in einem Row-Widget angezeigt
                     Container(
                       width: 190,
                       height: 25,
@@ -77,6 +91,10 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+
+
+
+                          // Erstellt die Icons für die Anzeige der Art (vegan, vegetarisch, ...) - bisher nur vegan
                           Container(
                             width: 40,
                             height: 15,
@@ -94,6 +112,7 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                               ),
                             ),
                           ),
+                          // Erstellt die Icons für die Anzeige der Preise
                           Container(
                             width: 40,
                             height: 15,
@@ -111,6 +130,7 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                               ],
                             ),
                           ),
+                          //Erstellt die Icons für die Anzeige der Zeit
                           Container(
                             width: 30,
                             height: 15,
@@ -126,6 +146,7 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                               ),
                             ),
                           ),
+                          //Erstellen der Icons für die Anzeige des Wasserbedarfs
                           Container(
                             width: 40,
                             height: 15,
@@ -151,6 +172,7 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                         ],
                       ),
                     ),
+                    //Erstellt die Container für die Anzeige der Beschreibung des Rezepts
                     SizedBox(
                       width: 190,
                       height: 45,
@@ -170,6 +192,8 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                 ),
               ),
             ),
+
+            // Erstellt die Icons für die Anzeige ob ein Gericht geliked wurde (und damit in Favoriten gespeichert ist
             Expanded(
               flex: 1,
               child: Padding(

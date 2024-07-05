@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'foodcard.g.dart';
 
 @JsonSerializable()
+//Hier wird die Klasse Foodcard erstellt, die die Eigenschaften eines Rezeptes enthält
 class Foodcard {
   final String id;
   final String title;
@@ -13,6 +14,7 @@ class Foodcard {
   final String time;
   final String waterneed;
 
+//Konstruktor für die Klasse Foodcard
   const Foodcard({
     required this.id,
     required this.title,
@@ -24,6 +26,7 @@ class Foodcard {
     required this.waterneed,
   });
 
+//Konvertiert die Daten in ein JSON-Objekt
   factory Foodcard.fromJson(Map<String, dynamic> json) => _$FoodcardFromJson(json);
   Map<String, dynamic> toJson() => _$FoodcardToJson(this);
 }

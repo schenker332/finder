@@ -26,6 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadFoodcards();
   }
 
+
+
   Future<void> _loadFoodcards() async {
     List<Foodcard> loadedCards = await storage.getFoodcards();
     List<Ingredientcard> loadedIngredients = await storage.getIngredients();
@@ -47,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // Ist der Header für die Hauptseite mit dem Namen der Seite und den Initialien des Nutzers
         appBar: AppBar(
           title: Text(
             "Hallo Franziska!", // Username Nutzername
@@ -75,9 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ],
-        ),
+        ), //Baut die UI, für oben mit der Appbar
+
+
         body: Column(
           children: [
+            //Erstellt einen Abschnitt für den Wochenplanner
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -94,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 15),
-                  child: GestureDetector(
+                  child: GestureDetector(             //hier wird der Pfeil rechts hinzugefügt auf den du raufklicken kannst
                     onTap: () {
                       Navigator.push(
                         context,
@@ -106,14 +112,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            Expanded(
+            Expanded(  // Ruft die Karten für das Rezept auf
               flex: 3,
               child: PageView(
                 scrollDirection: Axis.horizontal,
                 children: allcards.map((oneCard) => FoodcardDesign(foodcard: oneCard)).toList(),
               ),
             ),
-            Center(
+            Center( //ist für das Design der Punkte unten und das scrollen nach links und rechts verantwortlich
               child: Container(
                 width: 118,
                 height: 17,
@@ -139,6 +145,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+
+            //Erstellt einen Abschnitt für die Einkaufsliste
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -173,6 +181,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: allingredients.map((oneCard) => IngredientcardDesign(ingredientcard: oneCard)).toList(),
               ),
             ),
+
+            //Erstellt einen Abschnitt für die zuletzt gespeicherten Rezepte
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

@@ -10,12 +10,14 @@ class FoodcardStorage {
   Future<void> saveFoodcards(List<Foodcard> foodcards) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> foodcardsJson = foodcards.map((foodcard) => jsonEncode(foodcard.toJson())).toList();
+    //print(foodcardsJson[0]);
     await prefs.setStringList(_keyFoodcards, foodcardsJson);
   }
 
   Future<void> saveIngredients(List<Ingredientcard> ingredients) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> ingredientsJson = ingredients.map((ingredient) => jsonEncode(ingredient.toJson())).toList();
+    //print(ingredientsJson[0]);
     await prefs.setStringList(_keyIngredients, ingredientsJson);
   }
 

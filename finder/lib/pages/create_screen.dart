@@ -10,7 +10,7 @@ class CreateScreen extends StatefulWidget {
   @override
   _CreateScreenState createState() => _CreateScreenState();
 }
-
+//Alle Eigenschaften des Rezept die Gespeichert werden sollen, werden inizialisiert
 class _CreateScreenState extends State<CreateScreen> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController imageURLController = TextEditingController();
@@ -25,9 +25,10 @@ class _CreateScreenState extends State<CreateScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // Ist der Header für die Gespeichert-Seite mit dem Namen der Seite und den Initialien des Nutzers
         appBar: AppBar(
           title: Text(
-            "Erstellen", // Username Nutzername
+            "Erstellen", // Name der Seite
             style: Theme.of(context).textTheme.titleLarge!.copyWith(),
           ),
           actions: [
@@ -54,6 +55,7 @@ class _CreateScreenState extends State<CreateScreen> {
             ),
           ],
         ),
+        //Erstellt die UI für die Erstellen-Seite mit den Textfeldern für die Eingabe der Daten. Allerdings muss es noch schön gemacht werden
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
@@ -100,6 +102,7 @@ class _CreateScreenState extends State<CreateScreen> {
     );
   }
 
+//Funktion zum Speichern der Daten, nachdem alle Daten eingegeben wurden. Wird ausgeführt, wenn der Button "Save" gedrückt wird
   void _saveFoodcard() async {
     final newCard = Foodcard(
       id: DateTime.now().toString(), // Generate a unique ID
