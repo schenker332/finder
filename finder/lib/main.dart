@@ -45,10 +45,11 @@ class MyFirstApp extends StatelessWidget {
         ),
       ),
       home: RecipePage(
+        portionen: 2,
         zutaten: [
           ['200', 'ml', 'Pesto'],
           ['100', 'g','Walnüsse'],
-          ['400', 'ml', 'Pasta'],
+          ['400', 'g', 'Pasta'],
           ['', '', 'Basilikum'],
           ['1', 'Prise', 'Salz']
         ],
