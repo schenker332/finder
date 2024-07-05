@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="save half&#10; version">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_24,_12_41_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_06_24__12_41__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/finder/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/finder/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/Widgets/foodcard_design.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Widgets/foodcard_design.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finder/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/pages/favorite_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/favorite_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/finder/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
     "git-widget-placeholder": "Niclas-Branch",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "flutter.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -169,13 +172,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/finder/lib/main.dart</url>
-          <line>107</line>
+          <line>104</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/finder/lib/main.dart</url>
-          <line>75</line>
+          <line>72</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/finder/lib/main.dart</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/finder/lib/Data/foodcard_storage.dart</url>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

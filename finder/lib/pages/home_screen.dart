@@ -36,12 +36,16 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+
   Future<void> _addNewFoodcard(Foodcard newCard) async {
     setState(() {
       allcards.add(newCard);
     });
     await storage.saveFoodcards(allcards);
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +80,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+
+
+
+
+
         body: Column(
           children: [
             Row(
@@ -106,6 +115,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+
+
+
+
+
             Expanded(
               flex: 3,
               child: PageView(
@@ -113,6 +127,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: allcards.map((oneCard) => FoodcardDesign(foodcard: oneCard)).toList(),
               ),
             ),
+
+
+
+
+
+
             Center(
               child: Container(
                 width: 118,
@@ -139,6 +159,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

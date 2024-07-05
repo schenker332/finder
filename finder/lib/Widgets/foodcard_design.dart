@@ -9,8 +9,17 @@ class FoodcardDesign extends StatefulWidget {
   _FoodcardDesignState createState() => _FoodcardDesignState();
 }
 
+
+
+
 class _FoodcardDesignState extends State<FoodcardDesign> {
   bool isLiked = false; // ADDED
+
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -148,6 +157,8 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                               ],
                             ),
                           ),
+
+
                         ],
                       ),
                     ),
