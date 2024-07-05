@@ -1,0 +1,667 @@
+Index: finder/lib/Archive/HomePage.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\r\nimport 'package:flutter/material.dart';\r\nimport 'package:foodfinder_app/pages/create_screen.dart';\r\nimport 'package:foodfinder_app/pages/favorite_screen.dart';\r\nimport 'package:foodfinder_app/pages/home_screen.dart';\r\nimport 'package:foodfinder_app/pages/plan_screen.dart';\r\nimport 'package:foodfinder_app/pages/search_screen.dart';\r\n\r\nclass HomePage extends StatefulWidget {\r\n  const HomePage({super.key});\r\n\r\n  @override\r\n  State<HomePage> createState() => _HomePageState();\r\n}\r\n\r\nclass _HomePageState extends State<HomePage> {\r\n  int currentPage = 0;\r\n  List<Widget> screens = [HomeScreen(), SearchScreen(), CreateScreen(), PlanScreen(), FavoriteScreen() ];\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return SafeArea(\r\n      child: Scaffold(\r\n        body: Column(\r\n          children: [\r\n            Expanded(\r\n              child: screens[currentPage]\r\n            ),\r\n            Padding(\r\n              padding: const EdgeInsets.only(\r\n                left: 50,\r\n                right: 50,\r\n              ),\r\n              child: Container(\r\n                width: double.infinity,\r\n                height: 60,\r\n                decoration: BoxDecoration(\r\n                  color: Theme.of(context).colorScheme.primary,\r\n                  borderRadius: BorderRadius.circular(30),\r\n                  border: Border.all(\r\n                    color: Colors.black,\r\n                    width: 1,\r\n                  ),\r\n                ),\r\n\r\n                child: Row(\r\n                  mainAxisAlignment: MainAxisAlignment.spaceBetween,\r\n                  children: [\r\n                      GestureDetector(\r\n                        onTap: (){\r\n                          currentPage = 0;\r\n                          setState(() {\r\n\r\n                          });\r\n                        },\r\n                        child: Padding(\r\n                          padding: const EdgeInsets.only(left: 10),\r\n                          child: Container(\r\n                            width: 40,\r\n                            height: 40,\r\n                            decoration: BoxDecoration(\r\n                              color: Theme.of(context).colorScheme.primary,\r\n                              borderRadius: BorderRadius.circular(40),\r\n                              border: Border.all(\r\n                                color: Colors.black,\r\n                                width: 1,\r\n                              ),\r\n                            ),\r\n                            child: Icon(CupertinoIcons.home),\r\n                          ),\r\n                        ),\r\n                      ),\r\n\r\n                      GestureDetector(\r\n                        onTap: (){\r\n                          currentPage = 1;\r\n                          setState(() {\r\n\r\n                          });\r\n                        },\r\n                        child: Container(\r\n                          width: 40,\r\n                          height: 40,\r\n                          decoration: BoxDecoration(\r\n                            color: Theme.of(context).colorScheme.primary,\r\n                            borderRadius: BorderRadius.circular(40),\r\n                            border: Border.all(\r\n                              color: Colors.black,\r\n                              width: 1,\r\n                            ),\r\n                          ),\r\n                          child: Icon(CupertinoIcons.search),\r\n                        ),\r\n                      ),\r\n\r\n                      GestureDetector(\r\n                        onTap: (){\r\n                          currentPage = 2;\r\n                          setState(() {\r\n\r\n                          });\r\n                        },\r\n                        child: Container(\r\n                          width: 40,\r\n                          height: 40,\r\n                          decoration: BoxDecoration(\r\n                            color: Theme.of(context).colorScheme.primary,\r\n                            borderRadius: BorderRadius.circular(40),\r\n                            border: Border.all(\r\n                              color: Colors.black,\r\n                              width: 1,\r\n                            ),\r\n                          ),\r\n                          child: Icon(CupertinoIcons.add_circled),\r\n                        ),\r\n                      ),\r\n\r\n                      GestureDetector(\r\n                        onTap: (){\r\n                          currentPage = 3;\r\n                          setState(() {\r\n\r\n                          });\r\n                        },\r\n                        child: Container(\r\n                          width: 40,\r\n                          height: 40,\r\n                          decoration: BoxDecoration(\r\n                            color: Theme.of(context).colorScheme.primary,\r\n                            borderRadius: BorderRadius.circular(40),\r\n                            border: Border.all(\r\n                              color: Colors.black,\r\n                              width: 1,\r\n                            ),\r\n                          ),\r\n                          child: Icon(CupertinoIcons.calendar_today),\r\n                        ),\r\n                      ),\r\n\r\n                      GestureDetector(\r\n                        onTap: (){\r\n                          currentPage = 4;\r\n                          setState(() {\r\n\r\n                          });\r\n                        },\r\n\r\n                        child: Padding(\r\n                          padding: const EdgeInsets.only(right: 10),\r\n                          child: Container(\r\n                            width: 40,\r\n                            height: 40,\r\n                            decoration: BoxDecoration(\r\n                              color: Theme.of(context).colorScheme.primary,\r\n                              borderRadius: BorderRadius.circular(40),\r\n                              border: Border.all(\r\n                                color: Colors.black,\r\n                                width: 1,\r\n                              ),\r\n                            ),\r\n                            child: Icon(\r\n                              CupertinoIcons.heart,\r\n                              size: 25,\r\n                              color: Colors.black,\r\n                            ),\r\n                          ),\r\n                        ),\r\n                      ),\r\n                  ],\r\n                  ),\r\n              ),\r\n\r\n          ),\r\n\r\n        ],\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n
+===================================================================
+diff --git a/finder/lib/Archive/HomePage.dart b/finder/lib/Archive/HomePage.dart
+--- a/finder/lib/Archive/HomePage.dart	
++++ b/finder/lib/Archive/HomePage.dart	
+@@ -1,180 +1,0 @@
+-import 'package:flutter/cupertino.dart';
+-import 'package:flutter/material.dart';
+-import 'package:foodfinder_app/pages/create_screen.dart';
+-import 'package:foodfinder_app/pages/favorite_screen.dart';
+-import 'package:foodfinder_app/pages/home_screen.dart';
+-import 'package:foodfinder_app/pages/plan_screen.dart';
+-import 'package:foodfinder_app/pages/search_screen.dart';
+-
+-class HomePage extends StatefulWidget {
+-  const HomePage({super.key});
+-
+-  @override
+-  State<HomePage> createState() => _HomePageState();
+-}
+-
+-class _HomePageState extends State<HomePage> {
+-  int currentPage = 0;
+-  List<Widget> screens = [HomeScreen(), SearchScreen(), CreateScreen(), PlanScreen(), FavoriteScreen() ];
+-
+-  @override
+-  Widget build(BuildContext context) {
+-    return SafeArea(
+-      child: Scaffold(
+-        body: Column(
+-          children: [
+-            Expanded(
+-              child: screens[currentPage]
+-            ),
+-            Padding(
+-              padding: const EdgeInsets.only(
+-                left: 50,
+-                right: 50,
+-              ),
+-              child: Container(
+-                width: double.infinity,
+-                height: 60,
+-                decoration: BoxDecoration(
+-                  color: Theme.of(context).colorScheme.primary,
+-                  borderRadius: BorderRadius.circular(30),
+-                  border: Border.all(
+-                    color: Colors.black,
+-                    width: 1,
+-                  ),
+-                ),
+-
+-                child: Row(
+-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-                  children: [
+-                      GestureDetector(
+-                        onTap: (){
+-                          currentPage = 0;
+-                          setState(() {
+-
+-                          });
+-                        },
+-                        child: Padding(
+-                          padding: const EdgeInsets.only(left: 10),
+-                          child: Container(
+-                            width: 40,
+-                            height: 40,
+-                            decoration: BoxDecoration(
+-                              color: Theme.of(context).colorScheme.primary,
+-                              borderRadius: BorderRadius.circular(40),
+-                              border: Border.all(
+-                                color: Colors.black,
+-                                width: 1,
+-                              ),
+-                            ),
+-                            child: Icon(CupertinoIcons.home),
+-                          ),
+-                        ),
+-                      ),
+-
+-                      GestureDetector(
+-                        onTap: (){
+-                          currentPage = 1;
+-                          setState(() {
+-
+-                          });
+-                        },
+-                        child: Container(
+-                          width: 40,
+-                          height: 40,
+-                          decoration: BoxDecoration(
+-                            color: Theme.of(context).colorScheme.primary,
+-                            borderRadius: BorderRadius.circular(40),
+-                            border: Border.all(
+-                              color: Colors.black,
+-                              width: 1,
+-                            ),
+-                          ),
+-                          child: Icon(CupertinoIcons.search),
+-                        ),
+-                      ),
+-
+-                      GestureDetector(
+-                        onTap: (){
+-                          currentPage = 2;
+-                          setState(() {
+-
+-                          });
+-                        },
+-                        child: Container(
+-                          width: 40,
+-                          height: 40,
+-                          decoration: BoxDecoration(
+-                            color: Theme.of(context).colorScheme.primary,
+-                            borderRadius: BorderRadius.circular(40),
+-                            border: Border.all(
+-                              color: Colors.black,
+-                              width: 1,
+-                            ),
+-                          ),
+-                          child: Icon(CupertinoIcons.add_circled),
+-                        ),
+-                      ),
+-
+-                      GestureDetector(
+-                        onTap: (){
+-                          currentPage = 3;
+-                          setState(() {
+-
+-                          });
+-                        },
+-                        child: Container(
+-                          width: 40,
+-                          height: 40,
+-                          decoration: BoxDecoration(
+-                            color: Theme.of(context).colorScheme.primary,
+-                            borderRadius: BorderRadius.circular(40),
+-                            border: Border.all(
+-                              color: Colors.black,
+-                              width: 1,
+-                            ),
+-                          ),
+-                          child: Icon(CupertinoIcons.calendar_today),
+-                        ),
+-                      ),
+-
+-                      GestureDetector(
+-                        onTap: (){
+-                          currentPage = 4;
+-                          setState(() {
+-
+-                          });
+-                        },
+-
+-                        child: Padding(
+-                          padding: const EdgeInsets.only(right: 10),
+-                          child: Container(
+-                            width: 40,
+-                            height: 40,
+-                            decoration: BoxDecoration(
+-                              color: Theme.of(context).colorScheme.primary,
+-                              borderRadius: BorderRadius.circular(40),
+-                              border: Border.all(
+-                                color: Colors.black,
+-                                width: 1,
+-                              ),
+-                            ),
+-                            child: Icon(
+-                              CupertinoIcons.heart,
+-                              size: 25,
+-                              color: Colors.black,
+-                            ),
+-                          ),
+-                        ),
+-                      ),
+-                  ],
+-                  ),
+-              ),
+-
+-          ),
+-
+-        ],
+-        ),
+-      ),
+-    );
+-  }
+-}
+Index: finder/lib/pages/create_screen.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><<<<<<< HEAD\r\n=======\r\n\r\n>>>>>>> origin/main\r\nimport 'package:flutter/material.dart';\r\n\r\nclass CreateScreen extends StatelessWidget {\r\n  const CreateScreen({super.key});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n<<<<<<< HEAD\r\n    return SafeArea(\r\n        child: Scaffold(\r\n      appBar: AppBar(\r\n        title: Text(\r\n          \"Erstellen\",\r\n          style: Theme.of(context).textTheme.titleLarge!.copyWith(),\r\n        ),\r\n        actions: [\r\n          Padding(\r\n            padding: const EdgeInsets.all(8.0),\r\n            child: Container(\r\n              width: 36,\r\n              height: 36,\r\n              decoration: BoxDecoration(\r\n                borderRadius: BorderRadius.circular(36),\r\n                color: Colors.black,\r\n              ),\r\n              child: Center(\r\n                child: Text(\r\n                  \"F\", //Initialien\r\n                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                        color: Theme.of(context).colorScheme.primary,\r\n                        fontSize: 27,\r\n                        fontWeight: FontWeight.bold,\r\n                      ),\r\n                ),\r\n              ),\r\n            ),\r\n          ),\r\n        ],\r\n      ),\r\n    ));\r\n=======\r\n    return Container(\r\n      color: Colors.purpleAccent,\r\n    );\r\n>>>>>>> origin/main\r\n  }\r\n}\r\n
+===================================================================
+diff --git a/finder/lib/pages/create_screen.dart b/finder/lib/pages/create_screen.dart
+--- a/finder/lib/pages/create_screen.dart	
++++ b/finder/lib/pages/create_screen.dart	
+@@ -1,51 +1,13 @@
+-<<<<<<< HEAD
+-=======
+-
+->>>>>>> origin/main
++import 'package:flutter/cupertino.dart';
+ import 'package:flutter/material.dart';
+ 
+-class CreateScreen extends StatelessWidget {
+-  const CreateScreen({super.key});
++class FavoriteScreen extends StatelessWidget {
++  const FavoriteScreen({super.key});
+ 
+   @override
+   Widget build(BuildContext context) {
+-<<<<<<< HEAD
+-    return SafeArea(
+-        child: Scaffold(
+-      appBar: AppBar(
+-        title: Text(
+-          "Erstellen",
+-          style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+-        ),
+-        actions: [
+-          Padding(
+-            padding: const EdgeInsets.all(8.0),
+-            child: Container(
+-              width: 36,
+-              height: 36,
+-              decoration: BoxDecoration(
+-                borderRadius: BorderRadius.circular(36),
+-                color: Colors.black,
+-              ),
+-              child: Center(
+-                child: Text(
+-                  "F", //Initialien
+-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                        color: Theme.of(context).colorScheme.primary,
+-                        fontSize: 27,
+-                        fontWeight: FontWeight.bold,
+-                      ),
+-                ),
+-              ),
+-            ),
+-          ),
+-        ],
+-      ),
+-    ));
+-=======
+     return Container(
+-      color: Colors.purpleAccent,
++      color: Colors.yellowAccent,
+     );
+->>>>>>> origin/main
+   }
+-}
++}
+\ No newline at end of file
+Index: finder/lib/pages/favorite_screen.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\r\nimport 'package:flutter/material.dart';\r\n\r\nclass FavoriteScreen extends StatelessWidget {\r\n  const FavoriteScreen({super.key});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n<<<<<<< HEAD\r\n    return SafeArea(\r\n        child: Scaffold(\r\n      appBar: AppBar(\r\n        title: Text(\r\n          \"Gespeichert\",\r\n          style: Theme.of(context).textTheme.titleLarge!.copyWith(),\r\n        ),\r\n        actions: [\r\n          Padding(\r\n            padding: const EdgeInsets.all(8.0),\r\n            child: Container(\r\n              width: 36,\r\n              height: 36,\r\n              decoration: BoxDecoration(\r\n                borderRadius: BorderRadius.circular(36),\r\n                color: Colors.black,\r\n              ),\r\n              child: Center(\r\n                child: Text(\r\n                  \"F\", //Initialien\r\n                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                        color: Theme.of(context).colorScheme.primary,\r\n                        fontSize: 27,\r\n                        fontWeight: FontWeight.bold,\r\n                      ),\r\n                ),\r\n              ),\r\n            ),\r\n          ),\r\n        ],\r\n      ),\r\n    ));\r\n=======\r\n    return Container(\r\n      color: Colors.yellowAccent,\r\n    );\r\n>>>>>>> origin/main\r\n  }\r\n}\r\n
+===================================================================
+diff --git a/finder/lib/pages/favorite_screen.dart b/finder/lib/pages/favorite_screen.dart
+--- a/finder/lib/pages/favorite_screen.dart	
++++ b/finder/lib/pages/favorite_screen.dart	
+@@ -6,43 +6,8 @@
+ 
+   @override
+   Widget build(BuildContext context) {
+-<<<<<<< HEAD
+-    return SafeArea(
+-        child: Scaffold(
+-      appBar: AppBar(
+-        title: Text(
+-          "Gespeichert",
+-          style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+-        ),
+-        actions: [
+-          Padding(
+-            padding: const EdgeInsets.all(8.0),
+-            child: Container(
+-              width: 36,
+-              height: 36,
+-              decoration: BoxDecoration(
+-                borderRadius: BorderRadius.circular(36),
+-                color: Colors.black,
+-              ),
+-              child: Center(
+-                child: Text(
+-                  "F", //Initialien
+-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                        color: Theme.of(context).colorScheme.primary,
+-                        fontSize: 27,
+-                        fontWeight: FontWeight.bold,
+-                      ),
+-                ),
+-              ),
+-            ),
+-          ),
+-        ],
+-      ),
+-    ));
+-=======
+     return Container(
+       color: Colors.yellowAccent,
+     );
+->>>>>>> origin/main
+   }
+-}
++}
+\ No newline at end of file
+Index: finder/lib/pages/search_screen.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><<<<<<< HEAD\r\nimport 'package:flutter/cupertino.dart';\r\n=======\r\n>>>>>>> origin/main\r\nimport 'package:flutter/material.dart';\r\n\r\nclass SearchScreen extends StatelessWidget {\r\n  const SearchScreen({super.key});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n<<<<<<< HEAD\r\n    return SafeArea(\r\n      child: Scaffold(\r\n        appBar: AppBar(\r\n          title: Text(\r\n            \"Suche\",\r\n            style: Theme.of(context).textTheme.titleLarge!.copyWith(),\r\n          ),\r\n          actions: [\r\n            Padding(\r\n              padding: const EdgeInsets.all(8.0),\r\n              child: Container(\r\n                width: 36,\r\n                height: 36,\r\n                decoration: BoxDecoration(\r\n                  borderRadius: BorderRadius.circular(36),\r\n                  color: Colors.black,\r\n                ),\r\n                child: Center(\r\n                  child: Text(\r\n                    \"F\", //Initialien\r\n                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                          color: Theme.of(context).colorScheme.primary,\r\n                          fontSize: 27,\r\n                          fontWeight: FontWeight.bold,\r\n                        ),\r\n                  ),\r\n                ),\r\n              ),\r\n            ),\r\n          ],\r\n        ),\r\n        body: Column(\r\n          children: [\r\n            Stack(\r\n              children: [\r\n                Padding(\r\n                  padding: const EdgeInsets.only(left: 20, right: 20, top: 10),\r\n                  child: Container(\r\n                    width: double.infinity,\r\n                    height: 40,\r\n                    decoration: BoxDecoration(\r\n                      borderRadius: BorderRadius.circular(40),\r\n                      color: Theme.of(context).colorScheme.primary,\r\n                      border: Border.all(\r\n                        color: Colors.black,\r\n                        width: 1,\r\n                      ),\r\n                    ),\r\n                  ),\r\n                ),\r\n                Padding(\r\n                  padding: const EdgeInsets.only(left: 30, right: 20, top: 18),\r\n                  child: Row(\r\n                    mainAxisAlignment: MainAxisAlignment.start,\r\n                    children: [\r\n                      const Icon(CupertinoIcons.search),\r\n                      const SizedBox(\r\n                        width: 10,\r\n                      ),\r\n                      Text(\r\n                        \"Was willst Du heute essen?\",\r\n                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                              color: Colors.grey,\r\n                              fontSize: 16,\r\n                            ),\r\n                      )\r\n                    ],\r\n                  ),\r\n                ),\r\n              ],\r\n            )\r\n          ],\r\n        ),\r\n      ),\r\n=======\r\n    return Container(\r\n      color: Colors.red,\r\n>>>>>>> origin/main\r\n    );\r\n  }\r\n}\r\n
+===================================================================
+diff --git a/finder/lib/pages/search_screen.dart b/finder/lib/pages/search_screen.dart
+--- a/finder/lib/pages/search_screen.dart	
++++ b/finder/lib/pages/search_screen.dart	
+@@ -1,93 +1,13 @@
+-<<<<<<< HEAD
+ import 'package:flutter/cupertino.dart';
+-=======
+->>>>>>> origin/main
+ import 'package:flutter/material.dart';
+ 
+-class SearchScreen extends StatelessWidget {
+-  const SearchScreen({super.key});
++class FavoriteScreen extends StatelessWidget {
++  const FavoriteScreen({super.key});
+ 
+   @override
+   Widget build(BuildContext context) {
+-<<<<<<< HEAD
+-    return SafeArea(
+-      child: Scaffold(
+-        appBar: AppBar(
+-          title: Text(
+-            "Suche",
+-            style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+-          ),
+-          actions: [
+-            Padding(
+-              padding: const EdgeInsets.all(8.0),
+-              child: Container(
+-                width: 36,
+-                height: 36,
+-                decoration: BoxDecoration(
+-                  borderRadius: BorderRadius.circular(36),
+-                  color: Colors.black,
+-                ),
+-                child: Center(
+-                  child: Text(
+-                    "F", //Initialien
+-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                          color: Theme.of(context).colorScheme.primary,
+-                          fontSize: 27,
+-                          fontWeight: FontWeight.bold,
+-                        ),
+-                  ),
+-                ),
+-              ),
+-            ),
+-          ],
+-        ),
+-        body: Column(
+-          children: [
+-            Stack(
+-              children: [
+-                Padding(
+-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+-                  child: Container(
+-                    width: double.infinity,
+-                    height: 40,
+-                    decoration: BoxDecoration(
+-                      borderRadius: BorderRadius.circular(40),
+-                      color: Theme.of(context).colorScheme.primary,
+-                      border: Border.all(
+-                        color: Colors.black,
+-                        width: 1,
+-                      ),
+-                    ),
+-                  ),
+-                ),
+-                Padding(
+-                  padding: const EdgeInsets.only(left: 30, right: 20, top: 18),
+-                  child: Row(
+-                    mainAxisAlignment: MainAxisAlignment.start,
+-                    children: [
+-                      const Icon(CupertinoIcons.search),
+-                      const SizedBox(
+-                        width: 10,
+-                      ),
+-                      Text(
+-                        "Was willst Du heute essen?",
+-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                              color: Colors.grey,
+-                              fontSize: 16,
+-                            ),
+-                      )
+-                    ],
+-                  ),
+-                ),
+-              ],
+-            )
+-          ],
+-        ),
+-      ),
+-=======
+     return Container(
+-      color: Colors.red,
+->>>>>>> origin/main
++      color: Colors.yellowAccent,
+     );
+   }
+-}
++}
+\ No newline at end of file
+Index: finder/lib/pages/plan_screen.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\r\nimport 'package:flutter/material.dart';\r\n\r\nclass PlanScreen extends StatelessWidget {\r\n  const PlanScreen({super.key});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n<<<<<<< HEAD\r\n    return SafeArea(\r\n        child: Scaffold(\r\n      appBar: AppBar(\r\n        title: Text(\r\n          \"Planer\",\r\n          style: Theme.of(context).textTheme.titleLarge!.copyWith(),\r\n        ),\r\n        actions: [\r\n          Padding(\r\n            padding: const EdgeInsets.all(8.0),\r\n            child: Container(\r\n              width: 36,\r\n              height: 36,\r\n              decoration: BoxDecoration(\r\n                borderRadius: BorderRadius.circular(36),\r\n                color: Colors.black,\r\n              ),\r\n              child: Center(\r\n                child: Text(\r\n                  \"F\", //Initialien\r\n                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                        color: Theme.of(context).colorScheme.primary,\r\n                        fontSize: 27,\r\n                        fontWeight: FontWeight.bold,\r\n                      ),\r\n                ),\r\n              ),\r\n            ),\r\n          ),\r\n        ],\r\n      ),\r\n    ));\r\n=======\r\n    return Container(\r\n      color: Colors.grey,\r\n    );\r\n>>>>>>> origin/main\r\n  }\r\n}\r\n
+===================================================================
+diff --git a/finder/lib/pages/plan_screen.dart b/finder/lib/pages/plan_screen.dart
+--- a/finder/lib/pages/plan_screen.dart	
++++ b/finder/lib/pages/plan_screen.dart	
+@@ -1,48 +1,13 @@
+ import 'package:flutter/cupertino.dart';
+ import 'package:flutter/material.dart';
+ 
+-class PlanScreen extends StatelessWidget {
+-  const PlanScreen({super.key});
++class FavoriteScreen extends StatelessWidget {
++  const FavoriteScreen({super.key});
+ 
+   @override
+   Widget build(BuildContext context) {
+-<<<<<<< HEAD
+-    return SafeArea(
+-        child: Scaffold(
+-      appBar: AppBar(
+-        title: Text(
+-          "Planer",
+-          style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+-        ),
+-        actions: [
+-          Padding(
+-            padding: const EdgeInsets.all(8.0),
+-            child: Container(
+-              width: 36,
+-              height: 36,
+-              decoration: BoxDecoration(
+-                borderRadius: BorderRadius.circular(36),
+-                color: Colors.black,
+-              ),
+-              child: Center(
+-                child: Text(
+-                  "F", //Initialien
+-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                        color: Theme.of(context).colorScheme.primary,
+-                        fontSize: 27,
+-                        fontWeight: FontWeight.bold,
+-                      ),
+-                ),
+-              ),
+-            ),
+-          ),
+-        ],
+-      ),
+-    ));
+-=======
+     return Container(
+-      color: Colors.grey,
++      color: Colors.yellowAccent,
+     );
+->>>>>>> origin/main
+   }
+-}
++}
+\ No newline at end of file
+Index: finder/lib/pages/home_screen.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\r\nimport 'package:flutter/material.dart';\r\n<<<<<<< HEAD\r\nimport 'package:foodfinder_app/Data/Data.dart';\r\nimport 'package:foodfinder_app/Widgets/card_design.dart';\r\nimport 'package:foodfinder_app/Widgets/ingredients_box_desgin.dart';\r\n=======\r\n>>>>>>> origin/main\r\n\r\nclass HomeScreen extends StatelessWidget {\r\n  const HomeScreen({super.key});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return SafeArea(\r\n      child: Scaffold(\r\n        appBar: AppBar(\r\n          title: Text(\r\n            \"Hallo Franziska!\", //Username Nutzername\r\n            style: Theme.of(context).textTheme.titleLarge!.copyWith(),\r\n          ),\r\n          actions: [\r\n            Padding(\r\n              padding: const EdgeInsets.all(8.0),\r\n              child: Container(\r\n                width: 36,\r\n                height: 36,\r\n                decoration: BoxDecoration(\r\n                  borderRadius: BorderRadius.circular(36),\r\n                  color: Colors.black,\r\n                ),\r\n                child: Center(\r\n                  child: Text(\r\n<<<<<<< HEAD\r\n                    \"F\", //Initialien\r\n                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                          color: Theme.of(context).colorScheme.primary,\r\n                          fontSize: 27,\r\n                          fontWeight: FontWeight.bold,\r\n                        ),\r\n=======\r\n                    \"F\",  //Initialien\r\n                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                      color: Theme.of(context).colorScheme.primary,\r\n                      fontSize: 27,\r\n                      fontWeight: FontWeight.bold,\r\n                    ),\r\n>>>>>>> origin/main\r\n                  ),\r\n                ),\r\n              ),\r\n            ),\r\n          ],\r\n        ),\r\n        body: Column(\r\n          children: [\r\n            Row(\r\n              mainAxisAlignment: MainAxisAlignment.spaceBetween,\r\n<<<<<<< HEAD\r\n=======\r\n\r\n>>>>>>> origin/main\r\n              children: [\r\n                Padding(\r\n                  padding: const EdgeInsets.only(left: 18),\r\n                  child: Text(\r\n                    \"Wochenplan\",\r\n                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n<<<<<<< HEAD\r\n                          fontSize: 20,\r\n                          letterSpacing: 1,\r\n                          fontWeight: FontWeight.bold,\r\n                        ),\r\n                  ),\r\n                ),\r\n                const Padding(\r\n                  padding: EdgeInsets.only(right: 15),\r\n                  child: Icon(CupertinoIcons.arrow_right),\r\n                ),\r\n              ],\r\n            ),\r\n            Expanded(\r\n              flex: 2,\r\n              child: PageView(scrollDirection: Axis.horizontal, children: [\r\n                ...allCards.map((oneCard) => CardDesign(card: oneCard)),\r\n              ]),\r\n            ),\r\n            Container(\r\n              width: 118,\r\n              height: 17,\r\n              decoration: BoxDecoration(\r\n                borderRadius: BorderRadius.circular(17),\r\n                color: Theme.of(context).colorScheme.primary,\r\n                border: Border.all(\r\n                  color: Colors.black,\r\n                  width: 1,\r\n                ),\r\n              ),\r\n              child: Row(\r\n                mainAxisAlignment: MainAxisAlignment.spaceAround,\r\n                children: [\r\n                  for (int i = 0; i < 7; i++)\r\n                    const Icon(\r\n                      Icons.circle,\r\n                      color: Colors.grey,\r\n                      size: 7,\r\n                    ),\r\n                ],\r\n              ),\r\n            ),\r\n            const SizedBox(height: 10),\r\n            Row(\r\n              mainAxisAlignment: MainAxisAlignment.spaceBetween,\r\n              children: [\r\n                Padding(\r\n                  padding: const EdgeInsets.only(left: 18),\r\n                  child: Text(\r\n                    \"Oben auf deiner Liste\",\r\n                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                          fontSize: 20,\r\n                          letterSpacing: 1,\r\n                          fontWeight: FontWeight.bold,\r\n                        ),\r\n                  ),\r\n                ),\r\n                const Padding(\r\n                  padding: EdgeInsets.only(right: 15),\r\n=======\r\n                      fontSize: 24,\r\n                      letterSpacing: 1,\r\n                      fontWeight: FontWeight.bold,\r\n                    ),\r\n                  ),\r\n                ),\r\n                Padding(\r\n                  padding: const EdgeInsets.only(right: 15),\r\n>>>>>>> origin/main\r\n                  child: Icon(CupertinoIcons.arrow_right),\r\n                ),\r\n              ],\r\n            ),\r\n<<<<<<< HEAD\r\n            Expanded(\r\n              flex: 2,\r\n              child: ListView(\r\n                //padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),\r\n                children: [\r\n                  ...allBoxes.map((oneBox) => IngredientsBox(box: oneBox)),\r\n                ],\r\n              ),\r\n            ),\r\n            const SizedBox(height: 0),\r\n            Row(\r\n              mainAxisAlignment: MainAxisAlignment.spaceBetween,\r\n              children: [\r\n                Padding(\r\n                  padding: const EdgeInsets.only(left: 18, top: 20),\r\n                  child: Text(\r\n                    \"Zuletzt Gespeichert\",\r\n                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                          fontSize: 20,\r\n                          letterSpacing: 1,\r\n                          fontWeight: FontWeight.bold,\r\n                        ),\r\n                  ),\r\n                ),\r\n                const Padding(\r\n                  padding: EdgeInsets.only(right: 15, top: 20),\r\n                  child: Icon(CupertinoIcons.arrow_right),\r\n                ),\r\n              ],\r\n            ),\r\n            Expanded(\r\n              flex: 2,\r\n              child: ListView(\r\n                //padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),\r\n                children: [\r\n                  ...allCards.map((oneCard) => CardDesign(card: oneCard)),\r\n                ],\r\n              ),\r\n            ),\r\n          ],\r\n        ),\r\n=======\r\n            Padding(\r\n              padding: const EdgeInsets.all(10),\r\n              child: Container(\r\n                width: double.infinity,\r\n                height: 132,\r\n                padding: EdgeInsets.all(10),\r\n                decoration: BoxDecoration(\r\n                  color: Theme.of(context).colorScheme.primary,\r\n                  borderRadius: BorderRadius.circular(15),\r\n                  border: Border.all(\r\n                    color: Colors.black,\r\n                    width: 2,\r\n                  ),\r\n                ),\r\n                child: Row(\r\n                  children: [\r\n                    Expanded(\r\n                      flex: 3,\r\n                      child: Padding(\r\n                        padding: const EdgeInsets.all(5),\r\n                        child: Container(\r\n                          width: 110,\r\n                          height: 110,\r\n                          decoration: BoxDecoration(\r\n                            borderRadius: BorderRadius.circular(10),\r\n                            border: Border.all(\r\n                              color: Colors.black,\r\n                              width: 1,\r\n                            ),\r\n                          ),\r\n                          child: ClipRRect(\r\n                            borderRadius: BorderRadius.circular(10),\r\n                            child: Image.network(\r\n                              \"https://media.istockphoto.com/id/1680097339/de/foto/rigatoni-nudeln-in-basilikum-pesto-w%C3%BCrzige-italienische-pasta.jpg?s=1024x1024&w=is&k=20&c=4h6c_m9Tv54mMwExNJ4XhzQUBnzglXhIUUnLa8BH8Og=\",\r\n                              width: double.infinity,\r\n                              height: double.infinity,\r\n                              fit: BoxFit.cover,\r\n                            ),\r\n                          ),\r\n\r\n                        ),\r\n                      ),\r\n                    ),\r\n                    Expanded(\r\n                      flex: 5,\r\n                      child: Padding(\r\n                        padding: const EdgeInsets.all(5),\r\n                        child: Container(\r\n                          child: Column(\r\n                            children: [\r\n                              Text(\r\n                                \"Nudeln mit Walnüssen\",\r\n                                style: Theme.of(context).textTheme.titleLarge!.copyWith(\r\n                                  fontSize: 18,\r\n                                  letterSpacing: 1.5,\r\n                                  fontWeight: FontWeight.bold,\r\n                                ),\r\n                              ),\r\n                              Container(\r\n                                width: 190,\r\n                                height: 25,\r\n                                color: Theme.of(context).colorScheme.primary,\r\n                                child: Row(\r\n                                  mainAxisAlignment:\r\n                                  MainAxisAlignment.spaceBetween,\r\n                                  children: [\r\n                                    Container(\r\n                                      width: 40,\r\n                                      height: 15,\r\n                                      decoration: BoxDecoration(\r\n                                        color: Theme.of(context).colorScheme.onSecondary,\r\n                                        borderRadius: BorderRadius.circular(10),\r\n                                      ),\r\n                                      child: Center(\r\n                                        child: Text(\r\n                                          \"Vegan\",\r\n                                          style:Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                                            fontSize: 10,\r\n                                            letterSpacing: 0,\r\n                                          ),\r\n                                        ),\r\n                                      ),\r\n                                    ),\r\n                                    Container(\r\n                                      width: 40,\r\n                                      height: 15,\r\n                                      decoration: BoxDecoration(\r\n                                        borderRadius: BorderRadius.circular(10),\r\n                                        border: Border.all(\r\n                                            color: Colors.black, width: 1),\r\n                                      ),\r\n                                      child: Row(\r\n                                        mainAxisAlignment:\r\n                                        MainAxisAlignment.center,\r\n                                        children: [\r\n                                          Icon(Icons.euro, size: 10),\r\n                                          Icon(Icons.euro, size: 10),\r\n                                          Icon(Icons.euro, size: 10),\r\n                                        ],\r\n                                      ),\r\n                                    ),\r\n                                    Container(\r\n                                      width: 30,\r\n                                      height: 15,\r\n                                      decoration: BoxDecoration(\r\n                                        borderRadius: BorderRadius.circular(10),\r\n                                        border: Border.all(\r\n                                            color: Colors.black, width: 1),\r\n                                      ),\r\n                                      child: Center(\r\n                                        child: Icon(\r\n                                          Icons.schedule,\r\n                                          size: 10,\r\n                                        ),\r\n                                      ),\r\n                                    ),\r\n                                    Container(\r\n                                        width: 40,\r\n                                        height: 15,\r\n                                        decoration: BoxDecoration(\r\n                                          borderRadius: BorderRadius.circular(10),\r\n                                          border: Border.all(\r\n                                              color: Colors.black, width: 1),\r\n                                        ),\r\n                                        child: Row(\r\n                                          //crossAxisAlignment: CrossAxisAlignment.center,\r\n                                          mainAxisAlignment:\r\n                                          MainAxisAlignment.center,\r\n                                          children: [\r\n                                            Icon(\r\n                                              Icons.water_drop_outlined,\r\n                                              size: 10,\r\n                                            ),\r\n                                            Icon(\r\n                                              Icons.water_drop_outlined,\r\n                                              size: 10,\r\n                                            ),\r\n                                          ],\r\n                                        ))\r\n                                  ],\r\n                                ),\r\n                              ),\r\n                              Container(\r\n                                  width: 190,\r\n                                  height: 45,\r\n                                  //color: Colors.cyan,\r\n                                  child: Column(\r\n                                    children: [\r\n                                      Text(\r\n                                        \"Der frische und gesunde Klassiker für den schnellen Genuss lorem impsum lorem ipsum\",\r\n                                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(\r\n                                          fontSize: 10.5,\r\n                                          letterSpacing: 0,\r\n                                        ),\r\n                                      ),\r\n                                    ],\r\n                                  ))\r\n                            ],\r\n                          ),\r\n                        ),\r\n                      ),\r\n                    ),\r\n                    Expanded(\r\n                      flex: 1,\r\n                      child: Padding(\r\n                          padding: const EdgeInsets.only(\r\n                            top: 70,\r\n                            right: 20,\r\n                          ),\r\n                          child: Container(\r\n                            width: 40,\r\n                            height: 15,\r\n                            child: Icon(\r\n                              Icons.favorite,\r\n                              size: 20,\r\n                            ),\r\n                          )),\r\n                    ),\r\n                  ],\r\n                ),\r\n              ),\r\n            )\r\n          ],\r\n        ),\r\n\r\n\r\n>>>>>>> origin/main\r\n      ),\r\n    );\r\n  }\r\n}\r\n<<<<<<< HEAD\r\n=======\r\n\r\n>>>>>>> origin/main\r\n
+===================================================================
+diff --git a/finder/lib/pages/home_screen.dart b/finder/lib/pages/home_screen.dart
+--- a/finder/lib/pages/home_screen.dart	
++++ b/finder/lib/pages/home_screen.dart	
+@@ -1,11 +1,5 @@
+ import 'package:flutter/cupertino.dart';
+ import 'package:flutter/material.dart';
+-<<<<<<< HEAD
+-import 'package:foodfinder_app/Data/Data.dart';
+-import 'package:foodfinder_app/Widgets/card_design.dart';
+-import 'package:foodfinder_app/Widgets/ingredients_box_desgin.dart';
+-=======
+->>>>>>> origin/main
+ 
+ class HomeScreen extends StatelessWidget {
+   const HomeScreen({super.key});
+@@ -31,21 +25,12 @@
+                 ),
+                 child: Center(
+                   child: Text(
+-<<<<<<< HEAD
+-                    "F", //Initialien
+-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                          color: Theme.of(context).colorScheme.primary,
+-                          fontSize: 27,
+-                          fontWeight: FontWeight.bold,
+-                        ),
+-=======
+                     "F",  //Initialien
+                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                       color: Theme.of(context).colorScheme.primary,
+                       fontSize: 27,
+                       fontWeight: FontWeight.bold,
+                     ),
+->>>>>>> origin/main
+                   ),
+                 ),
+               ),
+@@ -56,76 +41,13 @@
+           children: [
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-<<<<<<< HEAD
+-=======
+ 
+->>>>>>> origin/main
+               children: [
+                 Padding(
+                   padding: const EdgeInsets.only(left: 18),
+                   child: Text(
+                     "Wochenplan",
+                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-<<<<<<< HEAD
+-                          fontSize: 20,
+-                          letterSpacing: 1,
+-                          fontWeight: FontWeight.bold,
+-                        ),
+-                  ),
+-                ),
+-                const Padding(
+-                  padding: EdgeInsets.only(right: 15),
+-                  child: Icon(CupertinoIcons.arrow_right),
+-                ),
+-              ],
+-            ),
+-            Expanded(
+-              flex: 2,
+-              child: PageView(scrollDirection: Axis.horizontal, children: [
+-                ...allCards.map((oneCard) => CardDesign(card: oneCard)),
+-              ]),
+-            ),
+-            Container(
+-              width: 118,
+-              height: 17,
+-              decoration: BoxDecoration(
+-                borderRadius: BorderRadius.circular(17),
+-                color: Theme.of(context).colorScheme.primary,
+-                border: Border.all(
+-                  color: Colors.black,
+-                  width: 1,
+-                ),
+-              ),
+-              child: Row(
+-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+-                children: [
+-                  for (int i = 0; i < 7; i++)
+-                    const Icon(
+-                      Icons.circle,
+-                      color: Colors.grey,
+-                      size: 7,
+-                    ),
+-                ],
+-              ),
+-            ),
+-            const SizedBox(height: 10),
+-            Row(
+-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-              children: [
+-                Padding(
+-                  padding: const EdgeInsets.only(left: 18),
+-                  child: Text(
+-                    "Oben auf deiner Liste",
+-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                          fontSize: 20,
+-                          letterSpacing: 1,
+-                          fontWeight: FontWeight.bold,
+-                        ),
+-                  ),
+-                ),
+-                const Padding(
+-                  padding: EdgeInsets.only(right: 15),
+-=======
+                       fontSize: 24,
+                       letterSpacing: 1,
+                       fontWeight: FontWeight.bold,
+@@ -134,54 +56,10 @@
+                 ),
+                 Padding(
+                   padding: const EdgeInsets.only(right: 15),
+->>>>>>> origin/main
+                   child: Icon(CupertinoIcons.arrow_right),
+                 ),
+               ],
+             ),
+-<<<<<<< HEAD
+-            Expanded(
+-              flex: 2,
+-              child: ListView(
+-                //padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
+-                children: [
+-                  ...allBoxes.map((oneBox) => IngredientsBox(box: oneBox)),
+-                ],
+-              ),
+-            ),
+-            const SizedBox(height: 0),
+-            Row(
+-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-              children: [
+-                Padding(
+-                  padding: const EdgeInsets.only(left: 18, top: 20),
+-                  child: Text(
+-                    "Zuletzt Gespeichert",
+-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+-                          fontSize: 20,
+-                          letterSpacing: 1,
+-                          fontWeight: FontWeight.bold,
+-                        ),
+-                  ),
+-                ),
+-                const Padding(
+-                  padding: EdgeInsets.only(right: 15, top: 20),
+-                  child: Icon(CupertinoIcons.arrow_right),
+-                ),
+-              ],
+-            ),
+-            Expanded(
+-              flex: 2,
+-              child: ListView(
+-                //padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
+-                children: [
+-                  ...allCards.map((oneCard) => CardDesign(card: oneCard)),
+-                ],
+-              ),
+-            ),
+-          ],
+-        ),
+-=======
+             Padding(
+               padding: const EdgeInsets.all(10),
+               child: Container(
+@@ -368,12 +246,7 @@
+         ),
+ 
+ 
+->>>>>>> origin/main
+       ),
+     );
+   }
+-}
+-<<<<<<< HEAD
+-=======
+-
+->>>>>>> origin/main
++}
+\ No newline at end of file
