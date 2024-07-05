@@ -1,0 +1,414 @@
+{
+    
+    
+"recipes":[
+    {
+        "id": "1",
+        "title": "Lasagne",
+        "imageURL": "/lib/assets/lasagne.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Eine köstliche Lasagne mit einer reichhaltigen Bolognese-Sauce und cremiger Béchamelsauce, perfekt für ein gemütliches Familienessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [500, "g", "Hackfleisch, gemischt"],
+            [1, "", "Zwiebel(n)"],
+            [2, "", "Knoblauchzehe(n)"],
+            [1, "Bund", "Petersilie oder TK"],
+            [1, "EL", "Tomatenmark"],
+            [1, "Dose", "Tomaten, geschält (800 g)"],
+            ["etwas", "", "Rotwein"],
+            [0.5, "Liter", "Milch"],
+            [30, "g", "Butter"],
+            [40, "g", "Mehl"],
+            ["", "", "Salz und Pfeffer"],
+            ["", "", "Zitronensaft"],
+            ["", "", "Muskat"],
+            ["", "", "Butter für die Form"],
+            [300, "g", "Lasagneplatte(n)"],
+            ["n. B.", "", "Käse, geriebener"],
+            ["", "", "Butterflöckchen"]
+        ],
+        "preparation": [
+            "In einem Topf das Olivenöl erhitzen, das Hackfleisch darin rundherum anbraten und die gehackten Zwiebeln und die gehackte Petersilie dazugeben.",
+            "Knoblauch in feinen Scheiben und Tomatenmark dazu rühren und mitbraten. Mit den Dosentomaten aufgießen, salzen und pfeffern. Rotwein nach Belieben beifügen.",
+            "Das Ragú mindestens eine halbe Stunde lang bei geöffnetem Topf einkochen lassen.",
+            "Butter in einem kleinen Topf schmelzen und das Mehl mit dem Schneebesen unterrühren und hellgelb anschwitzen.",
+            "Die Milch dazu gießen und die Sauce glatt rühren. Wer zu langsam gerührt hat und Klümpchen in der Sauce findet, kann die Sauce durch ein feines Haarsieb passieren und dann weiterkochen lassen.",
+            "Die Sauce sollte fast eine halbe Stunde lang auf kleiner Flamme köcheln, damit sie den Mehlgeschmack verliert. Mit Salz, Pfeffer und Zitronensaft sowie etwas Muskat abschmecken.",
+            "In einer gebutterten, feuerfesten Form etwas Ragú Bolognese verteilen, eine Schicht Lasagneplatten darauf legen, die Nudelschicht wieder mit Ragú und dann mit einer Schicht Béchamel bedecken.",
+            "Anschließend wieder eine Schicht Nudeln, Ragú und Béchamel. So Schicht für Schicht die Form füllen.",
+            "Die letzte Schicht sollte die Béchamelsauce bilden. Dick mit geriebenem Käse bestreuen und Butterflöckchen darauf setzen.",
+            "Die Lasagne im heißen Backofen bei 180 °C Umluft ca. 30 - 40 Minuten backen, bis die Kruste goldbraun ist.",
+            "Tipp: Die Lasagne kann man auch gut einen Tag vorher vorbereiten und im Kühlschrank ziehen lassen."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/745721177147257/Lasagne.html"
+    },
+    
+    
+    
+    
+    {
+            "id": "2",
+            "title": "One-Pot-Spätzle mit Hähnchen",
+            "imageURL": "/lib/assets/one-pot-spaetzle-mit-haehnchen.jpg",
+            "price": "",
+            "foodart": "",
+            "description": "Ein schnelles und einfaches Gericht mit zarten Hähnchenstücken, frischem Gemüse und cremigen Spätzle, perfekt für eine stressfreie Mahlzeit.",
+            "time": "",
+            "waterneed": "",
+            "portion": "4",
+            "ingredients": [
+                [500, "g", "Hähnchenbrustfilet(s)"],
+                [1, "Stange", "Lauch"],
+                [2, "", "Möhre(n)"],
+                [1, "EL", "Pflanzenöl"],
+                [1, "TL", "Tomatenmark"],
+                [1, "EL", "Sambal Oelek"],
+                [100, "ml", "Sahne"],
+                [250, "ml", "Geflügelbrühe"],
+                [1, "Pck.", "Spätzle (400 g)"],
+                [3, "EL", "Gouda, gerieben"],
+                ["", "", "Salz und Pfeffer, frisch gemahlen"],
+                [1, "EL", "Petersilie, gehackt"]
+            ],
+            "preparation": [
+                "Hähnchen trocken tupfen und in Würfel schneiden. Lauch waschen, putzen und in feine Ringe schneiden, Möhren schälen, waschen und in kleine Würfel schneiden.",
+                "Öl in einem Topf erhitzen und Hähnchen darin ca. 2 Minuten anbraten.",
+                "Lauch und Möhren zugeben und weitere ca. 2 Minuten braten. Tomatenmark und Sambal Oelek zugeben, kurz mitbraten und mit Sahne und Brühe ablöschen.",
+                "Spätzle zugeben und ca. 2 Minuten köcheln lassen.",
+                "One-Pot-Spätzle mit Käse verfeinern, mit Salz und Pfeffer abschmecken und mit Petersilie bestreut servieren."
+            ],
+            "Kommentar": "https://www.chefkoch.de/rezepte/3433061511440514/One-Pot-Spaetzle-mit-Haehnchen.html"
+        },
+    
+    
+    
+    
+    {
+        "id": "3",
+        "title": "Gyros-Nudelauflauf in Metaxasoße",
+        "imageURL": "/lib/assets/gyros_nudelauflauf.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein herzhafter und würziger Nudelauflauf mit Gyrosfleisch und einer cremigen Metaxasoße, ideal für ein sättigendes Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [250, "g", "Nudeln"],
+            [500, "g", "Gyrosfleisch"],
+            [1, "", "Paprikaschote(n), rote"],
+            [2, "", "Zwiebel(n)"],
+            [150, "g", "Champignons, frische"],
+            [50, "g", "Tomatenmark"],
+            [200, "g", "Schmand"],
+            [400, "g", "Sahne"],
+            [4, "cl", "Metaxa"],
+            [125, "g", "Käse, geriebener"],
+            ["", "", "Salz und Pfeffer"],
+            ["", "", "Paprikapulver"]
+        ],
+        "preparation": [
+            "Nudeln in ausreichend Salzwasser kochen, abgießen und in eine Auflaufform geben. Gyros in Öl anbraten. Dann ebenfalls in die Auflaufform geben.",
+            "Das Gemüse waschen, klein schneiden und in demselben Öl anbraten, in dem zuvor das Gyros angebraten wurde. Noch etwas mit Salz und Pfeffer würzen. Das Gemüse nun zu dem Gyros und den Nudeln in die Auflaufform geben und vermengen.",
+            "Das Öl mit Sahne ablöschen und den Schmand einrühren. Nun auch Tomatenmark und Metaxa hinzugeben. Nach Belieben vom Tomatenmark und Metaxa etwas mehr hinzugeben. Mit Salz und Pfeffer, gegebenenfalls mit Paprikapulver und anderen Gewürzen würzen.",
+            "Nun die Soße über die Zutaten in der Auflaufform gießen, Käse drüber streuen und bei 180 °C Umluft für 20 - 30 Minuten in den heißen Ofen schieben."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/2737891426025016/Gyros-Nudelauflauf-in-Metaxasosse.html"
+    },
+    
+    
+    
+    
+    {
+        "id": "4",
+        "title": "Indisches Butter Chicken aus dem Ofen",
+        "imageURL": "/lib/assets/butter_chicken.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein köstliches und aromatisches indisches Gericht mit zartem Hähnchen und einer cremigen Buttersauce, perfekt für ein exotisches Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "2",
+        "ingredients": [
+            [500, "g", "Hähnchenbrust"],
+            [1, "TL", "Paprikapulver"],
+            [1, "EL", "Limettensaft oder Zitronensaft"],
+            [1, "TL", "Salz"],
+            [1, "Becher", "Joghurt (150 g)"],
+            [1, "TL", "Cayennepfeffer"],
+            [1, "EL", "Garam Masala"],
+            [1, "Zehe(n)", "Knoblauch"],
+            [1, "Stück(e)", "Ingwer, daumengroß"],
+            [4, "EL", "Butter"],
+            [1, "", "Zwiebel(n)"],
+            [500, "g", "Tomaten, passiert"],
+            [1, "TL", "Zimt"],
+            [1, "TL", "Salz"],
+            [2, "TL", "Cayennepfeffer"],
+            [1, "Stück(e)", "Ingwer, daumengroß"],
+            [1, "Zehe(n)", "Knoblauch"],
+            [1, "EL", "Honig"],
+            [150, "ml", "Sahne"],
+            ["einige", "", "Korianderblätter, optional"]
+        ],
+        "preparation": [
+            "Die Hähnchenbrust in Stücke schneiden.",
+            "Aus Paprikapulver, Limetten- bzw. Zitronensaft, Salz, Joghurt, Cayennepfeffer, Garam Masala, Ingwer und Knoblauchzehe eine Marinade herstellen. Das Fleisch mit der Marinade mischen. Mindestens eine Stunde einziehen lassen. Tipp: Besser ist es, das Fleisch bereits am Vortag zu marinieren und über Nacht in den Kühlschrank zu stellen.",
+            "Den Ofen auf 200 °C Ober-/Unterhitze vorheizen, dann das Fleisch in einer Auflaufform für 25 Minuten darin garen.",
+            "Die Zwiebel klein hacken und in 2 EL Butter glasig anschwitzen. Die passierten Tomaten, den Zimt, Salz, Cayennepfeffer, Ingwer und Knoblauchzehe hinzugeben. Alles 20 Minuten mit Deckel und bei niedriger Temperatur köcheln lassen. Gelegentlich umrühren.",
+            "Nun die restlichen 2 EL Butter, den Honig und die Sahne hinzufügen, weitere 3 Minuten köcheln.",
+            "Das Fleisch aus der Marinade nehmen, in die Soße geben, kurz umrühren und 2 Minuten mitköcheln lassen.",
+            "Dazu passt Reis oder Naan.",
+            "Tipp: Wer gerne Koriandergrün mag, der kann ganz am Ende noch ein paar frisch gehackte Blätter hinzufügen."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/2766911428603391/Indisches-Butter-Chicken-aus-dem-Ofen.html"
+    },
+    
+    
+    {
+        "id": "5",
+        "title": "Tagliatelle al Salmone",
+        "imageURL": "/lib/assets/tagliatelle_al_salmone.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Eine delikate Pasta mit frischem Lachs in einer cremigen Weißwein-Tomatensauce, perfekt für ein elegantes Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [250, "g", "Lachs, frisch"],
+            [2, "EL", "Olivenöl"],
+            [2, "", "Schalotte(n), gehackt"],
+            [2, "", "Knoblauchzehe(n), evtl. auch mehr"],
+            [200, "ml", "Weißwein, trockener"],
+            [200, "ml", "Gemüsebrühe"],
+            [1, "kl. Dose(n)", "Tomaten, stückige"],
+            [2, "TL", "Tomatenmark"],
+            ["n. B.", "", "Salz und Pfeffer"],
+            [0.5, "", "Limette(n), Saft davon"],
+            [200, "ml", "Sahne"],
+            [500, "g", "Tagliatelle oder andere Bandnudeln"],
+            [1, "TL", "Dill, gehackt"],
+            [2, "EL", "Petersilie, gehackt"],
+            ["etwas", "", "Fleur de Sel zum Bestreuen"]
+        ],
+        "preparation": [
+            "Zunächst den Lachs würfeln und im Olivenöl rundum kurz anbraten, dann herausnehmen.",
+            "Die gehackten Schalotten in die Pfanne geben. Kurz anschwitzen, bis sie glasig sind. Dann zwei Knoblauch hineinpressen und direkt mit dem Weißwein ablöschen. Nun den Wein bis zur Hälfte reduzieren und dann die Gemüsebrühe dazugeben. Dies nun ca. weitere 5 Minuten zusammen köcheln lassen.",
+            "Anschließend die Dosentomaten und das Tomatenmark beifügen. Ordentlich mit Salz und Pfeffer würzen. Den Saft der halben Limette dazugeben, die Soße abschmecken und evtl. nach Belieben noch eine Zehe Knoblauch hineinpressen. Nach ca. 5 Minuten die Sahne darüber gießen und dann den Lachs wieder in die Soße legen. Nochmal kurz aufkochen lassen, dann die zwischenzeitlich gekochten Tagliatelle in die Sauce geben und kurz darin ziehen lassen, damit sie etwas Sauce aufnehmen können.",
+            "Dill und Petersilie darüber streuen und mit etwas Fleur de Sel bestreut servieren."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/2109501340136606/Tagliatelle-al-Salmone.html"
+    },
+
+    
+    
+    {
+        "id": "6",
+        "title": "Entenbraten mit Gelinggarantie",
+        "imageURL": "/lib/assets/entenbraten.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein klassischer Entenbraten mit knuspriger Haut und saftigem Fleisch, perfekt für ein festliches Essen mit der Familie.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [1, "", "Ente(n) (ca. 3 kg)"],
+            [1, "Bund", "Beifuß"],
+            [2, "EL", "Salz"],
+            [1, "Liter", "Wasser, kochendes"],
+            ["evtl.", "", "Äpfel"]
+        ],
+        "preparation": [
+            "Die küchenfertige Ente gründlich waschen und abtupfen. Mit reichlich Salz innen und außen einreiben. Den Beifuß in die Ente stecken, bei Bedarf auch Äpfel dazugeben.",
+            "Die Ente in die Pfanne geben und mit dem kochenden Wasser übergießen. Mit dem Deckel die Pfanne verschließen und ca. 1 Stunde auf dem Herd köcheln lassen.",
+            "Danach den Deckel abnehmen und die Pfanne oder den Bräter bei ca. 150 °C (Umluft) in den Backofen schieben. Die Ente ab und zu beschöpfen und wenden.",
+            "Ca. 2 Stunden im Ofen lassen, die letzte halbe Stunde die Ente nur auf dem Rost goldbraun braten. Inzwischen die Soße mit Stärkemehl andicken.",
+            "So hat schon meine Oma den Braten zubereitet und ich wende dieses Rezept zur Freude der Familie auch so an."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/1867671303219966/Entenbraten-mit-Gelinggarantie.html"
+    },
+
+    
+    
+    
+    {
+        "id": "7",
+        "title": "Hirschgulasch",
+        "imageURL": "/lib/assets/hirschgulasch.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein reichhaltiges und herzhaftes Hirschgulasch, perfekt für besondere Anlässe oder ein gemütliches Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [1, "kg", "Hirschgulasch"],
+            [3, "EL", "Butterschmalz"],
+            [200, "g", "Zwiebel(n), klein gewürfelt"],
+            [1, "", "Möhre(n), klein gewürfelt"],
+            [1, "Stück(e)", "Knollensellerie, klein gewürfelt"],
+            [1, "Handvoll", "Steinpilze, getrocknete"],
+            [100, "ml", "Wasser zum Einweichen"],
+            [1, "EL", "Tomatenmark"],
+            ["", "", "Salz und Pfeffer"],
+            [6, "", "Wacholderbeere(n), etwas zerdrückt"],
+            [3, "", "Nelke(n), etwas zerdrückt"],
+            ["etwas", "", "Thymian"],
+            [200, "ml", "Rotwein, trockener"],
+            [400, "ml", "Wildfond"],
+            [1, "EL", "Rotweinessig oder Aceto Balsamico"],
+            [4, "EL", "Preiselbeerkompott"],
+            ["evtl.", "", "Zucker"],
+            ["evtl.", "", "Sahne"]
+        ],
+        "preparation": [
+            "Die getrockneten Steinpilze 1 Stunde in kaltem Wasser einweichen. Dann auspressen und in kleine Stücke schneiden. Das Einweichwasser aufheben.",
+            "Das Gulasch abtropfen lassen und trocken tupfen. Das Butterschmalz im Bräter erhitzen, die Gulaschstücke portionsweise darin scharf anbraten und wieder herausnehmen.",
+            "Zwiebeln, Möhre, Sellerie und Steinpilze im Bräter anbraten. Das Tomatenmark anschwitzen und nach und nach mit etwas von dem Rotwein, Wildfond und Pilzwasser ablöschen. Maximal aber vom Rotwein etc. die Hälfte, dann das Fleisch hinzugeben, salzen und pfeffern.",
+            "Dann den restlichen Rotwein, Einweichwasser, Gewürze, Rotweinessig und 2 EL von den Preiselbeeren und evtl. eine Prise Zucker hinzugeben.",
+            "Bei geschlossenem Deckel ca. 2 ½ -3 Stunden schmoren, bis das Fleisch zart ist, gelegentlich umrühren. Evtl. die letzte halbe Stunde ohne Deckel schmoren, damit die Sauce besser eindicken kann.",
+            "Zum Schluss die restlichen Preiselbeeren hinzufügen, evtl. mit Salz, Pfeffer, Rotwein abschmecken und wer mag, gibt einen Schuss süße Sahne dazu. Sahne lasse ich aber weg, weil die schöne dunkelbraune Farbe und der Geschmack der Sauce genug ist."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/923511197717113/Hirschgulasch.html"
+    },
+    
+    
+    {
+        "id": "8",
+        "title": "Rote Linsen-Curry mit Süßkartoffeln",
+        "imageURL": "/lib/assets/rote_linsen_curry.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein gesundes und aromatisches Curry mit roten Linsen und Süßkartoffeln, perfekt für ein wärmendes und sättigendes Essen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "3",
+        "ingredients": [
+            [450, "g", "Süßkartoffel(n)"],
+            [1, "große", "Paprikaschote(n), rote"],
+            [2, "", "Knoblauchzehe(n)"],
+            [2, "m.-große", "Zwiebel(n)"],
+            [1, "EL", "Olivenöl"],
+            [2, "EL", "Tomatenmark"],
+            [2, "TL", "Currypulver"],
+            [2, "TL", "Kurkuma"],
+            [1, "TL", "Garam Masala"],
+            ["", "", "Salz und Pfeffer"],
+            [200, "g", "Linsen, rote"],
+            [500, "ml", "Kokosmilch"],
+            [250, "ml", "Gemüsebrühe"]
+        ],
+        "preparation": [
+            "Die Süßkartoffeln schälen und würfeln. Die Paprikaschote würfeln, den Knoblauch schälen und die Zwiebeln klein schneiden.",
+            "Das Olivenöl in einem großen Topf erhitzen und die Zwiebeln glasig anschwitzen. Den Knoblauch durch die Presse in den Topf drücken, kurz mitbraten und dann Süßkartoffeln und Paprika in den Topf geben.",
+            "Das Tomatenmark und die Gewürze dazugeben und kurz mitbraten, anschließend die Linsen hinzufügen.",
+            "Nun alles mit Kokosmilch und Gemüsebrühe aufgießen und ca. 25 min. köcheln lassen.",
+            "Das Curry schmeckt am nächsten Tag meist noch besser und lässt sich auch gut einfrieren."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/3023041455110341/Rote-Linsen-Curry-mit-Suesskartoffeln.html"
+    },
+
+
+    {
+        "id": "9",
+        "title": "Kichererbsen-Salat",
+        "imageURL": "/lib/assets/kichererbsen_salat.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein erfrischender und nahrhafter Kichererbsen-Salat, ideal als Beilage oder leichte Hauptspeise.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [300, "g", "Kichererbsen, gekochte"],
+            [0.5, "Bund", "Minze"],
+            [0.5, "Bund", "Petersilie"],
+            [1, "", "Zwiebel(n), rote"],
+            [2, "", "Möhre(n)"],
+            [1, "", "Granatapfel"],
+            [1, "", "Zitrone(n)"],
+            [1, "EL", "Honig"],
+            ["", "", "Olivenöl"],
+            [1, "EL", "Kreuzkümmelpulver"],
+            ["", "", "Salz und Pfeffer"]
+        ],
+        "preparation": [
+            "Die rote Zwiebel in Streifen schneiden, die Möhren in Längsstreifen schneiden. Beides zusammen mit dem Kreuzkümmel in etwas Olivenöl anschwitzen und mit Honig karamellisieren. Braten, bis die Möhren gar, aber noch bissfest sind. Ggf. einen kleinen Schuss Wasser hinzufügen.",
+            "Die Kichererbsen hinzugeben und mit Olivenöl, Zitronensaft, Salz und Pfeffer abschmecken.",
+            "Die Kräuter in feine Streifen schneiden und zusammen mit den Kernen des Granatapfels unter die Kichererbsen mischen."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/4045481625128358/Kichererbsen-Salat.html"
+    },
+    
+    
+    {
+        "id": "10",
+        "title": "Nudelsalat auf italienisch",
+        "imageURL": "/lib/assets/nudelsalat_italienisch.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein frischer und herzhafter Nudelsalat mit italienischen Aromen, perfekt als Beilage oder leichtes Hauptgericht.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [250, "g", "Penne oder andere Nudeln nach Wahl"],
+            [50, "g", "Pinienkerne"],
+            ["", "", "Rucola"],
+            [100, "g", "Tomate(n), getrocknete in Öl"],
+            [200, "g", "Mozzarella"],
+            [150, "g", "Parmaschinken"],
+            ["", "", "Salz und Pfeffer"],
+            [70, "ml", "Olivenöl extra vergine"],
+            [3, "EL", "Balsamico, heller oder dunkler, je nach Geschmack"],
+            [1, "Zehe(n)", "Knoblauch"],
+            [1, "TL", "Pesto"],
+            [1, "TL", "Senf"],
+            [1, "TL", "Honig"],
+            ["", "", "Parmesan, frisch geriebener (zum Garnieren)"]
+        ],
+        "preparation": [
+            "Die Nudeln kochen und mit kaltem Wasser abschrecken. Die Pinienkerne in einer Pfanne bei mittlerer Hitze ohne Fett leicht anbräunen.",
+            "Rucola gut waschen, trocken schleudern und etwas kleiner schneiden. Die getrockneten Tomaten gut abtropfen lassen und wie den Mozzarella und den Parmaschinken klein schneiden. Alles in eine große Schüssel geben, salzen und pfeffern.",
+            "Öl, Essig, klein gehackte oder gepresste Knoblauchzehe, Pesto, Senf und Honig miteinander vermischen und kurz vor dem Essen über den Salat geben. Alles noch einmal gut durchmischen und mit dem geriebenen Parmesan garnieren."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/291451108168834/Nudelsalat-auf-italienisch.html"
+    },
+    
+    
+    {
+        "id": "11",
+        "title": "Italienischer Pizzateig",
+        "imageURL": "/lib/assets/italienischer_pizzateig.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein authentischer italienischer Pizzateig, der perfekte Grundlage für knusprige und köstliche hausgemachte Pizzen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "1",
+        "ingredients": [
+            [500, "ml", "Wasser, lauwarmes"],
+            [25, "ml", "Olivenöl"],
+            [40, "g", "Frischhefe"],
+            [20, "g", "Salz"],
+            [1, "Prise(n)", "Zucker"],
+            [925, "g", "Mehl, glattes"]
+        ],
+        "preparation": [
+            "Im lauwarmen Wasser und dem Olivenöl die Hefe mit Salz und Zucker auflösen. Dann das Mehl hinzufügen und einen glatten Teig kneten. Den Teig eine halbe Stunde an einem warmen Ort gehen lassen, zusammenkneten und abgedeckt im Kühlschrank 2 Tage ruhen lassen.",
+            "Nun kann man vom Teig eine herrlich frische Pizza herstellen.",
+            "Der Teig reicht für 6 runde Pizzen.",
+            "Anmerkungen: Belegen kann man diese nach Belieben, natürlich sollten die Tomatensauce und der Käse nicht fehlen. Ich habe sie schon auf einem Blech sowie auf verschiedenen runden Pizzaformen gebacken. Sie wird immer supertoll und schmeckt original wie von meinem Lieblingsitaliener. Wenn man die Menge entsprechend reduzieren möchte, ist das auch kein Problem. Die Menge der Hefe habe ich jedoch immer bei 40 g gelassen.",
+            "Am besten gelingt die Pizza, wenn man den Ofen sehr gut auf der höchstmöglichen Temperatur vorheizt!"
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/716331174378295/Italienischer-Pizzateig.html"
+    }
+    
+]
+}
