@@ -1,6 +1,9 @@
+import 'package:finder/einkaufsliste.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'food_card.dart';
 import 'fooditems.dart';
+import 'einkaufsliste.dart';
 
 void main() {
   runApp(FoodApp());
@@ -10,11 +13,24 @@ class FoodApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+          titleLarge: GoogleFonts.afacad(
+            fontSize: 32,
+            color: Colors.black,
+
+          )
+        )
+      ),
       home: Scaffold(
-        appBar: AppBar(
+        /*appBar: AppBar(
           title: Text('Food App'),
+        ),*/
+        body: Einkaufsliste(
+          
         ),
-        body: ListView.builder(
+
+    /*ListView.builder(
           padding: const EdgeInsets.all(16.0),
           itemCount: foodItems.length,
           itemBuilder: (context, index) {
@@ -32,8 +48,10 @@ class FoodApp extends StatelessWidget {
               ),
             );
           },
-        ),
+        ), */
       ),
     );
   }
 }
+
+

@@ -71,26 +71,15 @@ class FirstElement extends StatelessWidget {
                               fontWeight: FontWeight.bold,
 
                             ),
-
                           ),
-
                         )
-
-                        
                       )
-
                     ],
                   )
-
-
                 ],
               ),
-
             ),
           )
-
-
-
         ],
       ),
   );
