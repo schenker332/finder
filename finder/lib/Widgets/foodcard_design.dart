@@ -170,6 +170,7 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                 ),
               ),
             ),
+            //Herz für Favoriten
             Expanded(
               flex: 1,
               child: Padding(

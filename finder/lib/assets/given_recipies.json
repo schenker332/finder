@@ -408,7 +408,267 @@
             "Am besten gelingt die Pizza, wenn man den Ofen sehr gut auf der höchstmöglichen Temperatur vorheizt!"
         ],
         "Kommentar": "https://www.chefkoch.de/rezepte/716331174378295/Italienischer-Pizzateig.html"
+    },
+    
+    
+    {
+        "id": "12",
+        "title": "Hähnchen süßsauer wie im Chinarestaurant",
+        "imageURL": "/lib/assets/haehnchen_suesssauer.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein klassisches süßsaures Hähnchengericht, das perfekt den Geschmack des chinesischen Restaurants zu Hause nachahmt.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [250, "g", "Reis"],
+            [2, "", "Hähnchenbrüste"],
+            [1, "", "Ei(er)"],
+            [4, "EL", "Speisestärke"],
+            [1, "Dose", "Ananas"],
+            [7, "EL", "Apfelessig oder Weißweinessig"],
+            [4, "EL", "Zucker"],
+            [1, "TL", "Salz"],
+            [2, "EL", "Ketchup"],
+            [2, "EL", "Sojasauce"],
+            [2, "EL", "Öl, neutrales (z.B Sonnenblumenöl)"],
+            [1, "", "Zwiebel(n)"],
+            [2, "", "Paprikaschote(n)"]
+        ],
+        "preparation": [
+            "Zuerst wird der Reis mit etwas Salz gekocht, im Video wird Naturreis genommen, dieser hat eine Garzeit von ca. 35 Minuten.",
+            "Die Hühnerbrüste werden gewaschen und in mundgerechte Stücke geschnitten. Nun wird ein Ei in eine kleine Schüssel gegeben mit Pfeffer und Salz gewürzt und verquirlt. In eine weitere Schüssel werden 2 EL Speisestärke gegeben und etwas mit dem Löffel verteilt. Eine Pfanne wird aufgeheizt.",
+            "Nun werden die Hühnerbruststücke in die Stärke gegeben und mehrmals gedreht, bis sie vollständig bedeckt sind. Danach werden sie zum Ei gegeben und ebenfalls gedreht bis sie vollständig mit dem Ei überzogen sind.",
+            "Jetzt wird das mit Ei überzogene Fleisch in einer Pfanne rundherum gebraten bis es gar ist. Danach wird es auf einen Teller gegeben und beiseitegestellt.",
+            "Als nächstes wird die Ananas aus der Dose abgetropft und die Flüssigkeit aus der Dose aufgefangen.",
+            "Für die Sauce wird der Essig mit Zucker, Salz, Sojasauce, Öl und Ketchup in eine Schüssel gegeben und durchgerührt.",
+            "Die Zwiebel wird geputzt, halbiert und in feine Ringe geschnitten und in der Pfanne, in der die Hähnchenstücke waren, angebraten. Nun werden noch 2 Paprikaschoten geputzt und ebenfalls in mundgerechte Stücke geschnitten. Diese werden dann mit der Ananas zu den Zwiebeln gegeben und 5 Minuten mitgebraten.",
+            "Dann wird die Sauce dazu gegeben und alles weitere 3 Minuten auf mittlerer Hitze geköchelt. In der Zwischenzeit werden die letzten 2 EL Speisestärke mit ca. 80 Milliliter des Ananassaftes angerührt und dann in die Pfanne gegeben. Danach wird alles wieder auf den Herd gegeben um etwas zu reduzieren.",
+            "Inzwischen sollte der Reis fertig sein. Dieser wird abgegossen und kurz beiseitegestellt, denn jetzt wird das Fleisch zum Gemüse in die Pfanne gegeben um rasch wieder heiß zu werden.",
+            "Dann wird der Reis auf die Teller verteilt, Hähnchen und Gemüse darauf angerichtet und etwas Sauce darauf gegossen."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/2826671434712499/Haehnchen-suesssauer-wie-im-Chinarestaurant.html"
+    },
+    
+    {
+        "id": "13",
+        "title": "Chicken Teriyaki - der japanische Klassiker",
+        "imageURL": "/lib/assets/chicken_teriyaki.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein klassisches Teriyaki-Gericht mit zartem Hähnchen und einer leckeren süß-salzigen Soße, perfekt für ein schnelles und köstliches Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "2",
+        "ingredients": [
+            [4, "EL", "Sojasauce"],
+            [4, "EL", "Reiswein, Mirin oder Sake"],
+            [2, "EL", "Zucker"],
+            [1, "TL", "Ingwer, frisch, gerieben"],
+            [1, "TL", "Knoblauch, fein gehackt"],
+            [0.25, "TL", "Chiliflocken, optional"],
+            [1, "TL", "Sesam, geschält"],
+            [4, "", "Hähnchenschenkel mit Haut, ohne Knochen"],
+            [1, "TL", "Speisestärke"],
+            ["", "", "Salz und Pfeffer"],
+            [1, "", "Frühlingszwiebel(n), schräg in sehr dünne Ringe geschnitten"],
+            [250, "g", "Brokkoliröschen, gedämpft, leicht gesalzen und gepfeffert"],
+            [1, "TL", "Sesamöl"],
+            ["", "", "Reis, gegart"]
+        ],
+        "preparation": [
+            "Sojasauce, Reiswein und Zucker in einer Schüssel verquirlen. Das Original Teriyaki-Rezept sieht keinen Ingwer, Knoblauch oder Chiliflocken vor, ich mag jedoch den Geschmack sehr gerne.",
+            "Hähnchenschenkel unter kaltem Wasser abbrausen, trocken tupfen, von beiden Seiten minimal salzen und pfeffern (kann man auch lassen, die Sojasauce der Marinade liefert ja ebenfalls Salz). Dann ganz dünn mit Speisestärke bestreuen und diese leicht ins Fleisch einreiben.",
+            "In einer beschichteten Pfanne den Sesam ohne Fett bei mittlerer Hitze unter häufigem Rühren leicht rösten, bis er zart goldbraun ist. In ein Schälchen umfüllen und beiseitestellen.",
+            "Die Pfanne nun gut erhitzen, die Pollo fino mit der Hautseite nach unten in die Pfanne geben. Hitze auf mittelstark (bei mir Stufe 6 oder 7 von 9) zurückdrehen und das Fleisch so lange anbraten, bis die Haut goldbraun ist (ca. 6 - 7 Minuten). Das Fleisch wenden und von der anderen Seite ebenfalls anbraten. Nach weiteren 5 - 6 Minuten ist das Fleisch auch innen gar. Aus der Pfanne nehmen und mit Küchenpapier das Fett möglichst vollständig aus der Pfanne entfernen.",
+            "Die Marinade noch einmal kurz verquirlen und in die Pfanne geben (mittlere Hitze!). Tief einatmen und den Duft genießen! Die Pollo fino in die Marinade geben. So lange köcheln lassen, bis sie deutlich reduziert und karamellisiert ist und die gewünschte soßige Konsistenz hat. Dabei das Fleisch mehrfach wenden und immer wieder per Löffel mit der Marinade übergießen, so dass es rundum von der glänzenden Soße bedeckt ist. Dickt diese zu sehr ein, kann man vorsichtig teelöffelweise mit etwas Wasser verdünnen.",
+            "Den Herd ausschalten. Die Pollo fino aus der Soße heben, kurz über der Pfanne abtropfen lassen, mit der knusprigen Haut nach oben auf einem Brett 1-2 Minuten ruhen lassen.",
+            "Währenddessen den Reis und den Brokkoli auf Tellern anrichten. Einige Tropfen Sesamöl auf den Brokkoli geben. Dann das Fleisch mit einem sehr scharfen Messer quer in 1 - 2 cm breite Streifen schneiden. Auf oder neben dem Reis drapieren. Mit der restlichen Soße beträufeln, den Frühlingszwiebelringen und dem Sesam garnieren und genießen!",
+            "Anmerkungen: Theoretisch kann man auch Hähnchenbrustfilet verwenden, aber das Fleisch der Hähnchenoberkeule ist deutlich saftiger und geschmacksintensiver und ist schneller gar als ein dickes Stück Hähnchenbrust. Ein Großteil des Fetts bleibt nach dem Braten in der Pfanne zurück und wird ja dann entfernt, landet also nicht auf dem Teller bzw. den Hüften.",
+            "Die Süße des Zuckers soll die Salzigkeit der Sojasauce deutlich überlagern, jedoch kann man durchaus auch nur die Hälfte des Zuckers nehmen, wenn man diese Süße nicht so dominant schmecken möchte. Wer gerne mehr Soße mag, erhöht einfach die Menge der Zutaten entsprechend."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/3618671544190713/Chicken-Teriyaki-der-japanische-Klassiker.html"
+    },
+    
+    {
+        "id": "14",
+        "title": "Gebratene Nudeln",
+        "imageURL": "/lib/assets/gebratene_nudeln.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein einfaches und leckeres Rezept für gebratene Nudeln mit Sojasprossen und Geflügelfleisch, ideal für ein schnelles Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "2",
+        "ingredients": [
+            [250, "g", "chinesische Eiernudeln, gekocht"],
+            [200, "g", "Sojasprossen oder Mungobohnenkeimlinge"],
+            [1, "kleine", "Lauchzwiebel(n), klein geschnitten"],
+            ["n. B.", "", "Öl"],
+            ["n. B.", "", "Sojasauce"],
+            ["n. B.", "", "Sambal Oelek"],
+            ["n. B.", "", "Paprikapulver"],
+            ["n. B.", "", "Currypulver"],
+            ["n. B.", "", "Chilipulver"],
+            [200, "g", "Geflügelfleisch"]
+        ],
+        "preparation": [
+            "Das Fleisch in feine Streifen schneiden und mit Sojasauce und Sambal Oelek vorwürzen.",
+            "5 EL Öl und 1 TL Sojasauce vermischen und in einen Wok oder eine Pfanne geben. Das Fleisch anbraten und dann die Sprossen sowie Lauchzwiebeln dazugeben. Kurz danach die Nudeln zufügen. Ca. 5 Minuten weiter braten lassen und dabei regelmäßig wenden. Zum Schluss mit den angegebenen Gewürzen nach Geschmack würzen.",
+            "Anmerkung: Man verwendet hier bereits gekochte Nudeln."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/63051022929691/Gebratene-Nudeln.html"
+    },
+    
+    
+    {
+        "id": "15",
+        "title": "Schnelles Thai-Curry mit Huhn, Paprika und feiner Erdnussnote",
+        "imageURL": "/lib/assets/thai_curry_huhn.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein aromatisches und schnelles Thai-Curry mit Hähnchen, Paprika und einer leckeren Erdnussnote, perfekt für ein exotisches Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [500, "g", "Hähnchenbrustfilet(s), in feinen Streifen"],
+            [2, "EL", "Pflanzenöl"],
+            [1, "EL", "Sojasauce"],
+            [1, "Stück(e)", "Ingwerwurzel, etwa daumengroß, geschält, fein gehackt"],
+            [1, "EL", "Thai-Currypaste, rote, oder weniger"],
+            [1, "EL", "Erdnussbutter"],
+            [400, "ml", "Kokosmilch, ungesüßt, cremig"],
+            [2, "", "Paprikaschote(n), rote, in feinen Streifen"],
+            [3, "", "Frühlingszwiebel(n), in feinen Streifen"],
+            [1, "kl. Glas", "Bambussprosse(n), ca. 175 g, gut abgetropft, in Streifen"],
+            [10, "", "Maiskölbchen, aus dem Glas, längs halbiert"],
+            [1, "EL", "Fischsauce"],
+            [1, "TL", "Palmzucker, ersatzweise brauner Zucker"],
+            [1, "TL", "Zitronengraspaste oder fein gehacktes Zitronengras"],
+            [1, "EL", "Thai-Basilikum"],
+            [500, "g", "Jasminreis oder Duftreis"]
+        ],
+        "preparation": [
+            "Das Fleisch mit je 1 EL Öl, Sojasauce und Ingwer gut vermischen und ca. 30 Minuten marinieren. In der Zwischenzeit das Gemüse putzen und klein schneiden. Das Fleisch in einer beschichteten Pfanne rasch braten und zur Seite stellen.",
+            "Im Wok oder einer großen Pfanne mit hohem Rand die Currypaste im restlichen Öl anrösten. Die Erdnussbutter unterrühren und schmelzen lassen. Mit Kokosmilch ablöschen. Das Gemüse zugeben und alles ca. 15 Minuten köcheln lassen.",
+            "In der Zwischenzeit den Reis nach Packungsangaben zubereiten und ausdämpfen lassen.",
+            "Kurz vor Ende der Garzeit (das Gemüse soll noch Biss haben), das Fleisch dazugeben und kurz wieder erhitzen. Das Curry mit Palmzucker, Fischsauce (notfalls etwas Salz nehmen) und Zitronengraspaste (soll nicht mitkochen) abschmecken. Nach Belieben Thai-Basilikum darüber streuen und mit dem Reis servieren.",
+            "Anmerkung: Die Zusammenstellung des Gemüses kann man ganz nach Geschmack und Verfügbarkeit variieren/ergänzen z. B. fein geschnittene Wasserkastanien für noch mehr Biss, ein paar kleine Brokkoliröschen oder einige Zuckerschoten (diagonal geteilt, kurz blanchiert oder angebraten) als zusätzlichen Farbtupfer. Es sollten (geputzt und geschnitten gemessen) insgesamt ca. 4 - 5 Handvoll Gemüse sein.",
+            "Zitronengraspaste ist geriebenes, in etwas Pflanzenöl eingelegtes Zitronengras. Das angebrochene Glas am besten im Tiefkühlfach aufbewahren."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/460771139185700/Schnelles-Thai-Curry-mit-Huhn-Paprika-und-feiner-Erdnussnote.html"
+    },
+    
+    {
+        "id": "16",
+        "title": "Fisch mit Dill-Curry-Honig-Sauce",
+        "imageURL": "/lib/assets/fisch_dill_curry_honig.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein köstliches Fischgericht mit einer cremigen Sauce aus Dill, Curry und Honig, perfekt für ein schnelles und aromatisches Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "2",
+        "ingredients": [
+            [250, "ml", "Sahne"],
+            [50, "ml", "Milch"],
+            [2, "TL", "Honig"],
+            [2, "TL", "Dill, getrocknet"],
+            [0.5, "TL", "Currypulver (Masala Curry)"],
+            [2, "EL", "Zitronensaft oder Limettensaft"],
+            [0.5, "", "Zwiebel(n)"],
+            [0.5, "Zehe(n)", "Knoblauch"],
+            [1, "EL", "Brühepulver"],
+            [1, "TL", "Pfeffer"],
+            [1, "Prise(n)", "Zucker"],
+            ["", "", "Salz"],
+            ["", "", "Saucenbinder, hell"],
+            [2, "Port.", "Fisch nach Wahl"],
+            ["", "", "Fett zum Braten"]
+        ],
+        "preparation": [
+            "Die Zwiebel und den Knoblauch in feine Würfel schneiden.",
+            "Den Fisch mit etwas Pfeffer und Curry würzen und mit etwas Fett in der Pfanne braten. Den gebratenen Fisch aus der Pfanne nehmen, dann zuerst die Zwiebelwürfel und etwas später den Knoblauch hinzugeben und beides für etwa 1-2 Minuten im verbliebenen Fett anbraten, bis die Zwiebeln glasig sind.",
+            "Anschließend die Sahne und die Milch hinzugeben. Sobald die Sauce wieder köchelt, den Honig unterrühren und Dillspitzen, Masala Curry, Brühe und Zitronensaft hinzugeben. Mit hellem Soßenbinder andicken, falls nötig, bei 300 ml Sahne und Milch hat ein Esslöffel Soßenbinder genügt. Nach Zugabe einer Prise Zucker noch mit wenig Salz und viel Pfeffer abschmecken.",
+            "Die Sauce schließlich einige Minuten ziehen lassen, währenddessen kann auch der Fisch in die Sauce gelegt werden, um wieder heiß zu werden. Dazu passt natürlich besonders gut Reis."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/2094671338200466/Fisch-mit-Dill-Curry-Honig-Sauce.html"
+    },
+    
+    {
+        "id": "17",
+        "title": "Lachs mit Parmesan-Kräuter-Walnuss-Kruste",
+        "imageURL": "/lib/assets/lachs_parmesan_krauter.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein köstlicher Lachs mit einer knusprigen Parmesan-Kräuter-Walnuss-Kruste, ideal für ein elegantes Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [800, "g", "Lachs mit Haut"],
+            [1, "", "Bio-Zitrone(n)"],
+            [1, "Zehe(n)", "Knoblauch"],
+            [1, "Bund", "Petersilie, glatte"],
+            [1, "Zweig(e)", "Salbei"],
+            [60, "g", "Walnüsse"],
+            [40, "g", "Parmesan, frisch geriebener"],
+            [1, "EL", "Butter, weiche"],
+            [250, "g", "Vollmilchjoghurt"],
+            ["etwas", "", "Meersalz und Pfeffer, schwarzer aus der Mühle"],
+            ["", "", "Butter für die Form"]
+        ],
+        "preparation": [
+            "Den Lachs abspülen, mit Küchenpapier trocken tupfen und eventuell noch vorhandene Gräten mit einer Pinzette entfernen. Die Zitrone heiß abspülen, trocken reiben und die Schale mit einem Zestenreißer abziehen oder mit einer feinen Reibe abreiben. Den Knoblauch abziehen und fein hacken. Petersilie und Salbei abbrausen, trocken schütteln und zusammen mit den Walnüssen hacken.",
+            "Zitronenschale, Knoblauch, Kräuter, Nüsse, Parmesan, Meersalz und Pfeffer mit 1 EL weicher Butter gut vermischen.",
+            "Den Backofen auf 200 °C Ober-/Unterhitze (Umluft 180 °C) vorheizen.",
+            "Die Lachsseite auf der Haut in eine ofenfeste, mit Butter ausgestrichene Form legen. Die Kräuter-Nuss-Mischung schön gleichmäßig auf dem Fisch verteilen und mit den Händen leicht andrücken. Die Form in den Ofen schieben und den Fisch etwa 25 Minuten braten.",
+            "Den gut gekühlten Joghurt mit Salz und Pfeffer würzen und zum Lachs servieren.",
+            "Dazu passen Butterkartöffelchen oder frisches Baguette und ein kühler Riesling."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/2288881364998381/Lachs-mit-Parmesan-Kraeuter-Walnuss-Kruste.html"
+    },
+    
+    {
+        "id": "19",
+        "title": "Schnelles Spinat-Kichererbsen-Gericht",
+        "imageURL": "/lib/assets/spinat_kichererbsen_gericht.jpg",
+        "price": "",
+        "foodart": "",
+        "description": "Ein schnelles und gesundes Gericht mit Spinat und Kichererbsen, perfekt für ein nahrhaftes Mittag- oder Abendessen.",
+        "time": "",
+        "waterneed": "",
+        "portion": "4",
+        "ingredients": [
+            [1, "Pck.", "Blattspinat, TK, ca. 400 - 450 g"],
+            [2, "", "Zwiebel(n)"],
+            [2, "", "Knoblauchzehe(n)"],
+            [2, "", "Tomate(n), frisch, oder 1/2 Dose stückige Tomaten (von einer 400 g Dose)"],
+            [1, "kl. Dose/n", "Kichererbsen, gut abgetropft, 400 g Dose"],
+            [1, "kl. Stück(e)", "Ingwerwurzel, etwa so groß wie eine halbe Knoblauchzehe"],
+            [1, "Dose", "Kokosmilch, cremig, 400 g"],
+            [2, "EL", "Kokosöl"],
+            [0.5, "TL", "Salz"],
+            [0.5, "TL", "Paprikapulver"],
+            [0.5, "TL", "Kurkumapulver"],
+            [0.5, "TL", "Korianderblätter, gerebelt"],
+            ["", "", "Chiliflocken"]
+        ],
+        "preparation": [
+            "Den Blattspinat auftauen (evtl. in der Mikrowelle) und das Wasser abgießen.",
+            "Zwiebel, Knoblauch und Ingwer schälen. Die Tomaten am Stielansatz anschneiden, mit heißem Wasser übergießen und nach kurzer Zeit die Schale abziehen. Wenn es ganz schnell gehen soll, kann man auch gehackte Dosentomaten nehmen. Dafür 1/2 Dose verwenden, aber den Saft unbedingt abgießen, damit das Gericht keinen tomatigen Geschmack und keine rötliche Farbe annimmt.",
+            "Zwiebel und Tomaten in Würfel schneiden, (Dosentomaten abgießen), Knoblauch und Ingwer sehr fein hacken.",
+            "In einer hohen Pfanne das Kokosöl erhitzen. Zwiebel, Knoblauch und Ingwer hineingeben und glasig dünsten. Spinat, Tomaten und Kokosmilch (inkl. dem Wasser) hineingeben, würzen, einmal gut umrühren und zudecken.",
+            "Alles bei schwacher Hitze, leicht blubbernd ca. 10 Min. köcheln lassen. Zum Schluss die Kichererbsen dazugeben, verrühren und kurz ziehen lassen. Eventuell alles noch mal abschmecken und mit Chiliflocken bestreut servieren."
+        ],
+        "Kommentar": "https://www.chefkoch.de/rezepte/3207211477346212/Schnelles-Spinat-Kichererbsen-Gericht.html"
     }
+
+
+
+
     
 ]
 }
