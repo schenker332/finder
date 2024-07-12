@@ -26,6 +26,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: "FoodFinder",
       debugShowCheckedModeBanner: false,
@@ -41,6 +42,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
         appBarTheme: AppBarTheme(
           backgroundColor: const Color(0xFFFFFBF9),
         ),
+        //primaryColor: const Color(0xFFFBF9),
         textTheme: TextTheme(
           titleLarge: GoogleFonts.afacad(
             fontSize: 32,
@@ -56,10 +58,11 @@ class _MyFirstAppState extends State<MyFirstApp> {
       ),
       home: SafeArea(
         child: Scaffold(
+
           body: Column(
             children: [
               Expanded(
-                child: screens[currentPage],
+                  child: screens[currentPage]
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -78,188 +81,191 @@ class _MyFirstAppState extends State<MyFirstApp> {
                       width: 1,
                     ),
                   ),
+
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentPage = 0;
-                          });
+                      GestureDetector( // home
+                        onTap: (){
+                          currentPage = 0;
+                          setState(() {});
                         },
                         onTapDown: (TapDownDetails details) {
-                          setState(() {
-                            tappedPage = 0;
-                          });
+                          tappedPage = 0;
+                          setState(() {});
                         },
                         onTapUp: (TapUpDetails details) {
-                          setState(() {
-                            tappedPage = -1;
-                          });
+                          tappedPage = -1;
+                          setState(() {});
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
+                            duration: Durations.short2,
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: tappedPage == 0 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                              color: currentPage == 0 ?
+                                Colors.black :
+                                (tappedPage == 0 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: currentPage == 0 || tappedPage == 0
-                                ? Icon(CupertinoIcons.house_fill)
-                                : Icon(CupertinoIcons.house),
+                            child: currentPage == 0 ?
+                              Icon(CupertinoIcons.house, color: Colors.white) :
+                              Icon(CupertinoIcons.house, color: Colors.black)
                           ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentPage = 1;
-                          });
+                      ), // home
+
+                      GestureDetector( // search
+                        onTap: (){
+                          currentPage = 1;
+                          setState(() {});
                         },
                         onTapDown: (TapDownDetails details) {
-                          setState(() {
-                            tappedPage = 1;
-                          });
+                          tappedPage = 1;
+                          setState(() {});
                         },
                         onTapUp: (TapUpDetails details) {
-                          setState(() {
-                            tappedPage = -1;
-                          });
+                          tappedPage = -1;
+                          setState(() {});
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: Durations.short2,
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: tappedPage == 1 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                            color: currentPage == 1 ?
+                              Colors.black :
+                              (tappedPage == 1 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 1 || tappedPage == 1
-                              ? Icon(CupertinoIcons.search_circle_fill)
-                              : Icon(CupertinoIcons.search_circle),
+                          child: currentPage == 1 ?
+                            Icon(CupertinoIcons.search, color: Colors.white) :
+                            Icon(CupertinoIcons.search, color: Colors.black),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentPage = 2;
-                          });
+                      ), // search
+
+                      GestureDetector( // create
+                        onTap: (){
+                          currentPage = 2;
+                          setState(() {});
                         },
                         onTapDown: (TapDownDetails details) {
-                          setState(() {
-                            tappedPage = 2;
-                          });
+                          tappedPage = 2;
+                          setState(() {});
                         },
                         onTapUp: (TapUpDetails details) {
-                          setState(() {
-                            tappedPage = -1;
-                          });
+                          tappedPage = -1;
+                          setState(() {});
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: Durations.short2,
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: tappedPage == 2 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                            color: currentPage == 2 ?
+                              Colors.black :
+                              (tappedPage == 2 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 2 || tappedPage == 2
-                              ? Icon(CupertinoIcons.add_circled_solid)
-                              : Icon(CupertinoIcons.add_circled),
+                          child: currentPage == 2 ?
+                            Icon(CupertinoIcons.add, color: Colors.white) :
+                            Icon(CupertinoIcons.add, color: Colors.black)
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentPage = 3;
-                          });
+                      ), // create
+
+                      GestureDetector( // planner
+                        onTap: (){
+                          currentPage = 3;
+                          setState(() {});
                         },
                         onTapDown: (TapDownDetails details) {
-                          setState(() {
-                            tappedPage = 3;
-                          });
+                          tappedPage = 3;
+                          setState(() {});
                         },
                         onTapUp: (TapUpDetails details) {
-                          setState(() {
-                            tappedPage = -1;
-                          });
+                          tappedPage = -1;
+                          setState(() {});
                         },
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: Durations.short2,
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: tappedPage == 3 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                            color: currentPage == 3 ?
+                              Colors.black :
+                              (tappedPage == 3 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 3 || tappedPage == 3
-                              ? Icon(CupertinoIcons.calendar_circle_fill)
-                              : Icon(CupertinoIcons.calendar_circle),
+                          child: currentPage == 3 ?
+                            Icon(CupertinoIcons.calendar, color: Colors.white) :
+                            Icon(CupertinoIcons.calendar, color: Colors.black)
                         ),
-                      ),
-                      GestureDetector(
+                      ), // planner
+
+                      GestureDetector( // saved/library/gespeichert
                         onTap: () {
-                          setState(() {
-                            currentPage = 4;
-                          });
+                          currentPage = 4;
+                          setState(() {});
                         },
                         onTapDown: (TapDownDetails details) {
-                          setState(() {
-                            tappedPage = 4;
-                          });
+                          tappedPage = 4;
+                          setState(() {});
                         },
                         onTapUp: (TapUpDetails details) {
-                          setState(() {
-                            tappedPage = -1;
-                          });
+                          tappedPage = -1;
+                          setState(() {});
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: AnimatedContainer(
-                            duration: Duration(milliseconds: 200),
+                            duration: Durations.short2,
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: tappedPage == 4 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                              color: currentPage == 4 ?
+                                Colors.black :
+                                (tappedPage == 4 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: currentPage == 4 || tappedPage == 4
-                                ? Icon(CupertinoIcons.heart_fill)
-                                : Icon(CupertinoIcons.heart),
+                            child: currentPage == 4 ?
+                              Icon(CupertinoIcons.heart, color: Colors.white) :
+                              Icon(CupertinoIcons.heart, color: Colors.black)
                           ),
                         ),
-                      ),
+                      ), // saved/library/gespeichert
                     ],
                   ),
                 ),
+
               ),
+
             ],
           ),
         ),
       ),
+
     );
   }
 }
