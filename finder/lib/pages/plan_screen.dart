@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:foodfinder_app/Widgets/einkaufsliste.dart';
+
 
 class PlanScreen extends StatelessWidget {
   const PlanScreen({super.key});
@@ -37,10 +39,7 @@ class PlanScreen extends StatelessWidget {
             ),
           ],
         ),
-
-
-        //TODO implement PLANER
-
+        body: Einkaufsliste(),
       ),
     );
   }
