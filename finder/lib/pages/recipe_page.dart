@@ -82,7 +82,13 @@ class _RecipePageState extends State<RecipePage> {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              title: const Icon(CupertinoIcons.arrow_left),
+              title: GestureDetector(
+                  onTap: () {
+                    // TODO: go back to the page we were before
+                    setState(() {});
+                  },
+                  child: Icon(CupertinoIcons.arrow_left)
+              ),
               actions: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
