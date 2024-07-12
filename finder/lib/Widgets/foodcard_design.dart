@@ -21,7 +21,7 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
         height: 132,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
+          color: Colors.white,
           borderRadius: BorderRadius.circular(15),
           border: Border.all(
             color: Colors.black,
@@ -73,7 +73,7 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                     Container(
                       width: 190,
                       height: 25,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Colors.white,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

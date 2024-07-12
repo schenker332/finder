@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodfinder_app/Widgets/einkaufsliste.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:foodfinder_app/pages/create_screen.dart';
@@ -20,6 +21,7 @@ class MyFirstApp extends StatefulWidget {
 
 class _MyFirstAppState extends State<MyFirstApp> {
   int currentPage = 0;
+  int tappedPage = -1;
   List<Widget> screens = [HomeScreen(), SearchScreen(), CreateScreen(), PlanScreen(), FavoriteScreen() ];
 
   @override
@@ -66,6 +68,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                 padding: const EdgeInsets.only(
                   left: 50,
                   right: 50,
+                  bottom: 20,
                 ),
                 child: Container(
                   width: double.infinity,
@@ -85,26 +88,32 @@ class _MyFirstAppState extends State<MyFirstApp> {
                       GestureDetector(
                         onTap: (){
                           currentPage = 0;
-                          setState(() {
-
-                          });
+                          setState(() {});
+                        },
+                        onTapDown: (TapDownDetails details) {
+                          tappedPage = 0;
+                          setState(() {});
+                        },
+                        onTapUp: (TapUpDetails details) {
+                          tappedPage = -1;
+                          setState(() {});
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10),
-                          child: Container(
+                          child: AnimatedContainer(
+                            duration: Durations.short2,
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: tappedPage == 0 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: Icon(
-                              currentPage == 0 ? CupertinoIcons.circle_fill : CupertinoIcons.circle
-                            ),
+                            child: currentPage == 0 || tappedPage == 0 ?
+                            Icon(CupertinoIcons.house_fill) : Icon(CupertinoIcons.house),
                           ),
                         ),
                       ),
@@ -112,95 +121,122 @@ class _MyFirstAppState extends State<MyFirstApp> {
                       GestureDetector(
                         onTap: (){
                           currentPage = 1;
-                          setState(() {
-
-                          });
+                          setState(() {});
                         },
-                        child: Container(
+                        onTapDown: (TapDownDetails details) {
+                          tappedPage = 1;
+                          setState(() {});
+                        },
+                        onTapUp: (TapUpDetails details) {
+                          tappedPage = -1;
+                          setState(() {});
+                        },
+                        child: AnimatedContainer(
+                          duration: Durations.short2,
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: tappedPage == 1 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: Icon(CupertinoIcons.search),
+                          child: currentPage == 1 || tappedPage == 1 ?
+                          Icon(CupertinoIcons.search_circle_fill) : Icon(CupertinoIcons.search_circle),
                         ),
                       ),
 
                       GestureDetector(
                         onTap: (){
                           currentPage = 2;
-                          setState(() {
-
-                          });
+                          setState(() {});
                         },
-                        child: Container(
+                        onTapDown: (TapDownDetails details) {
+                          tappedPage = 2;
+                          setState(() {});
+                        },
+                        onTapUp: (TapUpDetails details) {
+                          tappedPage = -1;
+                          setState(() {});
+                        },
+                        child: AnimatedContainer(
+                          duration: Durations.short2,
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: tappedPage == 2 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: Icon(CupertinoIcons.add_circled),
+                          child: currentPage == 2 || tappedPage == 2 ?
+                          Icon(CupertinoIcons.add_circled_solid) : Icon(CupertinoIcons.add_circled),
                         ),
                       ),
 
                       GestureDetector(
                         onTap: (){
                           currentPage = 3;
-                          setState(() {
-
-                          });
+                          setState(() {});
                         },
-                        child: Container(
+                        onTapDown: (TapDownDetails details) {
+                          tappedPage = 3;
+                          setState(() {});
+                        },
+                        onTapUp: (TapUpDetails details) {
+                          tappedPage = -1;
+                          setState(() {});
+                        },
+                        child: AnimatedContainer(
+                          duration: Durations.short2,
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: tappedPage == 3 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: Icon(CupertinoIcons.calendar_today),
+                          child: currentPage == 3 || tappedPage == 3 ?
+                          Icon(CupertinoIcons.calendar_circle_fill) : Icon(CupertinoIcons.calendar_circle),
                         ),
                       ),
 
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           currentPage = 4;
-                          setState(() {
-
-                          });
+                          setState(() {});
                         },
-
+                        onTapDown: (TapDownDetails details) {
+                          tappedPage = 4;
+                          setState(() {});
+                        },
+                        onTapUp: (TapUpDetails details) {
+                          tappedPage = -1;
+                          setState(() {});
+                        },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
-                          child: Container(
+                          child: AnimatedContainer(
+                            duration: Durations.short2,
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: tappedPage == 4 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: Icon(
-                              CupertinoIcons.heart,
-                              size: 25,
-                              color: Colors.black,
-                            ),
+                            child: currentPage == 4 || tappedPage == 4 ?
+                            Icon(CupertinoIcons.heart_fill) : Icon(CupertinoIcons.heart),
                           ),
                         ),
                       ),
@@ -218,3 +254,4 @@ class _MyFirstAppState extends State<MyFirstApp> {
     );
   }
 }
+

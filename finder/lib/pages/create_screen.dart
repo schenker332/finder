@@ -1,8 +1,7 @@
+import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
+import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
-import '../Data/foodcard.dart';
 import '../Data/foodcard_storage.dart';
 
 class CreateScreen extends StatefulWidget {
@@ -21,11 +20,23 @@ class _CreateScreenState extends State<CreateScreen> {
   final TextEditingController timeController = TextEditingController();
   final TextEditingController waterneedController = TextEditingController();
   final FoodcardStorage storage = FoodcardStorage();
+  final _Currentuser = ChatUser(id: "1", firstName: "Franziska");
+  final ChatUser _gptChatUser = ChatUser(id: "2", firstName: "ChatGPT");
+  final _chatGpt = OpenAI.instance.build(
+    token: "...",
+    baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)),
+    enableLog: true,
+  );
+  List<ChatMessage> messages = [];
+
+  //List<ChatUser> _typingUsers = <ChatUser>[];
   bool left = true;
   bool right = false;
-
-
-
+  var selectedday;
+  var selectedfoodart;
+  var selectedprice;
+  var selectedtime;
+  var selectedwaterneed;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +64,7 @@ class _CreateScreenState extends State<CreateScreen> {
                       child: Text(
                         "F", // Initialien
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                              color: Theme.of(context).colorScheme.primary,
+                              color: Colors.white,
                               fontSize: 27,
                               fontWeight: FontWeight.bold,
                             ),
@@ -65,36 +76,25 @@ class _CreateScreenState extends State<CreateScreen> {
               bottom: TabBar(
                 indicatorColor: Colors.black,
                 indicatorWeight: 2,
-                dividerColor: Color(0xFFFFFBF9),
-                tabs:
-
-                [
+                dividerColor: const Color(0xFFFFFBF9),
+                tabs: [
                   Tab(
-
                     child: Text(
                       "Mein Rezept",
-
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontSize: 20,
                             letterSpacing: 0,
                             fontWeight: FontWeight.bold,
-
                           ),
                     ),
-
                   ),
-
                   Tab(
-
-
                     child: Text(
                       "KI Rezept",
-
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontSize: 20,
                             letterSpacing: 0,
                             fontWeight: FontWeight.bold,
-
                           ),
                     ),
                   ),
@@ -103,95 +103,91 @@ class _CreateScreenState extends State<CreateScreen> {
             ),
             body: TabBarView(
               children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        children: [
-                          Expanded(
-                              flex: 2,
-                              child: Container(
-                                width: 124,
-                                height: 124,
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(
-                                    color: Colors.black,
-                                    width: 1,
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Row(
+                          children: [
+                            Expanded(
+                                flex: 2,
+                                child: Container(
+                                  width: 124,
+                                  height: 124,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 1,
+                                    ),
                                   ),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 32),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const Icon(
-                                        CupertinoIcons.add_circled,
-                                        size: 40,
-                                      ),
-                                      const SizedBox(
-                                        height: 8,
-                                      ),
-                                      SizedBox(
-                                        width: 140,
-                                        height: 20,
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 25, right: 25),
-                                          child: TextFormField(
-                                            controller: imageURLController,
-                                            decoration: const InputDecoration(
-                                                border: InputBorder.none,
-                                                labelText: 'Bild hinzufügen',
-                                                labelStyle: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.grey,
-                                                )),
-                                          ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 32),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Icon(
+                                          CupertinoIcons.add_circled,
+                                          size: 40,
                                         ),
-                                      )
-                                    ],
+                                        const SizedBox(
+                                          height: 8,
+                                        ),
+                                        SizedBox(
+                                          width: 140,
+                                          height: 20,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 25, right: 25),
+                                            child: TextFormField(
+                                              controller: imageURLController,
+                                              decoration: const InputDecoration(
+                                                  border: InputBorder.none,
+                                                  labelText: 'Bild hinzufügen',
+                                                  labelStyle: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.grey,
+                                                  )),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              )),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Expanded(
-                              flex: 3,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: double.infinity,
-                                    height: 40,
-                                    child: TextFormField(
-                                      controller: titleController,
-                                      decoration: const InputDecoration(
-                                        border: InputBorder.none,
-                                        labelText: "Titel",
-                                        labelStyle: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold,
+                                )),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            Expanded(
+                                flex: 3,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: double.infinity,
+                                      height: 40,
+                                      child: Text(
+
+                                          "Titel",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 15),
-                                    child: Container(
+                                    Container(
                                       width: double.infinity,
                                       height: 40,
                                       decoration: BoxDecoration(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .primary,
+                                        color: Colors.white,
                                         borderRadius: BorderRadius.circular(15),
                                         border: Border.all(
                                           color: Colors.black,
@@ -201,452 +197,793 @@ class _CreateScreenState extends State<CreateScreen> {
                                       child: Padding(
                                         padding: const EdgeInsets.all(10),
                                         child: TextFormField(
-                                          controller: descriptionController,
+                                          controller: titleController,
                                           decoration: const InputDecoration(
                                               border: InputBorder.none,
                                               labelText: 'Mein tolles Essen...',
                                               labelStyle: TextStyle(
-                                                  color: Colors.grey)),
+                                                color: Colors.grey,
+                                                fontSize: 14,
+                                              )),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  ElevatedButton.icon(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .titleLarge!
-                                          .copyWith(
-                                            fontSize: 18,
-                                            letterSpacing: 0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.only(left: 10),
+                                            width: 150,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xFFF5DC51),
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: DropdownButton(
+
+                                              focusColor: const Color(0xFFFFFBF9),
+                                              dropdownColor: const Color(0xFFFFFBF9),
+                                              underline: const SizedBox(),
+                                              icon: const Icon(
+                                                Icons.arrow_drop_down,
+                                                color: Colors.black,
+                                              ),
+                                              hint: const Text(
+
+                                                "An welchem Tag?",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                              value: selectedday,
+                                              items: [
+                                                "Heute",
+                                                "Morgen",
+                                                "Montag",
+                                                "Dienstag",
+                                                "Mittwoch",
+                                                "Donnerstag",
+                                                "Freitag",
+                                                "Samstag",
+                                                "Sonntag"
+                                              ]
+                                                  .map((e) => DropdownMenuItem(
+                                                        value: e,
+                                                        child: Text("$e"),
+                                                      ))
+                                                  .toList(),
+                                              onChanged: (val) {
+                                                setState(() {
+                                                  selectedday = val;
+                                                });
+
+                                              },
+                                            ),
                                           ),
-                                    ),
-                                    icon: Icon(
-                                      CupertinoIcons.add_circled,
-                                      size: 20,
-                                      color: Colors.black,
-                                    ),
-                                    label: Text("Tags"),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.only(left: 10),
+                                            width: 150,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xFFF5DC51),
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: DropdownButton(
+                                              focusColor: const Color(0xFFFFFBF9),
+                                              dropdownColor: const Color(0xFFFFFBF9),
+                                              underline: const SizedBox(),
+                                              icon: const Icon(
+                                                Icons.arrow_drop_down,
+                                                color: Colors.black,
+                                              ),
+                                              hint: const Text(
+                                                "Art des Essen",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                              value: selectedfoodart,
+                                              items: [
+                                                "Vegan",
+                                                "Mit Fleich",
+                                                "Vegetarisch",
+                                              ]
+                                                  .map((e) => DropdownMenuItem(
+                                                        value: e,
+                                                        child: Text("$e"),
+                                                      ))
+                                                  .toList(),
+                                              onChanged: (val1) {
+                                                setState(() {
+                                                  selectedfoodart = val1;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.only(left: 10),
+                                            width: 150,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xFFF5DC51),
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: DropdownButton(
+                                              focusColor: const Color(0xFFFFFBF9),
+                                              dropdownColor: const Color(0xFFFFFBF9),
+                                              underline: const SizedBox(),
+                                              icon: const Icon(
+                                                Icons.arrow_drop_down,
+                                                color: Colors.black,
+                                              ),
+                                              hint: const Text(
+                                                "Preis Hinzufügen",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                              value: selectedprice,
+                                              items: [
+                                                "€",
+                                                "€€",
+                                                "€€€",
+                                              ]
+                                                  .map((e) => DropdownMenuItem(
+                                                        value: e,
+                                                        child: Text("$e "),
+                                                      ))
+                                                  .toList(),
+                                              onChanged: (val2) {
+                                                setState(() {
+                                                  selectedprice = val2;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.only(left: 10),
+                                            width: 150,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xFFF5DC51),
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: DropdownButton(
+                                              focusColor: const Color(0xFFFFFBF9),
+                                              dropdownColor: const Color(0xFFFFFBF9),
+                                              underline: const SizedBox(),
+                                              icon: const Icon(
+                                                Icons.arrow_drop_down,
+                                                color: Colors.black,
+                                              ),
+                                              hint: const Text(
+                                                "Zeit Hinzufügen",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                              value: selectedtime,
+                                              items: [
+                                                "kurz",
+                                                "lang",
+                                                "sehr lang",
+                                              ]
+                                                  .map((e) => DropdownMenuItem(
+                                                        value: e,
+                                                        child: Text("$e"),
+                                                      ))
+                                                  .toList(),
+                                              onChanged: (val3) {
+                                                setState(() {
+                                                  selectedtime = val3;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            width: 5,
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.only(left: 10),
+                                            width: 150,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xFFF5DC51),
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                            child: DropdownButton(
+                                              focusColor: const Color(0xFFFFFBF9),
+                                              dropdownColor: const Color(0xFFFFFBF9),
+                                              underline: const SizedBox(),
+                                              icon: const Icon(
+                                                Icons.arrow_drop_down,
+                                                color: Colors.black,
+                                              ),
+                                              hint: const Text(
+                                                "Wasserverbrauch",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                              value: selectedwaterneed,
+                                                items: []
+                                                  .map((e) => DropdownMenuItem(
+                                                        value: e,
+                                                        child: Text("$e"),
+                                                      ))
+                                                  .toList(),
+                                              onChanged: (val4) {
+                                                setState(() {
+                                                  selectedwaterneed = val4;
+                                                });
+                                              },
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ))
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 30,
+                          child: Text(
+                            "Beschreibung",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                              fontSize: 24,
+                              letterSpacing: 0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Container(
+                          width: double.infinity,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              border:
+                              Border.all(color: Colors.black, width: 1)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: TextFormField(
+                              controller: descriptionController,
+                              decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  labelText: 'Beschreib das Rezept',
+                                  labelStyle: TextStyle(
+                                      color: Colors.grey, fontSize: 16)),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 30,
+                          child: Text(
+                            "Zutaten",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                                  fontSize: 24,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
                                   ),
-                                ],
-                              ))
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Zutat',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Menge',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Stk.',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
-                    ),
-                    SizedBox(height: 10,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        child: Text(
-                          "Zutaten",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge!
-                              .copyWith(
-                            fontSize: 22,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-
-                        ),
+                      const SizedBox(
+                        height: 5,
                       ),
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15),
-                            child: Container(
-                              width: 220,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Zutat',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey,
-                                      )),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Zutat',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Menge',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Stk.',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Zutat',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Menge',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10, right: 10),
+                              child: Container(
+                                width: double.infinity,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        labelText: 'Stk.',
+                                        labelStyle: TextStyle(
+                                            color: Colors.grey, fontSize: 14)),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: Positioned(
+                          right: 200,
+                          child: MaterialButton(
+                            onPressed: () {},
+                            color: const Color(0xFFF5DC51),
+                            minWidth: 150,
+                            height: 30,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.add_circle_outline,
+                                  size: 15,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "Zutat",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
-                        Expanded(
-                          flex: 2,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 25),
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 30,
+                          child: Text(
+                            "Zubereitung",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                                  fontSize: 24,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Container(
+                          width: double.infinity,
+                          height: 120,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border:
+                                  Border.all(color: Colors.black, width: 1)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
-                            child: Container(
-                              width: 120,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Menge',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  labelText: 'Was ist zu tun?',
+                                  labelStyle: TextStyle(
+                                      color: Colors.grey, fontSize: 16)),
                             ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 15),
-                            child: Container(
-                              width: 60,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Stk.',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5,),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15),
-                            child: Container(
-                              width: 220,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Zutat',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Container(
-                              width: 120,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Menge',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 15),
-                            child: Container(
-                              width: 60,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Stk.',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 5,),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15),
-                            child: Container(
-                              width: 220,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Zutat',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Container(
-                              width: 120,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Menge',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 10, right: 15),
-                            child: Container(
-                              width: 60,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .primary,
-                                borderRadius: BorderRadius.circular(15),
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 1,
-                                ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      labelText: 'Stk.',
-                                      labelStyle: TextStyle(
-                                          color: Colors.grey)),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5,),
-                    Container(
-                      width: double.infinity,
-                      alignment: Alignment.topLeft,
-                      margin: EdgeInsets.only(left: 15),
-                      child: ElevatedButton.icon(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(horizontal: 50),
-                          backgroundColor: Theme.of(context)
-                              .colorScheme
-                              .onPrimary,
-                          textStyle: Theme.of(context)
-                              .textTheme
-                              .titleLarge!
-                              .copyWith(
-                            fontSize: 18,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        icon: const Icon(
-                          CupertinoIcons.add_circled,
-                          size: 20,
-                          color: Colors.black,
-                        ),
-                        label: const Text("Zutat"),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        child: Text(
-                          "Zubereitung",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge!
-                              .copyWith(
-                            fontSize: 22,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        width: double.infinity,
-                        height: 120,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(color: Colors.black, width: 1)),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                labelText: 'Was ist zu tun?',
-                                labelStyle: TextStyle(
-                                    color: Colors.grey, fontSize: 16)),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: Positioned(
+                          right: 200,
+                          child: MaterialButton(
+                            onPressed: () {},
+                            color: const Color(0xFFF5DC51),
+                            minWidth: 150,
+                            height: 30,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            child: const Text(
+                              "Speichern",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 5,),
-                    Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.only(right: 15),
-                      alignment: Alignment.topRight,
-                      child: ElevatedButton(
-                        onPressed: _saveFoodcard,
-
-                        child:  const Text("Speichern"),
-                        style: ElevatedButton.styleFrom(
-
-                          backgroundColor: Theme.of(context).colorScheme.onPrimary,
-                          textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            fontSize: 18,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-
-
-                  ],
+                    ],
+                  ),
                 ),
+                //KI_Page
+                DashChat(
+                  messages: messages,
+                  messageOptions: const MessageOptions(
+                    currentUserContainerColor: Color(0xFFCFD8CD),
+                    containerColor: Color.fromRGBO(0, 166, 126, 1),
+                    textColor: Colors.black,
+                    currentUserTextColor: Colors.black,
+                  ),
+                  onSend: onSend,
+                  currentUser: _Currentuser,
+                )
+              ],
+            ),
+          ),
+        ));
+  }
 
 
-                //KI Page.
+  void onSend(ChatMessage message) async {
+    setState(() {
+      messages.insert(0, message);
+    });
+    List<Map<String, dynamic>> messagesHistory =
+        messages.reversed.map((message) {
+      if (message.user == _Currentuser) {
+        return {"role": "user", "content": message.text};
+      } else {
+        return {"role": "assistant", "content": message.text};
+      }
+    }).toList();
+    var request = ChatCompleteText(
+        model: Gpt4ChatModel(),
+        messages: messagesHistory,
+        maxToken: 200);
+    var response = await _chatGpt.onChatCompletion(request: request);
+    print("RESPONSE:");
+    print(response);
+    for (var element in response!.choices) {
+      setState(() {
+        messages.insert(
+            0,
+            ChatMessage(
+                user: _gptChatUser,
+                createdAt: DateTime.now(),
+                text: element.message!.content));
+      });
+    }
+  }
+}
+/*
+  Future<void>getChatResponse(ChatMessage m) async {
+    setState(() {
+      _messages.insert(0, m);
+      _typingUsers.add(_gptChatUser);
+    });
+    var messages;
+    List<Map<String, dynamic>> _messagesHistory = messages.reversed.map((m){
+      if (m.user == _Currentuser){
+        return Messages(role: Role.user, content:m.text);
+      } else{return Messages(role: Role.assistant, content:m.text);}
+    }).toList();
+    final request = ChatCompleteText(model: GptTurbo0301ChatModel(), messages: _messagesHistory, maxToken: 200);
+    final response = await _openAI.onChatCompletion(request: request);
+    for (var element in response!.choices){
+      setState(() {
+        _messages.insert(0, ChatMessage(user: _gptChatUser, createdAt: DateTime.now(), text: element.message!.content));
+      });
+    }
+    setState(() {
+      _typingUsers.remove(_gptChatUser);
+    });
+  }
+}
+*/
+
+/*
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -700,13 +1037,9 @@ class _CreateScreenState extends State<CreateScreen> {
                     ),
                   ],
                 )
-              ],
-            ),
-          ),
-        ));
-  }
 
-  /*
+                 */
+/*
       appBar: AppBar(
         title: Text(
           "Erstellen", // Username Nutzername
@@ -924,7 +1257,7 @@ class _CreateScreenState extends State<CreateScreen> {
         ),
         */
 
-  /*
+/*
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
@@ -972,25 +1305,4 @@ class _CreateScreenState extends State<CreateScreen> {
         ),
 
          */
-  /*]),*/
-
-  void _saveFoodcard() async {
-    final newCard = Foodcard(
-      id: DateTime.now().toString(), // Generate a unique ID
-      title: titleController.text,
-      imageURL: imageURLController.text,
-      price: priceController.text,
-      foodart: foodartController.text,
-      description: descriptionController.text,
-      time: timeController.text,
-      waterneed: waterneedController.text,
-    );
-
-    List<Foodcard> existingCards = await storage.getFoodcards();
-    existingCards.add(newCard);
-    await storage.saveFoodcards(existingCards);
-
-    // Navigate back or show a success message
-    Navigator.of(context).pop();
-  }
-}
+/*]),*/

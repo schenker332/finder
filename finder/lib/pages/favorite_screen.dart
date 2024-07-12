@@ -27,7 +27,7 @@ class FavoriteScreen extends StatelessWidget {
                     child: Text(
                       "F",  //Initialien
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Colors.white,
                         fontSize: 27,
                         fontWeight: FontWeight.bold,
                       ),
