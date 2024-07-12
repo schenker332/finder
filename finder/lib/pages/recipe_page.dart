@@ -401,6 +401,7 @@ class _RecipePageState extends State<RecipePage> {
     for(int i = 0; i < isZutatSelected.length; i++) {
       if(isZutatSelected[i]) {
         List<String> itemArray = zutatenCopy[i];
+        // create item (immer "nicht gekauft")
         String item = itemArray[2] + ', ' + itemArray[0] + itemArray[1] + ', ' + 'Nicht gekauft';
         einkaufsliste.add(item);
         prefs.setStringList("SavedList", einkaufsliste);
@@ -439,45 +440,60 @@ class _ZutatenListState extends State<ZutatenList> {
         children: List.generate(widget.zutaten.length, (index) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 2.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Checkbox(
-                  value: isZutatSelected[index],
-                  onChanged: (value) {
-                    isZutatSelected[index] = value!;
-
-                    // disable button, wenn nichts selected -- LATER
-                    // bool someSelected = false;
-                    // for(int i = 0; i < isZutatSelected.length; i++) {
-                    //   if(isZutatSelected[i]) {
-                    //     someSelected = true;
-                    //     break;
-                    //   }
-                    // }
-                    // if(!someSelected) noZutatSelected = true;
-
-                    setState(() {});
-                  }),
-                SizedBox(
-                  width: 100,
-                  child: Text(
-                    '${widget.zutaten[index][0]} ${widget.zutaten[index][1]}',
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+            child: GestureDetector(
+              onTap: () {
+                isZutatSelected[index] = !isZutatSelected[index];
+                setState(() {});
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0, top: 3.0),
+                    child: Container( // kreis zum auswählen des produkts
+                      width: 20,
+                      height: 20,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1,
+                          )
+                      ),
+                      child: Center(
+                        child: Container(
+                          width: 12,
+                          height: 12,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            color: isZutatSelected[index] ? Color(0xFFF5DC51) : Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Text(
-                    widget.zutaten[index][2],
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 18,
+                  SizedBox(
+                    width: 100,
+                    child: Text(
+                      '${widget.zutaten[index][0]} ${widget.zutaten[index][1]}',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Text(
+                      widget.zutaten[index][2],
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         }),
