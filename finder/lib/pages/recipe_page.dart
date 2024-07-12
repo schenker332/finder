@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'food_card.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 // import 'package:foodfinder_app/data.dart';
 
 // import 'package:foodfinder_app/data.dart';
@@ -9,6 +11,9 @@ bool zutatenSelectable = false;
 bool zutatenWereAdded = false;
 String buttonText = 'Zur Einkaufsliste hinzufügen';
 // bool noZutatSelected = false; // LATER
+List<bool> isZutatSelected = [];
+List<List<String>> zutatenCopy = [[]];
+
 
 class RecipePage extends StatefulWidget {
   List<List<String>> zutaten;
@@ -21,10 +26,12 @@ class RecipePage extends StatefulWidget {
 }
 
 class _RecipePageState extends State<RecipePage> {
-  List<List<String>> zutatenCopy = [[]];
   String inputDisplay = '';
   TextEditingController _controller = TextEditingController();
   final FocusNode _focusNode = FocusNode();
+
+  List<String> einkaufsliste = [];
+  late SharedPreferences prefs;
 
   @override
   void initState() {
@@ -44,6 +51,12 @@ class _RecipePageState extends State<RecipePage> {
         _onSubmitted(_controller.text);
       }
     });
+
+    // init sharedpreferences
+    SharedPreferences.getInstance().then((SharedPreferences data){
+      prefs = data;
+    });
+    super.initState();
   }
 
   // handles updating zutatenCopy (doesnt change initial values, just copy)
@@ -72,12 +85,7 @@ class _RecipePageState extends State<RecipePage> {
               title: const Icon(CupertinoIcons.arrow_left),
               actions: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20,
-                    right: 20,
-                    top: 8,
-                    bottom: 8,
-                  ),
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
                     width: 36,
                     height: 36,
@@ -87,8 +95,7 @@ class _RecipePageState extends State<RecipePage> {
                     ),
                     child: Center(
                       child: Text(
-                        // currentUser.firstletter,
-                        'F',
+                        "F", // Initialien
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).colorScheme.primary,
                           fontSize: 27,
@@ -341,8 +348,7 @@ class _RecipePageState extends State<RecipePage> {
                             buttonText = 'Ausgewählte hinzufügen';
                             zutatenWereAdded = false;
                           } else {
-                            print('adding ingredients');
-                            // TODO: Sachen zur einkaufsliste hinzufügen!
+                            addSelectedToEinkaufsliste();
                             zutatenSelectable = false;
                             zutatenWereAdded = true;
                             buttonText = 'Erfolgreich hinzugefügt!';
@@ -389,6 +395,18 @@ class _RecipePageState extends State<RecipePage> {
         )
     );
   }
+
+  void addSelectedToEinkaufsliste() async {
+    final List<String> einkaufsliste = prefs.getStringList('SavedList') ?? [];
+    for(int i = 0; i < isZutatSelected.length; i++) {
+      if(isZutatSelected[i]) {
+        List<String> itemArray = zutatenCopy[i];
+        String item = itemArray[2] + ', ' + itemArray[0] + itemArray[1] + ', ' + 'Nicht gekauft';
+        einkaufsliste.add(item);
+        prefs.setStringList("SavedList", einkaufsliste);
+      }
+    }
+  }
 }
 
 
@@ -402,8 +420,6 @@ class ZutatenList extends StatefulWidget {
 }
 
 class _ZutatenListState extends State<ZutatenList> {
-  List<bool> isZutatSelected = [];
-
   @override
   void initState() {
     // TODO: implement initState
