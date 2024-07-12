@@ -12,6 +12,12 @@ class Foodcard {
   final String description;
   final String time;
   final String waterneed;
+  final String portion;
+  final List<List<dynamic>> ingredients;
+  final List<String> preparation;
+  final String kommentar;
+  final List<String> tags;
+
 
   const Foodcard({
     required this.id,
@@ -22,8 +28,14 @@ class Foodcard {
     required this.description,
     required this.time,
     required this.waterneed,
+    required this.portion,
+    required this.ingredients,
+    required this.preparation,
+    required this.kommentar,
+    required this.tags,
+
   });
 
-  factory Foodcard.fromJson(Map<String, dynamic> json) => _$FoodcardFromJson(json);
+  factory Foodcard.fromJson(Map<String, dynamic> json) => _$FoodcardFromJson(json); //TODO
   Map<String, dynamic> toJson() => _$FoodcardToJson(this);
 }

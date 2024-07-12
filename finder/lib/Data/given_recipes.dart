@@ -1,4 +1,4 @@
-{
+String given_recipes = """{
   "recipes": [
     {
       "id": "1",
@@ -645,3 +645,4 @@
     }
   ]
 }
+ """;

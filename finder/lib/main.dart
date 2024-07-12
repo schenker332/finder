@@ -26,7 +26,6 @@ class _MyFirstAppState extends State<MyFirstApp> {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: "FoodFinder",
       debugShowCheckedModeBanner: false,
@@ -42,7 +41,6 @@ class _MyFirstAppState extends State<MyFirstApp> {
         appBarTheme: AppBarTheme(
           backgroundColor: const Color(0xFFFFFBF9),
         ),
-        //primaryColor: const Color(0xFFFBF9),
         textTheme: TextTheme(
           titleLarge: GoogleFonts.afacad(
             fontSize: 32,
@@ -58,11 +56,10 @@ class _MyFirstAppState extends State<MyFirstApp> {
       ),
       home: SafeArea(
         child: Scaffold(
-
           body: Column(
             children: [
               Expanded(
-                  child: screens[currentPage]
+                child: screens[currentPage],
               ),
               Padding(
                 padding: const EdgeInsets.only(
@@ -81,27 +78,29 @@ class _MyFirstAppState extends State<MyFirstApp> {
                       width: 1,
                     ),
                   ),
-
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                        onTap: (){
-                          currentPage = 0;
-                          setState(() {});
+                        onTap: () {
+                          setState(() {
+                            currentPage = 0;
+                          });
                         },
                         onTapDown: (TapDownDetails details) {
-                          tappedPage = 0;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = 0;
+                          });
                         },
                         onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = -1;
+                          });
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10),
                           child: AnimatedContainer(
-                            duration: Durations.short2,
+                            duration: Duration(milliseconds: 200),
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
@@ -112,27 +111,30 @@ class _MyFirstAppState extends State<MyFirstApp> {
                                 width: 1,
                               ),
                             ),
-                            child: currentPage == 0 || tappedPage == 0 ?
-                            Icon(CupertinoIcons.house_fill) : Icon(CupertinoIcons.house),
+                            child: currentPage == 0 || tappedPage == 0
+                                ? Icon(CupertinoIcons.house_fill)
+                                : Icon(CupertinoIcons.house),
                           ),
                         ),
                       ),
-
                       GestureDetector(
-                        onTap: (){
-                          currentPage = 1;
-                          setState(() {});
+                        onTap: () {
+                          setState(() {
+                            currentPage = 1;
+                          });
                         },
                         onTapDown: (TapDownDetails details) {
-                          tappedPage = 1;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = 1;
+                          });
                         },
                         onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = -1;
+                          });
                         },
                         child: AnimatedContainer(
-                          duration: Durations.short2,
+                          duration: Duration(milliseconds: 200),
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
@@ -143,26 +145,29 @@ class _MyFirstAppState extends State<MyFirstApp> {
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 1 || tappedPage == 1 ?
-                          Icon(CupertinoIcons.search_circle_fill) : Icon(CupertinoIcons.search_circle),
+                          child: currentPage == 1 || tappedPage == 1
+                              ? Icon(CupertinoIcons.search_circle_fill)
+                              : Icon(CupertinoIcons.search_circle),
                         ),
                       ),
-
                       GestureDetector(
-                        onTap: (){
-                          currentPage = 2;
-                          setState(() {});
+                        onTap: () {
+                          setState(() {
+                            currentPage = 2;
+                          });
                         },
                         onTapDown: (TapDownDetails details) {
-                          tappedPage = 2;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = 2;
+                          });
                         },
                         onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = -1;
+                          });
                         },
                         child: AnimatedContainer(
-                          duration: Durations.short2,
+                          duration: Duration(milliseconds: 200),
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
@@ -173,26 +178,29 @@ class _MyFirstAppState extends State<MyFirstApp> {
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 2 || tappedPage == 2 ?
-                          Icon(CupertinoIcons.add_circled_solid) : Icon(CupertinoIcons.add_circled),
+                          child: currentPage == 2 || tappedPage == 2
+                              ? Icon(CupertinoIcons.add_circled_solid)
+                              : Icon(CupertinoIcons.add_circled),
                         ),
                       ),
-
                       GestureDetector(
-                        onTap: (){
-                          currentPage = 3;
-                          setState(() {});
+                        onTap: () {
+                          setState(() {
+                            currentPage = 3;
+                          });
                         },
                         onTapDown: (TapDownDetails details) {
-                          tappedPage = 3;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = 3;
+                          });
                         },
                         onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = -1;
+                          });
                         },
                         child: AnimatedContainer(
-                          duration: Durations.short2,
+                          duration: Duration(milliseconds: 200),
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
@@ -203,28 +211,31 @@ class _MyFirstAppState extends State<MyFirstApp> {
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 3 || tappedPage == 3 ?
-                          Icon(CupertinoIcons.calendar_circle_fill) : Icon(CupertinoIcons.calendar_circle),
+                          child: currentPage == 3 || tappedPage == 3
+                              ? Icon(CupertinoIcons.calendar_circle_fill)
+                              : Icon(CupertinoIcons.calendar_circle),
                         ),
                       ),
-
                       GestureDetector(
                         onTap: () {
-                          currentPage = 4;
-                          setState(() {});
+                          setState(() {
+                            currentPage = 4;
+                          });
                         },
                         onTapDown: (TapDownDetails details) {
-                          tappedPage = 4;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = 4;
+                          });
                         },
                         onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
+                          setState(() {
+                            tappedPage = -1;
+                          });
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: AnimatedContainer(
-                            duration: Durations.short2,
+                            duration: Duration(milliseconds: 200),
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
@@ -235,22 +246,20 @@ class _MyFirstAppState extends State<MyFirstApp> {
                                 width: 1,
                               ),
                             ),
-                            child: currentPage == 4 || tappedPage == 4 ?
-                            Icon(CupertinoIcons.heart_fill) : Icon(CupertinoIcons.heart),
+                            child: currentPage == 4 || tappedPage == 4
+                                ? Icon(CupertinoIcons.heart_fill)
+                                : Icon(CupertinoIcons.heart),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-
               ),
-
             ],
           ),
         ),
       ),
-
     );
   }
 }
