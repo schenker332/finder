@@ -85,7 +85,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
+                      GestureDetector( // home
                         onTap: (){
                           currentPage = 0;
                           setState(() {});
@@ -105,20 +105,23 @@ class _MyFirstAppState extends State<MyFirstApp> {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: tappedPage == 0 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                              color: currentPage == 0 ?
+                                Colors.black :
+                                (tappedPage == 0 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: currentPage == 0 || tappedPage == 0 ?
-                            Icon(CupertinoIcons.house_fill) : Icon(CupertinoIcons.house),
+                            child: currentPage == 0 ?
+                              Icon(CupertinoIcons.house, color: Colors.white) :
+                              Icon(CupertinoIcons.house, color: Colors.black)
                           ),
                         ),
-                      ),
+                      ), // home
 
-                      GestureDetector(
+                      GestureDetector( // search
                         onTap: (){
                           currentPage = 1;
                           setState(() {});
@@ -136,19 +139,22 @@ class _MyFirstAppState extends State<MyFirstApp> {
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: tappedPage == 1 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                            color: currentPage == 1 ?
+                              Colors.black :
+                              (tappedPage == 1 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 1 || tappedPage == 1 ?
-                          Icon(CupertinoIcons.search_circle_fill) : Icon(CupertinoIcons.search_circle),
+                          child: currentPage == 1 ?
+                            Icon(CupertinoIcons.search, color: Colors.white) :
+                            Icon(CupertinoIcons.search, color: Colors.black),
                         ),
-                      ),
+                      ), // search
 
-                      GestureDetector(
+                      GestureDetector( // create
                         onTap: (){
                           currentPage = 2;
                           setState(() {});
@@ -166,19 +172,22 @@ class _MyFirstAppState extends State<MyFirstApp> {
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: tappedPage == 2 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                            color: currentPage == 2 ?
+                              Colors.black :
+                              (tappedPage == 2 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 2 || tappedPage == 2 ?
-                          Icon(CupertinoIcons.add_circled_solid) : Icon(CupertinoIcons.add_circled),
+                          child: currentPage == 2 ?
+                            Icon(CupertinoIcons.add, color: Colors.white) :
+                            Icon(CupertinoIcons.add, color: Colors.black)
                         ),
-                      ),
+                      ), // create
 
-                      GestureDetector(
+                      GestureDetector( // planner
                         onTap: (){
                           currentPage = 3;
                           setState(() {});
@@ -196,19 +205,22 @@ class _MyFirstAppState extends State<MyFirstApp> {
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: tappedPage == 3 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                            color: currentPage == 3 ?
+                              Colors.black :
+                              (tappedPage == 3 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                             borderRadius: BorderRadius.circular(40),
                             border: Border.all(
                               color: Colors.black,
                               width: 1,
                             ),
                           ),
-                          child: currentPage == 3 || tappedPage == 3 ?
-                          Icon(CupertinoIcons.calendar_circle_fill) : Icon(CupertinoIcons.calendar_circle),
+                          child: currentPage == 3 ?
+                            Icon(CupertinoIcons.calendar, color: Colors.white) :
+                            Icon(CupertinoIcons.calendar, color: Colors.black)
                         ),
-                      ),
+                      ), // planner
 
-                      GestureDetector(
+                      GestureDetector( // saved/library/gespeichert
                         onTap: () {
                           currentPage = 4;
                           setState(() {});
@@ -228,18 +240,21 @@ class _MyFirstAppState extends State<MyFirstApp> {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: tappedPage == 4 ? Color.fromARGB(255, 220, 220, 220) : Colors.white,
+                              color: currentPage == 4 ?
+                                Colors.black :
+                                (tappedPage == 4 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
                               borderRadius: BorderRadius.circular(40),
                               border: Border.all(
                                 color: Colors.black,
                                 width: 1,
                               ),
                             ),
-                            child: currentPage == 4 || tappedPage == 4 ?
-                            Icon(CupertinoIcons.heart_fill) : Icon(CupertinoIcons.heart),
+                            child: currentPage == 4 ?
+                              Icon(CupertinoIcons.heart, color: Colors.white) :
+                              Icon(CupertinoIcons.heart, color: Colors.black)
                           ),
                         ),
-                      ),
+                      ), // saved/library/gespeichert
                     ],
                   ),
                 ),
