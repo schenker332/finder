@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/ingredientcard.dart';
 import 'package:foodfinder_app/Widgets/foodcard_design.dart';
-import 'package:foodfinder_app/Widgets/ingredientcard_design.dart';
-import '../Data/foodcard.dart';
+import 'package:foodfinder_app/Data/foodcard.dart';
+import 'package:foodfinder_app/Data/foodcard_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'NeuesProdukt.dart';
 import 'plan_screen.dart';
-import '../Data/foodcard_storage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,12 +18,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Foodcard> allcards = [];
   List<Ingredientcard> allingredients = [];
+  List<String> topThreeItems = [];
   final FoodcardStorage storage = FoodcardStorage();
 
   @override
   void initState() {
     super.initState();
     _loadFoodcards();
+    _loadTopThreeItems();
   }
 
   Future<void> _loadFoodcards() async {
@@ -35,11 +38,15 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  Future<void> _addNewFoodcard(Foodcard newCard) async {
+  Future<void> _loadTopThreeItems() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> items = prefs.getStringList('SavedList') ?? [];
+    print("Loaded items: $items");
+
     setState(() {
-      allcards.add(newCard);
+      topThreeItems = items.take(10).toList();
+      print("Top three items: $topThreeItems");
     });
-    await storage.saveFoodcards(allcards);
   }
 
   @override
@@ -97,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PlanScreen()),
+                        MaterialPageRoute(builder: (context) => const PlanScreen()),
                       );
                     },
                     child: const Icon(CupertinoIcons.arrow_right),
@@ -143,12 +150,18 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 18),
-                  child: Text(
-                    "Oben auf deiner Liste",
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 20,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.bold,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 10,
+                      top: 20,
+                    ),
+                    child: Text(
+                      "Oben auf deiner Liste",
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 20,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -158,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PlanScreen()),
+                        MaterialPageRoute(builder: (context) => const PlanScreen()),
                       );
                     },
                     child: const Icon(CupertinoIcons.arrow_right),
@@ -167,9 +180,25 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             Expanded(
-              flex: 4,
+              flex: 3,
               child: ListView(
-                children: allingredients.map((oneCard) => IngredientcardDesign(ingredientcard: oneCard)).toList(),
+                children: topThreeItems.map((item){
+                  List<String> details = item.split(', ');
+                  print("Items details: $details");
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                      left: 15,
+                      right: 15,
+                    ),
+                    child: Neuesprodukt(
+                      Produktname: details[0],
+                      Menge: details[1],
+                      Abgehakt: details[2] == 'Gekauft',
+                      stelle: topThreeItems.indexOf(item),
+                      isInteractive: true,
+                    ),
+                  );
+                }).toList(),
               ),
             ),
             Row(
@@ -192,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PlanScreen()),
+                        MaterialPageRoute(builder: (context) => const PlanScreen()),
                       );
                     },
                     child: const Icon(CupertinoIcons.arrow_right),
