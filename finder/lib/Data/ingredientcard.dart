@@ -15,5 +15,11 @@ class Ingredientcard {
   });
 
   factory Ingredientcard.fromJson(Map<String, dynamic> json) => _$IngredientcardFromJson(json);
+
+  get name => null;
+
+  get quantity => null;
+
+  get bought => null;
   Map<String, dynamic> toJson() => _$IngredientcardToJson(this);
 }

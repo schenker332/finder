@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
+
 class Neuesprodukt extends StatefulWidget {
   String Produktname;
   String Menge;
   bool Abgehakt;
-  int stelle;
-  Neuesprodukt({super.key, required this.Produktname, required this.Menge, required this.Abgehakt, required this.stelle});
+  final int stelle;
+  final bool isInteractive;
+
+  Neuesprodukt({
+    super.key,
+    required this.Produktname,
+    required this.Menge,
+    required this.Abgehakt,
+    required this.stelle,
+    this.isInteractive = true,
+  });
 
   @override
   State<Neuesprodukt> createState() => _NeuesproduktState();
@@ -18,13 +28,17 @@ class _NeuesproduktState extends State<Neuesprodukt> {
   TextEditingController MengeController = TextEditingController();
   late SharedPreferences prefs;
 
+  get status => null;
+
   @override
   void initState() {
     ProduktnameController.text = widget.Produktname;
     MengeController.text = widget.Menge;
-    SharedPreferences.getInstance().then((SharedPreferences data){
-      prefs = data;
-    });
+    if (widget.isInteractive) {
+      SharedPreferences.getInstance().then((SharedPreferences data) {
+        prefs = data;
+      });
+    }
     super.initState();
   }
 
@@ -46,7 +60,7 @@ class _NeuesproduktState extends State<Neuesprodukt> {
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0), // padding für des kreis den man auswählen kann um ein produkt als "gekauft" zu markieren
             child: Row(
-              children: [
+              children: <Widget>[
                  GestureDetector(
                    onTap: () {
                      if(widget.Abgehakt == false) {
@@ -85,7 +99,8 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                     ),
                   ),
                 ),
-
+                if(!widget.isInteractive)
+                  Container(width: 20, height: 20),
                 // Eingabe Produkt:
                 const SizedBox(width: 10), // space zwischen kreis und "produktname eingeben"
                 Expanded(
@@ -104,16 +119,18 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                             color: Colors.grey,
                           ),
                         ),
-                        onChanged: (String Value){
-                          print(Value);
-                          widget.Produktname = Value;
-                          saveListElement();
+                        onChanged: (String value){
+                          widget.Produktname = value;
+                          if (widget.isInteractive) {
+                            saveListElement();
+                          }
                         },
                         style: Theme.of(context).textTheme.titleLarge!.copyWith( //textstil des texts welcher dann eingegeben wird
                           fontSize: 18,
                           color: widget.Abgehakt ? Colors.grey : Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
+                        readOnly: !widget.isInteractive,
                       ),
                     ),
                   ),
@@ -138,16 +155,18 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                           color: Colors.grey,
                         ),
                       ),
-                      onChanged: (String Value){
-                        print(Value);
-                        widget.Menge = Value;
-                        saveListElement();
+                      onChanged: (String value){
+                        widget.Menge = value;
+                        if (widget.isInteractive) {
+                          saveListElement();
+                        }
                       },
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontSize: 18,
                         color: widget.Abgehakt ? Colors.grey : Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
+                      readOnly: !widget.isInteractive,
                     ),
                   ),
                 ),
@@ -159,23 +178,18 @@ class _NeuesproduktState extends State<Neuesprodukt> {
   }
 
   void saveListElement() async{
-    String Status = '';
-    if(widget.Abgehakt == true){
-      Status = 'Gekauft';
-    }
-    else if(widget.Abgehakt == false){
-      Status = 'Nicht gekauft';
-    }
-    String produkt = widget.Produktname + ', ' + widget.Menge + ', ' + Status;
+    String status = widget.Abgehakt ? 'Gekauft' : 'Nicht gekauft';
+    String produkt = '${widget.Produktname}, ${widget.Menge}, $status';
 
     final List<String> items = prefs.getStringList('SavedList') ?? [];
       if(items.length > widget.stelle){
         items[widget.stelle] = produkt;
-        prefs.setStringList("SavedList", items);
+        //prefs.setStringList("SavedList", items);
       }else{
         items.add(produkt);
-        prefs.setStringList("SavedList", items);
+        //prefs.setStringList("SavedList", items);
       }
+      prefs.setStringList("SavedList", items);
     }
 
 }

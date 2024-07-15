@@ -1,4 +1,4 @@
-import 'package:foodfinder_app/Widgets/NeuesProdukt.dart';
+import 'package:foodfinder_app/pages/NeuesProdukt.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,7 +12,7 @@ class Einkaufsliste extends StatefulWidget {
 class _EinkaufslisteState extends State<Einkaufsliste> {
   bool isEinkaufslisteSelected = true; // Ist man auf der Seite Einkaufliste (oder Wochenplanner)
   bool isWochenplanSelected = false; // Ist man auf dem Wochenplaner
-  bool isCircleSelected = false; // um produkt als gekauft zu markieren
+  //bool isCircleSelected = false; // um produkt als gekauft zu markieren
   List<String> items = [];
   final List<Widget> _einkaufslisteWidgets = []; // liste der widgets für die liste
 
@@ -127,11 +127,11 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
                         Produktname: "",
                         Abgehakt: false,
                         stelle: items.length,
+                        isInteractive: true,
                       ));
-                      setState(() {
-
-                      });
+                      setState(() {});
                     },
+
                     child: Container( //button zum hinzufügen
                       width: 160,
                       height: 35,
@@ -175,27 +175,25 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       items = prefs.getStringList('SavedList') ?? [];
 
-      for(int i = 0; i < items.length; i++){
-        String Produkt = items[i];
-        List Werte = Produkt.split(', ');
-        bool Gekauft = true;
-        if (Werte[2].toString() == 'Gekauft'){
-          Gekauft = true;
-        }
-        else if (Werte[2].toString() == 'Nicht gekauft'){
-          Gekauft = false;
-        }
+      for(int i = 0; i < items.length; i++) {
+        String produkt = items[i];
+        //List<String> values = produkt.split(', ');
+        List werte = produkt.split(', ');
+        //bool Gekauft = true;
+        bool gekauft = werte[2].toString() == 'Gekauft';
 
-        print("GEKAUFT:" + Werte[2]);
-        print(Werte[2].toString() == "Nicht gekauft");
-
-        _einkaufslisteWidgets.add(Neuesprodukt(Produktname: Werte[0], Menge: Werte[1], Abgehakt: Gekauft, stelle: i));
+        _einkaufslisteWidgets.add(
+          Neuesprodukt(
+            Produktname: werte[0],
+            Menge: werte[1],
+            Abgehakt: gekauft,
+            stelle: i,
+            isInteractive: true,
+          ),
+        );
       }
-      setState(() {
-
-      });
+      setState(() {});
     }
-
   }
 
 
