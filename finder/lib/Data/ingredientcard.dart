@@ -23,4 +23,3 @@ class Ingredientcard {
   get bought => null;
   Map<String, dynamic> toJson() => _$IngredientcardToJson(this);
 }
-//

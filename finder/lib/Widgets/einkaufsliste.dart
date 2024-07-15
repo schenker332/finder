@@ -195,5 +195,5 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
       setState(() {});
     }
   }
-//
+
 
