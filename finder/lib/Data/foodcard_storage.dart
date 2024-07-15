@@ -6,6 +6,7 @@ import 'ingredientcard.dart';
 class FoodcardStorage {
   static const String _keyFoodcards = 'foodcards';
   static const String _keyIngredients = 'ingredients';
+  static const String _isLikedKey = "isLiked";
 
   Future<void> saveFoodcards(List<Foodcard> foodcards) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -38,4 +39,31 @@ class FoodcardStorage {
       return [];
     }
   }
+
+  Future<List<Foodcard>> getLikedRecipes(List<Foodcard> allFoodCards) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> likedIds = prefs.getStringList(_isLikedKey) ?? [];
+    List<Foodcard> result = [];
+    for(int i = 0; i < allFoodCards.length; i++){
+      if(likedIds.contains(allFoodCards[i].id)){
+        result.add(allFoodCards[i]);
+      }
+    }
+    return result;
+  }
+
+  Future<void> likeRecipe(String id) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> likedIds = prefs.getStringList(_isLikedKey) ?? [];
+    likedIds.add(id);
+    await prefs.setStringList(_isLikedKey, likedIds);
+  }
+
+  Future<void> unlikeRecipe(String id) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> likedIds = prefs.getStringList(_isLikedKey) ?? [];
+    likedIds.remove(id);
+    await prefs.setStringList(_isLikedKey, likedIds);
+  }
+
 }
