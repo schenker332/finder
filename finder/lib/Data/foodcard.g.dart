@@ -23,7 +23,7 @@ Foodcard _$FoodcardFromJson(Map<String, dynamic> json) {
       preparation: (json['preparation'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      kommentar: json['Kommentar'] as String,
+      kommentar: (json['Kommentar'] ?? "") as String,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
 
 );

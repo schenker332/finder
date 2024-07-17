@@ -32,12 +32,9 @@ class _SearchScreenState extends State<SearchScreen> {
     final data = await json.decode(given_recipes);
     List<dynamic> recipes = data['recipes'];
     for (var x in data['recipes']) {
-      print(x);
-      print("ob");
       allFoodcards.add(Foodcard.fromJson(x));
     }
 
-    print(allFoodcards.length);
     setState(() {
 
     });
@@ -165,7 +162,7 @@ class FoodcardWidget extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.network(
+              child: Image.asset(
                 foodcard.imageURL,
                 width: 80,
                 height: 80,
