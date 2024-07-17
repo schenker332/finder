@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/ingredientcard.dart';
@@ -5,6 +7,7 @@ import 'package:foodfinder_app/Widgets/foodcard_design.dart';
 import 'package:foodfinder_app/Data/foodcard.dart';
 import 'package:foodfinder_app/Data/foodcard_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../Data/given_recipes.dart';
 import 'NeuesProdukt.dart';
 import 'plan_screen.dart';
 
@@ -16,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Foodcard> allcards = [];
+  List<Foodcard> allcards = [], allFoodcards = [];
   List<Ingredientcard> allingredients = [];
   List<String> topThreeItems = [];
   final FoodcardStorage storage = FoodcardStorage();
@@ -26,11 +29,20 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadFoodcards();
     _loadTopThreeItems();
+    Future.delayed(const Duration(milliseconds: 500)).then((_){
+      _loadTopThreeItems();
+    });
   }
 
   Future<void> _loadFoodcards() async {
     List<Foodcard> loadedCards = await storage.getFoodcards();
     List<Ingredientcard> loadedIngredients = await storage.getIngredients();
+
+    final data = await json.decode(given_recipes);
+    List<dynamic> recipes = data['recipes'];
+    for (var x in recipes) {
+      allFoodcards.add(Foodcard.fromJson(x));
+    }
 
     setState(() {
       allcards = loadedCards;
@@ -128,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      left: 18,
+                      left: 15,
                       bottom: 10,
                       top: 20,
                     ),
@@ -209,6 +221,25 @@ class _HomeScreenState extends State<HomeScreen> {
               //    children: allcards.map((oneCard) => FoodcardDesign(foodcard: oneCard)).toList(),
               //  ),
               //),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18),
+                    child: Text(
+                      "Alle Rezepte",
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 20,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              ...List.generate(allFoodcards.length, (int index){
+                return FoodcardDesign(foodcard: allFoodcards[index]);
+              })
             ],
           ),
         ),

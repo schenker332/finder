@@ -24,14 +24,36 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
   }
 
   @override
+  void dispose() {
+    SharedPreferences.getInstance().then((SharedPreferences prefs){
+      items = prefs.getStringList('SavedList') ?? [];
+
+      for(int i = 0; i < items.length; i++) {
+        String produkt = items[i];
+        List werte = produkt.split(', ');
+        bool gekauft = werte[2].toString() == 'Gekauft';
+
+        if(gekauft){
+          items.removeAt(i);
+          i--;
+        }
+      }
+
+      prefs.setStringList("SavedList", items);
+    });
+
+    super.dispose();
+  }
+
+  @override
     Widget build(BuildContext context) {
       return Scaffold(
         backgroundColor: const Color(0xFFFFF8F5),
         // Hintergrundfarbe der gesamten Seite
         body: Padding(
           padding: const EdgeInsets.only( //padding der seite
-            left: 30,
-            right: 30,
+            left: 15,
+            right: 15,
             bottom: 20,
           ),
           child: SingleChildScrollView(

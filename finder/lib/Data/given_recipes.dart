@@ -266,7 +266,7 @@ String given_recipes = """{
       "title": "Rote Linsen-Curry mit Süßkartoffeln",
       "imageURL": "assets/rote_linsen_curry.jpg",
       "price": "1",
-      "foodart": "vegan",
+      "foodart": "Vegan",
       "description": "Ein gesundes und aromatisches Curry mit roten Linsen und Süßkartoffeln, perfekt für ein wärmendes und sättigendes Essen.",
       "time": "2",
       "waterneed": "1",
@@ -294,14 +294,14 @@ String given_recipes = """{
         "Das Curry schmeckt am nächsten Tag meist noch besser und lässt sich auch gut einfrieren."
       ],
       "Kommentar": "https://www.chefkoch.de/rezepte/3023041455110341/Rote-Linsen-Curry-mit-Suesskartoffeln.html",
-      "tags": ["vegan", "gesund", "wärmend"]
+      "tags": ["Vegan", "gesund", "wärmend"]
     },
     {
       "id": "9",
       "title": "Kichererbsen-Salat",
       "imageURL": "assets/kichererbsen_salat.jpg",
       "price": "1",
-      "foodart": "vegan",
+      "foodart": "Vegan",
       "description": "Ein erfrischender und nahrhafter Kichererbsen-Salat, ideal als Beilage oder leichte Hauptspeise.",
       "time": "1",
       "waterneed": "1",
@@ -325,14 +325,14 @@ String given_recipes = """{
         "Die Kräuter in feine Streifen schneiden und zusammen mit den Kernen des Granatapfels unter die Kichererbsen mischen."
       ],
       "Kommentar": "https://www.chefkoch.de/rezepte/4045481625128358/Kichererbsen-Salat.html",
-      "tags": ["vegan", "nahrhaft", "leicht"]
+      "tags": ["Vegan", "nahrhaft", "leicht"]
     },
     {
       "id": "10",
       "title": "Nudelsalat auf italienisch",
       "imageURL": "assets/nudelsalat_italienisch.jpg",
       "price": "2",
-      "foodart": "vegetarisch",
+      "foodart": "Veggie",
       "description": "Ein frischer und herzhafter Nudelsalat mit italienischen Aromen, perfekt als Beilage oder leichtes Hauptgericht.",
       "time": "1",
       "waterneed": "2",
@@ -366,7 +366,7 @@ String given_recipes = """{
       "title": "Italienischer Pizzateig",
       "imageURL": "assets/italienischer_pizzateig.jpg",
       "price": "1",
-      "foodart": "vegetarisch",
+      "foodart": "Veggie",
       "description": "Ein authentischer italienischer Pizzateig, der perfekte Grundlage für knusprige und köstliche hausgemachte Pizzen.",
       "time": "2",
       "waterneed": "2",
@@ -613,7 +613,7 @@ String given_recipes = """{
       "title": "Schnelles Spinat-Kichererbsen-Gericht",
       "imageURL": "assets/spinat_kichererbsen_gericht.jpg",
       "price": "1",
-      "foodart": "vegan",
+      "foodart": "Vegan",
       "description": "Ein schnelles und gesundes Gericht mit Spinat und Kichererbsen, perfekt für ein nahrhaftes Mittag- oder Abendessen.",
       "time": "1",
       "waterneed": "1",
@@ -641,7 +641,7 @@ String given_recipes = """{
         "Alles bei schwacher Hitze, leicht blubbernd ca. 10 Min. köcheln lassen. Zum Schluss die Kichererbsen dazugeben, verrühren und kurz ziehen lassen. Eventuell alles noch mal abschmecken und mit Chiliflocken bestreut servieren."
       ],
       "Kommentar": "https://www.chefkoch.de/rezepte/3207211477346212/Schnelles-Spinat-Kichererbsen-Gericht.html",
-      "tags": ["schnell", "gesund", "vegan"]
+      "tags": ["schnell", "gesund", "Vegan"]
     }
   ]
 }
