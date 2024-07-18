@@ -116,6 +116,8 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                           color: Colors.grey,
                         ),
                       ),
+                      cursorColor: Colors.black,
+                      cursorWidth: 1,
                       onChanged: (String value){
                         widget.Produktname = value;
                         if (widget.isInteractive) {
@@ -147,6 +149,8 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                         color: Colors.grey,
                       ),
                     ),
+                    cursorColor: Colors.black,
+                    cursorWidth: 1,
                     onChanged: (String value){
                       widget.Menge = value;
                       if (widget.isInteractive) {

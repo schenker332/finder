@@ -159,36 +159,33 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
                           ));
                           lastElementSaved = false;
                           setState(() {});
-                        }else{
+                        } else {
                           //Popup mit dem Hinweis "Du musst das letzte Element ausfüllen um ein Neues hinzuzufügen"
                         }
                       },
                       child: Container( //button zum hinzufügen
-                        width: 160,
-                        height: 35,
+                        width: 240,
+                        padding: EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
                           color: const Color(0xFFF5DC51),
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(99),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.add_circle_outline,
-                              color: Colors.black,
-                              size: 16,
+                              size: 20,
                             ),
                             const SizedBox(width: 5),
                             Text(
                               'Hinzufügen',
-                              style: Theme
-                                  .of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(
-                                fontSize: 14,
+                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                              ),
+                                letterSpacing: 0.4,
+                                color: Colors.black,
+                              )
                             ),
                           ],
                         ),

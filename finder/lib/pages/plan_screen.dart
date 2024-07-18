@@ -12,9 +12,12 @@ class PlanScreen extends StatelessWidget {
           scrolledUnderElevation: 8.0,
           shadowColor: const Color(0xFFFFFBF9),
           surfaceTintColor: const Color(0xFFFFFBF9),
-          title: Text(
-            "Planer",
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+          title: Padding(
+            padding: EdgeInsets.only(left: 8, top: 18, bottom: 12),
+            child: Text(
+              "Planer",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+            ),
           ),
         ),
         body: Einkaufsliste(),

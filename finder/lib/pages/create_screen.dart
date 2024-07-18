@@ -42,7 +42,11 @@ class _CreateScreenState extends State<CreateScreen> {
   var selectedtime;
   var selectedwaterneed;
   String imagePath = "";
-  List<IngredientInput> ingredients = [];
+  List<IngredientInput> ingredients = [IngredientInput(
+    nameController: TextEditingController(),
+    mengeController: TextEditingController(),
+    einheitController: TextEditingController(),
+  )];
 
   @override
   void initState() {
@@ -57,9 +61,12 @@ class _CreateScreenState extends State<CreateScreen> {
         child: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            title: Text(
-              "Erstellen",
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+            title: Padding(
+              padding: EdgeInsets.only(left: 8, top: 18, bottom: 12),
+              child: Text(
+                "Erstellen",
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+              ),
             ),
             bottom: TabBar(
               indicatorColor: Colors.black,
@@ -93,22 +100,22 @@ class _CreateScreenState extends State<CreateScreen> {
             children: [
               SingleChildScrollView(
                 child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(15),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Expanded(
-                            flex: 2,
+                            flex: 3,
                             child: GestureDetector(
                               onTap: () async{
                                 final ImagePicker picker = ImagePicker();
                                 XFile? file = await picker.pickImage(source: ImageSource.gallery);
                                 if(file != null){
                                   imagePath = file.path;
-                                  setState(() {
-
-                                  });
+                                  setState(() {});
                                 }
                               },
                               child: AspectRatio(
@@ -126,9 +133,23 @@ class _CreateScreenState extends State<CreateScreen> {
                                       fit: BoxFit.cover
                                     ) : null
                                   ),
-                                  child: imagePath.isEmpty ? const Icon(
-                                    CupertinoIcons.add_circled,
-                                    size: 40,
+                                  child: imagePath.isEmpty ? Container(
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          CupertinoIcons.add_circled,
+                                          size: 40,
+                                        ),
+                                        Text(
+                                          "Bild hinzufügen",
+                                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                            color: Colors.grey,
+                                            fontSize: 16
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ) : const SizedBox(),
                                 ),
                               ),
@@ -138,7 +159,7 @@ class _CreateScreenState extends State<CreateScreen> {
                             width: 15,
                           ),
                           Expanded(
-                            flex: 3,
+                            flex: 5,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,8 +177,6 @@ class _CreateScreenState extends State<CreateScreen> {
                                   ),
                                 ),
                                 Container(
-                                  width: double.infinity,
-                                  height: 40,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -167,16 +186,22 @@ class _CreateScreenState extends State<CreateScreen> {
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10),
-                                    child: TextFormField(
+                                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                                    child: TextField(
                                       controller: titleController,
-                                      decoration: const InputDecoration(
+                                      decoration: InputDecoration(
                                         border: InputBorder.none,
-                                        labelText: 'Mein tolles Essen...',
-                                        labelStyle: TextStyle(
+                                        hintText: 'Mein tolles Essen...',
+                                        hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                          fontSize: 20,
                                           color: Colors.grey,
-                                          fontSize: 14,
-                                        ),
+                                        )
+                                      ),
+                                      cursorColor: Colors.black,
+                                      cursorWidth: 1,
+                                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                        fontSize: 20,
+                                        color: Colors.black,
                                       ),
                                     ),
                                   ),
@@ -203,21 +228,32 @@ class _CreateScreenState extends State<CreateScreen> {
                                             color: Colors.black,
                                           ),
                                           isDense: true,
-                                          hint: const Text(
-                                            "Art des Essen",
-                                            style: TextStyle(
-                                              color: Colors.black,
+                                          hint: Text(
+                                            "Essen ist...",
+                                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                               fontSize: 14,
-                                            ),
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 0.4,
+                                              color: Colors.black,
+                                            )
                                           ),
                                           value: selectedfoodart,
                                           items: [
                                             "Vegan",
-                                            "Fleisch",
                                             "Veggie",
+                                            "Fleisch",
                                           ].map((e) => DropdownMenuItem(
                                             value: e,
-                                            child: Text("$e"),
+                                            child: Text(
+                                              e,
+                                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 0.4,
+                                                color: Colors.black,
+                                              )
+                                            ),
+
                                           )).toList(),
                                           onChanged: (val1) {
                                             if(val1 != null){
@@ -246,11 +282,13 @@ class _CreateScreenState extends State<CreateScreen> {
                                             color: Colors.black,
                                           ),
                                           isDense: true,
-                                          hint: const Text(
-                                            "Preis Hinzufügen",
-                                            style: TextStyle(
-                                              color: Colors.black,
+                                          hint: Text(
+                                            "Kosten",
+                                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                               fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 0.4,
+                                              color: Colors.black,
                                             ),
                                           ),
                                           value: selectedprice,
@@ -260,7 +298,15 @@ class _CreateScreenState extends State<CreateScreen> {
                                             "€€€",
                                           ].map((e) => DropdownMenuItem(
                                             value: e,
-                                            child: Text("$e "),
+                                            child: Text(
+                                              e,
+                                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 0.4,
+                                                color: Colors.black,
+                                              )
+                                            ),
                                           )).toList(),
                                           onChanged: (val2) {
                                             if(val2 != null){
@@ -289,21 +335,31 @@ class _CreateScreenState extends State<CreateScreen> {
                                             color: Colors.black,
                                           ),
                                           isDense: true,
-                                          hint: const Text(
-                                            "Zeit Hinzufügen",
-                                            style: TextStyle(
-                                              color: Colors.black,
+                                          hint: Text(
+                                            "Dauer",
+                                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                               fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 0.4,
+                                              color: Colors.black,
                                             ),
                                           ),
                                           value: selectedtime,
                                           items: [
-                                            "kurz",
-                                            "lang",
-                                            "sehr lang",
+                                            "schnell",
+                                            "mittel",
+                                            "braucht Zeit",
                                           ].map((e) => DropdownMenuItem(
                                             value: e,
-                                            child: Text("$e"),
+                                            child: Text(
+                                              e,
+                                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 0.4,
+                                                color: Colors.black,
+                                              )
+                                            ),
                                           )).toList(),
                                           onChanged: (val3) {
                                             if(val3 != null){
@@ -332,21 +388,31 @@ class _CreateScreenState extends State<CreateScreen> {
                                             color: Colors.black,
                                           ),
                                           isDense: true,
-                                          hint: const Text(
+                                          hint: Text(
                                             "Wasserverbrauch",
-                                            style: TextStyle(
-                                              color: Colors.black,
+                                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                               fontSize: 14,
-                                            ),
+                                              fontWeight: FontWeight.bold,
+                                              letterSpacing: 0.4,
+                                              color: Colors.black,
+                                            )
                                           ),
                                           value: selectedwaterneed,
                                           items: [
-                                            "wenig",
-                                            "mittel",
-                                            "viel"
+                                            "wenig Wasser",
+                                            "normal",
+                                            "viel Wasser"
                                           ].map((e) => DropdownMenuItem(
                                             value: e,
-                                            child: Text("$e"),
+                                            child: Text(
+                                              e,
+                                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                                letterSpacing: 0.4,
+                                                color: Colors.black,
+                                              )
+                                            ),
                                           )).toList(),
                                           onChanged: (val4) {
                                             if(val4 != null){
@@ -391,23 +457,30 @@ class _CreateScreenState extends State<CreateScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
-                        width: double.infinity,
-                        height: 60,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           border: Border.all(color: Colors.black, width: 1),
+                          color: Colors.white
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: TextFormField(
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                          child: TextField(
                             controller: descriptionController,
-                            decoration: const InputDecoration(
+                            maxLines: 3,
+                            decoration: InputDecoration(
                               border: InputBorder.none,
-                              labelText: 'Beschreib das Rezept',
-                              labelStyle: TextStyle(
-                                color: Colors.grey,
+                              hintText: 'Beschreib das Rezept...',
+                              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 fontSize: 16,
+                                color: Colors.grey,
                               ),
+
+                            ),
+                            cursorColor: Colors.black,
+                            cursorWidth: 1,
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontSize: 16,
+                              color: Colors.black,
                             ),
                           ),
                         ),
@@ -417,7 +490,7 @@ class _CreateScreenState extends State<CreateScreen> {
                       height: 10,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25),
+                      padding: const EdgeInsets.only(left: 25, top: 10),
                       child: SizedBox(
                         width: double.infinity,
                         height: 30,
@@ -439,56 +512,73 @@ class _CreateScreenState extends State<CreateScreen> {
                     const SizedBox(
                       height: 5,
                     ),
-                    GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          TextEditingController nameController = TextEditingController();
-                          TextEditingController mengeController = TextEditingController();
-                          TextEditingController einheitController = TextEditingController();
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: GestureDetector(
+                              onTap: (){
+                                setState(() {
+                                  TextEditingController nameController = TextEditingController();
+                                  TextEditingController mengeController = TextEditingController();
+                                  TextEditingController einheitController = TextEditingController();
 
-                          ingredients.add(IngredientInput(
-                            nameController: nameController,
-                            mengeController: mengeController,
-                            einheitController: einheitController,
-                          ));
-                        });
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 25
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF5DC51),
-                          borderRadius: BorderRadius.circular(1000)
-                        ),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.add_circle_outline,
-                              size: 15,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "Zutat",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
+                                  ingredients.add(IngredientInput(
+                                    nameController: nameController,
+                                    mengeController: mengeController,
+                                    einheitController: einheitController,
+                                  ));
+                                });
+                              },
+                              child: Container(
+                                padding: EdgeInsets.only(
+                                  top: 10,
+                                  bottom: 10,
+                                  right: 10
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF5DC51),
+                                  borderRadius: BorderRadius.circular(1000)
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.add_circle_outline,
+                                      size: 20,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "Zutat",
+                                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 0.4,
+                                        color: Colors.black,
+                                      )
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: SizedBox()
+                          )
+                        ],
                       ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25),
+                      padding: const EdgeInsets.only(left: 25, top: 10),
                       child: SizedBox(
                         width: double.infinity,
                         height: 30,
@@ -509,24 +599,29 @@ class _CreateScreenState extends State<CreateScreen> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
-                        width: double.infinity,
-                        height: 120,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(15),
                           border: Border.all(color: Colors.black, width: 1),
+                          color: Colors.white
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           child: TextField(
-                            maxLines: 3,
                             controller: preparationController,
-                            decoration: const InputDecoration(
+                            maxLines: 3,
+                            decoration: InputDecoration(
                               border: InputBorder.none,
-                              labelText: 'Was ist zu tun?',
-                              labelStyle: TextStyle(
-                                color: Colors.grey,
+                              hintText: 'Trenne jeden Schritt mit einem Zeilenumbruch',
+                              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 fontSize: 16,
+                                color: Colors.grey,
                               ),
+                            ),
+                            cursorColor: Colors.black,
+                            cursorWidth: 1,
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontSize: 16,
+                              color: Colors.black,
                             ),
                           ),
                         ),
@@ -548,8 +643,8 @@ class _CreateScreenState extends State<CreateScreen> {
                           "description": descriptionController.text,
                           "price": (["€", "€€", "€€€"].indexOf(selectedprice) + 1).toString(),
                           "foodart": selectedfoodart,
-                          "time": (["kurz", "lang", "sehr lang"].indexOf(selectedtime) + 1).toString(),
-                          "waterneed": (["wenig", "mittel", "viel"].indexOf(selectedwaterneed) + 1).toString(),
+                          "time": (["schnell","mittel","braucht Zeit"].indexOf(selectedtime) + 1).toString(),
+                          "waterneed": (["wenig Wasser","normal","viel Wasser"].indexOf(selectedwaterneed) + 1).toString(),
                           "portion": "4",
                           "ingredients": List.generate(ingredients.length, (int index){
                             return [
@@ -569,24 +664,31 @@ class _CreateScreenState extends State<CreateScreen> {
                         savedRecipes.add(jsonEncode(jsonData));
                         sharedPreferences.setStringList(recipeKey, savedRecipes);
                       },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 25
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF5DC51),
-                          borderRadius: BorderRadius.circular(1000)
-                        ),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text(
-                              "Speichern",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 25
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF5DC51),
+                                  borderRadius: BorderRadius.circular(1000)
+                                ),
+                                child: Text(
+                                  "Speichern",
+                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 0.4,
+                                    color: Colors.black,
+                                  )
+                                ),
                               ),
                             ),
                           ],

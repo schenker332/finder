@@ -21,7 +21,7 @@ class _IngredientInputState extends State<IngredientInput> {
       child: Row(
         children: [
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Container(
@@ -38,14 +38,19 @@ class _IngredientInputState extends State<IngredientInput> {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextField(
                     controller: widget.nameController,
-                    cursorColor: Colors.black,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Zutat',
-                      hintStyle: TextStyle(
+                      hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 16,
                         color: Colors.grey,
-                        fontSize: 14,
                       ),
+                    ),
+                    cursorColor: Colors.black,
+                    cursorWidth: 1,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 16,
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -70,14 +75,19 @@ class _IngredientInputState extends State<IngredientInput> {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextField(
                     controller: widget.mengeController,
-                    cursorColor: Colors.black,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Menge',
-                      hintStyle: TextStyle(
+                      hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 16,
                         color: Colors.grey,
-                        fontSize: 14,
                       ),
+                    ),
+                    cursorColor: Colors.black,
+                    cursorWidth: 1,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 16,
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -102,14 +112,19 @@ class _IngredientInputState extends State<IngredientInput> {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextField(
                     controller: widget.einheitController,
-                    cursorColor: Colors.black,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Einh.',
-                      hintStyle: TextStyle(
+                      hintText: 'Einheit',
+                      hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 16,
                         color: Colors.grey,
-                        fontSize: 14,
                       ),
+                    ),
+                    cursorColor: Colors.black,
+                    cursorWidth: 1,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 16,
+                      color: Colors.black,
                     ),
                   ),
                 ),

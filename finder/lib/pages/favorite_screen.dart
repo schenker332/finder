@@ -69,13 +69,16 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       child: Scaffold(
         appBar: AppBar(
           scrolledUnderElevation: 0.0,
-          title: Text(
-            "Gespeichert", //Username Nutzername
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+          title: Padding(
+            padding: EdgeInsets.only(left: 8, top: 18, bottom: 12),
+            child: Text(
+              "Gespeichert",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+            ),
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
