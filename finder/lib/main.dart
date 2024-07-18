@@ -237,6 +237,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                               duration: Durations.short2,
                               width: 40,
                               height: 40,
+                              padding: const EdgeInsets.only(top: 1),
                               decoration: BoxDecoration(
                                 color: widget.currentPage == 4 ?
                                   Colors.black :
@@ -248,8 +249,8 @@ class _MyFirstAppState extends State<MyFirstApp> {
                                 ),
                               ),
                               child: widget.currentPage == 4 ?
-                                Icon(CupertinoIcons.heart, color: Colors.white) :
-                                Icon(CupertinoIcons.heart, color: Colors.black)
+                                Icon(Icons.favorite_border, color: Colors.white) :
+                                Icon(Icons.favorite_border, color: Colors.black)
                             ),
                           ),
                         ), // saved/library/gespeichert

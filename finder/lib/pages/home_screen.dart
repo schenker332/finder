@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               children: [
-                Row(
+                if(!topThreeItems.isEmpty) Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
@@ -112,26 +112,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 15),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushAndRemoveUntil(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation1, animation2) => MyFirstApp(currentPage: 3),
-                              transitionDuration: Duration.zero,
-                              reverseTransitionDuration: Duration.zero,
-                            ),
-                            (route) => false,
-                          );
-                        },
-                        child: const Icon(CupertinoIcons.arrow_right),
-                      ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) => MyFirstApp(currentPage: 3),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero,
+                          ),
+                          (route) => false,
+                        );
+                      },
+                      child: const Icon(CupertinoIcons.arrow_right),
                     ),
                   ],
-                ),
-                ...topThreeItems.map((item){
+                )
+                else SizedBox(),
+                if(!topThreeItems.isEmpty) ...topThreeItems.map((item){
                   List<String> details = item.split(', ');
                   print("Items details: $details");
                   return Neuesprodukt(
@@ -140,11 +138,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     Abgehakt: details[2] == 'Gekauft',
                     stelle: topThreeItems.indexOf(item),
                     isInteractive: true,
-                    onSave: (){
-
-                    },
+                    onSave: (){},
                   );
-                }).take(5).toList(),
+                }).take(5).toList()
+                else SizedBox(),
                 recentlyLiked != null ? Padding(
                   padding: const EdgeInsets.only(
                     bottom: 10
@@ -193,6 +190,20 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) => MyFirstApp(currentPage: 1),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero,
+                          ),
+                          (route) => false,
+                        );
+                      },
+                      child: const Icon(CupertinoIcons.arrow_right),
                     ),
                   ],
                 ),
