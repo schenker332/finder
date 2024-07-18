@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../Data/foodcard.dart';
@@ -57,12 +58,36 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List<int> randomIndices = [];
+    if (filteredFoodcards.isNotEmpty) {
+      Random random = Random();
+      Set<int> chosenIndices = {};
+
+      while (chosenIndices.length < min(3, filteredFoodcards.length)) {
+        int randomIndex = random.nextInt(filteredFoodcards.length);
+        if (!chosenIndices.contains(randomIndex)) {
+          chosenIndices.add(randomIndex);
+        }
+      }
+
+      randomIndices = chosenIndices.toList();
+    }
+
+    // Generate widgets based on the randomly chosen indices
+    List<Widget> foodCardWidgets = randomIndices.map((index) {
+      return FoodcardDesign(foodcard: filteredFoodcards[index]);
+    }).toList();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Suche",
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+          scrolledUnderElevation: 0.0,
+          title: Padding(
+            padding: EdgeInsets.only(left: 8, top: 18, bottom: 12),
+            child: Text(
+              "Suche",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+            ),
           ),
         ),
         body: Padding(
@@ -70,43 +95,56 @@ class _SearchScreenState extends State<SearchScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
-                controller: searchController,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  hintText: 'Was willst Du heute essen?',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25),
-                    borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12.0),
+                child: TextField(
+                  controller: searchController,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 20,
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25),
-                    borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                  cursorColor: Colors.black,
+                  cursorWidth: 1,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.search, color: Colors.black,),
+                    hintText: 'Was willst Du heute essen?',
+                    hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 20,
+                      color: Colors.grey
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,  // Hintergrundfarbe auf weiß gesetzt
+                    contentPadding: EdgeInsets.symmetric(vertical: 10),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25),
-                    borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,  // Hintergrundfarbe auf weiß gesetzt
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
+                  onChanged: (query) => filterFoodcards(query),
                 ),
-                onChanged: (query) => filterFoodcards(query),
               ),
-              SizedBox(height: 10),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Beliebt",
-                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22, // Ändere die Schriftgröße nach Bedarf
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Text(
+                          "Beliebt",
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20, // Ändere die Schriftgröße nach Bedarf
+                          ),
                         ),
                       ),
-                      SizedBox(height: 10),
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
@@ -116,17 +154,20 @@ class _SearchScreenState extends State<SearchScreen> {
                               searchController.text = tag;
                               filterFoodcards(tag);
                             },
-                            child: Chip(
-                              label: Text(
-                                tag,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).colorScheme.onPrimary, // Gelbe Hintergrundfarbe
+                                borderRadius: BorderRadius.all(Radius.circular(99)),
                               ),
-                              backgroundColor: Theme.of(context).colorScheme.onPrimary, // Gelbe Hintergrundfarbe
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                child: Text(
+                                  tag,
+                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                             ),
                           );
@@ -134,26 +175,26 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                       SizedBox(height: 10),
                       if (filteredFoodcards.isNotEmpty)
-                        Text(
-                          "Vorschläge",
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 28, // Ändere die Schriftgröße nach Bedarf
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            filteredFoodcards == allFoodcards ? "Vorschläge" : "Ergebnisse",
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
                           ),
                         ),
-                      SizedBox(height: 10),
-                      ...List.generate(filteredFoodcards.isNotEmpty ? filteredFoodcards.length : 1, (int index){
-                        if(filteredFoodcards.isNotEmpty){
-                          return FoodcardDesign(foodcard: filteredFoodcards[index]);
-                        }else{
-                          return Center(
-                            child: Text(
-                              'Keine Rezepte gefunden',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                          );
-                        }
-                      }),
+                      if(filteredFoodcards.isNotEmpty && filteredFoodcards == allFoodcards) ...foodCardWidgets
+                      else if(filteredFoodcards.isNotEmpty) ...List.generate(filteredFoodcards.length, (int index){
+                        return FoodcardDesign(foodcard: filteredFoodcards[index]);
+                      })
+                      else Center(
+                        child: Text(
+                          'Keine Rezepte gefunden',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                      ),
                       const SizedBox(
                         height: 75,
                       )
