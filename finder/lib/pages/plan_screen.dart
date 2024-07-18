@@ -9,11 +9,13 @@ class PlanScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          scrolledUnderElevation: 8.0,
+          shadowColor: const Color(0xFFFFFBF9),
+          surfaceTintColor: const Color(0xFFFFFBF9),
           title: Text(
             "Planer",
             style: Theme.of(context).textTheme.titleLarge!.copyWith(),
           ),
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         ),
         body: Einkaufsliste(),
       ),

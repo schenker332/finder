@@ -85,9 +85,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Willkommen!", // Username Nutzername
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+          scrolledUnderElevation: 8.0,
+          shadowColor: const Color(0xFFFFFBF9),
+          surfaceTintColor: const Color(0xFFFFFBF9),
+          title: Padding(
+            padding: EdgeInsets.only(left: 8, top: 18, bottom: 12),
+            child: Text(
+              "Willkommen!", // Username Nutzername
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(),
+            ),
           ),
         ),
         body: SingleChildScrollView(
@@ -97,41 +103,48 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 if(!topThreeItems.isEmpty) Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
+                      padding: EdgeInsets.only(
+                        left: 14,
                         bottom: 10,
-                        top: 20,
+                        top: 20
                       ),
                       child: Text(
                         "Oben auf deiner Liste",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontSize: 20,
-                          letterSpacing: 1,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) => MyFirstApp(currentPage: 3),
-                            transitionDuration: Duration.zero,
-                            reverseTransitionDuration: Duration.zero,
-                          ),
-                          (route) => false,
-                        );
-                      },
-                      child: const Icon(CupertinoIcons.arrow_right),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: 10,
+                          top: 20
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation1, animation2) => MyFirstApp(currentPage: 3),
+                              transitionDuration: Duration.zero,
+                              reverseTransitionDuration: Duration.zero,
+                            ),
+                            (route) => false,
+                          );
+                        },
+                        child: const Icon(CupertinoIcons.arrow_right),
+                      ),
                     ),
                   ],
                 )
                 else SizedBox(),
                 if(!topThreeItems.isEmpty) ...topThreeItems.map((item){
                   List<String> details = item.split(', ');
-                  print("Items details: $details");
+                  // print("Items details: $details");
                   return Neuesprodukt(
                     Produktname: details[0],
                     Menge: details[1],
@@ -143,18 +156,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 }).take(5).toList()
                 else SizedBox(),
                 recentlyLiked != null ? Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 10
+                  padding: EdgeInsets.only(
+                    bottom: 10,
+                    top: !topThreeItems.isEmpty ? 20 : 0
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        "Zuletzt Gespeichert",
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontSize: 20,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
+                      Padding(
+                        padding: EdgeInsets.only(left: 14),
+                        child: Text(
+                          "Zuletzt Gespeichert",
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                       GestureDetector(
@@ -166,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               transitionDuration: Duration.zero,
                               reverseTransitionDuration: Duration.zero,
                             ),
-                                (route) => false,
+                            (route) => false,
                           );
                         },
                         child: const Icon(CupertinoIcons.arrow_right),
@@ -177,33 +194,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 recentlyLiked != null ? FoodcardDesign(foodcard: recentlyLiked!) : const SizedBox(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 10,
+                      padding: EdgeInsets.only(
+                          left: 14,
+                          bottom: 10,
+                          top: recentlyLiked != null ? 20 : 0
                       ),
                       child: Text(
                         "Alle Rezepte",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontSize: 20,
-                          letterSpacing: 1,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) => MyFirstApp(currentPage: 1),
-                            transitionDuration: Duration.zero,
-                            reverseTransitionDuration: Duration.zero,
-                          ),
-                          (route) => false,
-                        );
-                      },
-                      child: const Icon(CupertinoIcons.arrow_right),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: 10,
+                          top: recentlyLiked != null ? 20 : 0
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation1, animation2) => MyFirstApp(currentPage: 1),
+                              transitionDuration: Duration.zero,
+                              reverseTransitionDuration: Duration.zero,
+                            ),
+                            (route) => false,
+                          );
+                        },
+                        child: const Icon(CupertinoIcons.arrow_right),
+                      ),
                     ),
                   ],
                 ),

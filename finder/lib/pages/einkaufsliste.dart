@@ -48,7 +48,7 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
   @override
     Widget build(BuildContext context) {
       return Scaffold(
-        backgroundColor: const Color(0xFFFFF8F5),
+        backgroundColor: const Color(0xFFFFFBF9),
         // Hintergrundfarbe der gesamten Seite
         body: Padding(
           padding: const EdgeInsets.only( //padding der seite
@@ -139,10 +139,10 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
                 ..._einkaufslisteWidgets,
                 const SizedBox(height: 20), // space zwischen dem untersten produkt und dem "Hinzufügen" button
             // Hinzufügen Button:
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 80.0),
+                  child: Center(
+                    child: GestureDetector(
                       onTap: (){
                         if(lastElementSaved){
                           _einkaufslisteWidgets.add(Neuesprodukt(
@@ -194,7 +194,7 @@ class _EinkaufslisteState extends State<Einkaufsliste> {
                         ),
                       ),
                     )
-                  ],
+                  ),
                 ),
               ],
             ),

@@ -41,13 +41,18 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   void filterFoodcards(String query) {
     setState(() {
-      filteredFoodcards = likedFoodcards.where((foodcard) {
-        return foodcard.title.toLowerCase().contains(query.toLowerCase()) ||
-            foodcard.description.toLowerCase().contains(query.toLowerCase()) ||
-            foodcard.foodart.toLowerCase().contains(query.toLowerCase()) ||
-            foodcard.tags.any((tag) => tag.toLowerCase().contains(query.toLowerCase())) ||
-            foodcard.ingredients.any((ingredient) => ingredient.any((element) => element.toString().toLowerCase().contains(query.toLowerCase())));
-      }).toList();
+      if (query.isEmpty) {
+        filteredFoodcards = likedFoodcards;
+      } else {
+        filteredFoodcards = likedFoodcards.where((foodcard) {
+          return foodcard.title.toLowerCase().contains(query.toLowerCase()) ||
+              foodcard.description.toLowerCase().contains(query.toLowerCase()) ||
+              foodcard.foodart.toLowerCase().contains(query.toLowerCase()) ||
+              foodcard.tags.any((tag) => tag.toLowerCase().contains(query.toLowerCase())) ||
+              foodcard.ingredients.any((ingredient) =>
+                  ingredient.any((element) => element.toString().toLowerCase().contains(query.toLowerCase())));
+        }).toList();
+      }
     });
   }
 
@@ -56,37 +61,62 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          scrolledUnderElevation: 0.0,
           title: Text(
             "Gespeichert", //Username Nutzername
             style: Theme.of(context).textTheme.titleLarge!.copyWith(),
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
-                controller: searchController,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  hintText: 'Gespeicherte Rezepte durchsuchen',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25),
-                    borderSide: BorderSide.none,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 18.0),
+                child: TextField(
+                  controller: searchController,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    fontSize: 20,
                   ),
-                  filled: true,
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
+                  cursorColor: Colors.black,
+                  cursorWidth: 1,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.search, color: Colors.black,),
+                    hintText: 'Was willst Du heute essen?',
+                    hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 20,
+                        color: Colors.grey
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,  // Hintergrundfarbe auf weiß gesetzt
+                    contentPadding: EdgeInsets.symmetric(vertical: 10),
+                  ),
+                  onChanged: (query) => filterFoodcards(query),
                 ),
-                onChanged: (query) => filterFoodcards(query),
               ),
-              SizedBox(height: 10),
               Expanded(
-                child: likedFoodcards.isNotEmpty ? ListView.builder(
-                  itemCount: likedFoodcards.length,
+                child: filteredFoodcards.isNotEmpty ? ListView.builder(
+                  itemCount: filteredFoodcards.length,
                   itemBuilder: (context, index) {
-                    return FoodcardDesign(
-                      foodcard: likedFoodcards[index],
+                    bool isLastItem = index == filteredFoodcards.length - 1 && filteredFoodcards.isNotEmpty;
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: isLastItem ? 85.0 : 0),
+                      child: FoodcardDesign(
+                        foodcard: filteredFoodcards[index],
+                      ),
                     );
                   },
                 ) : Center(
