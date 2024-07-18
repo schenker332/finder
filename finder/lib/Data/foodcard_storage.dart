@@ -52,6 +52,12 @@ class FoodcardStorage {
     return result;
   }
 
+  Future<List<String>> getLikedRecipeIds() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String> likedIds = prefs.getStringList(_isLikedKey) ?? [];
+    return likedIds;
+  }
+
   Future<void> likeRecipe(String id) async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> likedIds = prefs.getStringList(_isLikedKey) ?? [];

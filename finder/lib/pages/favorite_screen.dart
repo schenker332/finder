@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import '../Data/foodcard.dart';
+import '../Data/given_recipes.dart';
 import '../Widgets/foodcard_design.dart';
 import '../Data/foodcard_storage.dart';
 
@@ -23,7 +26,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
 
   Future<void> loadLikedFoodcards() async {
-    List<Foodcard> allFoodcards = await foodcardStorage.getFoodcards();
+    List<Foodcard> allFoodcards = [];
+    final data = await json.decode(given_recipes);
+    List<dynamic> recipes = data['recipes'];
+    for (var x in recipes) {
+      allFoodcards.add(Foodcard.fromJson(x));
+    }
     List<Foodcard> liked = await foodcardStorage.getLikedRecipes(allFoodcards);
     setState(() {
       likedFoodcards = liked;
@@ -38,8 +46,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             foodcard.description.toLowerCase().contains(query.toLowerCase()) ||
             foodcard.foodart.toLowerCase().contains(query.toLowerCase()) ||
             foodcard.tags.any((tag) => tag.toLowerCase().contains(query.toLowerCase())) ||
-            foodcard.ingredients.any((ingredient) =>
-                ingredient.any((element) => element.toString().toLowerCase().contains(query.toLowerCase())));
+            foodcard.ingredients.any((ingredient) => ingredient.any((element) => element.toString().toLowerCase().contains(query.toLowerCase())));
       }).toList();
     });
   }
@@ -75,16 +82,14 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               ),
               SizedBox(height: 10),
               Expanded(
-                child: filteredFoodcards.isNotEmpty
-                    ? ListView.builder(
-                  itemCount: filteredFoodcards.length,
+                child: likedFoodcards.isNotEmpty ? ListView.builder(
+                  itemCount: likedFoodcards.length,
                   itemBuilder: (context, index) {
                     return FoodcardDesign(
-                      foodcard: filteredFoodcards[index],
+                      foodcard: likedFoodcards[index],
                     );
                   },
-                )
-                    : Center(
+                ) : Center(
                   child: Text(
                     'Bisher keine Rezepte vorhanden',
                     style: Theme.of(context).textTheme.titleLarge,

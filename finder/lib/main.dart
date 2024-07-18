@@ -9,18 +9,18 @@ import 'package:foodfinder_app/pages/plan_screen.dart';
 import 'package:foodfinder_app/pages/search_screen.dart';
 
 void main() {
-  runApp(MyFirstApp());
+  runApp(MyFirstApp(currentPage: 0));
 }
 
 class MyFirstApp extends StatefulWidget {
-  const MyFirstApp({super.key});
+  int currentPage;
+  MyFirstApp({super.key, required this.currentPage});
 
   @override
   State<MyFirstApp> createState() => _MyFirstAppState();
 }
 
 class _MyFirstAppState extends State<MyFirstApp> {
-  int currentPage = 0;
   int tappedPage = -1;
   List<Widget> screens = [HomeScreen(), SearchScreen(), CreateScreen(), PlanScreen(), FavoriteScreen() ];
 
@@ -58,207 +58,206 @@ class _MyFirstAppState extends State<MyFirstApp> {
       ),
       home: SafeArea(
         child: Scaffold(
-
-          body: Column(
+          body: Stack(
             children: [
-              Expanded(
-                  child: screens[currentPage]
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 50,
-                  right: 50,
-                  bottom: 20,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 1,
+              screens[widget.currentPage],
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 50,
+                    right: 50,
+                    bottom: 20,
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector( // home
+                          onTap: (){
+                            widget.currentPage = 0;
+                            setState(() {});
+                          },
+                          onTapDown: (TapDownDetails details) {
+                            tappedPage = 0;
+                            setState(() {});
+                          },
+                          onTapUp: (TapUpDetails details) {
+                            tappedPage = -1;
+                            setState(() {});
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: AnimatedContainer(
+                              duration: Durations.short2,
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: widget.currentPage == 0 ?
+                                  Colors.black :
+                                  (tappedPage == 0 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
+                                borderRadius: BorderRadius.circular(40),
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 1,
+                                ),
+                              ),
+                              child: widget.currentPage == 0 ?
+                                Icon(CupertinoIcons.house, color: Colors.white) :
+                                Icon(CupertinoIcons.house, color: Colors.black)
+                            ),
+                          ),
+                        ), // home
+
+                        GestureDetector( // search
+                          onTap: (){
+                            widget.currentPage = 1;
+                            setState(() {});
+                          },
+                          onTapDown: (TapDownDetails details) {
+                            tappedPage = 1;
+                            setState(() {});
+                          },
+                          onTapUp: (TapUpDetails details) {
+                            tappedPage = -1;
+                            setState(() {});
+                          },
+                          child: AnimatedContainer(
+                            duration: Durations.short2,
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: widget.currentPage == 1 ?
+                                Colors.black :
+                                (tappedPage == 1 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 1,
+                              ),
+                            ),
+                            child: widget.currentPage == 1 ?
+                              Icon(CupertinoIcons.search, color: Colors.white) :
+                              Icon(CupertinoIcons.search, color: Colors.black),
+                          ),
+                        ), // search
+
+                        GestureDetector( // create
+                          onTap: (){
+                            widget.currentPage = 2;
+                            setState(() {});
+                          },
+                          onTapDown: (TapDownDetails details) {
+                            tappedPage = 2;
+                            setState(() {});
+                          },
+                          onTapUp: (TapUpDetails details) {
+                            tappedPage = -1;
+                            setState(() {});
+                          },
+                          child: AnimatedContainer(
+                            duration: Durations.short2,
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: widget.currentPage == 2 ?
+                                Colors.black :
+                                (tappedPage == 2 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 1,
+                              ),
+                            ),
+                            child: widget.currentPage == 2 ?
+                              Icon(CupertinoIcons.add, color: Colors.white) :
+                              Icon(CupertinoIcons.add, color: Colors.black)
+                          ),
+                        ), // create
+
+                        GestureDetector( // planner
+                          onTap: (){
+                            widget.currentPage = 3;
+                            setState(() {});
+                          },
+                          onTapDown: (TapDownDetails details) {
+                            tappedPage = 3;
+                            setState(() {});
+                          },
+                          onTapUp: (TapUpDetails details) {
+                            tappedPage = -1;
+                            setState(() {});
+                          },
+                          child: AnimatedContainer(
+                            duration: Durations.short2,
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: widget.currentPage == 3 ?
+                                Colors.black :
+                                (tappedPage == 3 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
+                              borderRadius: BorderRadius.circular(40),
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 1,
+                              ),
+                            ),
+                            child: widget.currentPage == 3 ?
+                              Icon(CupertinoIcons.calendar, color: Colors.white) :
+                              Icon(CupertinoIcons.calendar, color: Colors.black)
+                          ),
+                        ), // planner
+
+                        GestureDetector( // saved/library/gespeichert
+                          onTap: () {
+                            widget.currentPage = 4;
+                            setState(() {});
+                          },
+                          onTapDown: (TapDownDetails details) {
+                            tappedPage = 4;
+                            setState(() {});
+                          },
+                          onTapUp: (TapUpDetails details) {
+                            tappedPage = -1;
+                            setState(() {});
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: AnimatedContainer(
+                              duration: Durations.short2,
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: widget.currentPage == 4 ?
+                                  Colors.black :
+                                  (tappedPage == 4 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
+                                borderRadius: BorderRadius.circular(40),
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 1,
+                                ),
+                              ),
+                              child: widget.currentPage == 4 ?
+                                Icon(CupertinoIcons.heart, color: Colors.white) :
+                                Icon(CupertinoIcons.heart, color: Colors.black)
+                            ),
+                          ),
+                        ), // saved/library/gespeichert
+                      ],
                     ),
                   ),
 
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector( // home
-                        onTap: (){
-                          currentPage = 0;
-                          setState(() {});
-                        },
-                        onTapDown: (TapDownDetails details) {
-                          tappedPage = 0;
-                          setState(() {});
-                        },
-                        onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: AnimatedContainer(
-                            duration: Durations.short2,
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: currentPage == 0 ?
-                                Colors.black :
-                                (tappedPage == 0 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
-                              borderRadius: BorderRadius.circular(40),
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 1,
-                              ),
-                            ),
-                            child: currentPage == 0 ?
-                              Icon(CupertinoIcons.house, color: Colors.white) :
-                              Icon(CupertinoIcons.house, color: Colors.black)
-                          ),
-                        ),
-                      ), // home
-
-                      GestureDetector( // search
-                        onTap: (){
-                          currentPage = 1;
-                          setState(() {});
-                        },
-                        onTapDown: (TapDownDetails details) {
-                          tappedPage = 1;
-                          setState(() {});
-                        },
-                        onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
-                        },
-                        child: AnimatedContainer(
-                          duration: Durations.short2,
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: currentPage == 1 ?
-                              Colors.black :
-                              (tappedPage == 1 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
-                            borderRadius: BorderRadius.circular(40),
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 1,
-                            ),
-                          ),
-                          child: currentPage == 1 ?
-                            Icon(CupertinoIcons.search, color: Colors.white) :
-                            Icon(CupertinoIcons.search, color: Colors.black),
-                        ),
-                      ), // search
-
-                      GestureDetector( // create
-                        onTap: (){
-                          currentPage = 2;
-                          setState(() {});
-                        },
-                        onTapDown: (TapDownDetails details) {
-                          tappedPage = 2;
-                          setState(() {});
-                        },
-                        onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
-                        },
-                        child: AnimatedContainer(
-                          duration: Durations.short2,
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: currentPage == 2 ?
-                              Colors.black :
-                              (tappedPage == 2 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
-                            borderRadius: BorderRadius.circular(40),
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 1,
-                            ),
-                          ),
-                          child: currentPage == 2 ?
-                            Icon(CupertinoIcons.add, color: Colors.white) :
-                            Icon(CupertinoIcons.add, color: Colors.black)
-                        ),
-                      ), // create
-
-                      GestureDetector( // planner
-                        onTap: (){
-                          currentPage = 3;
-                          setState(() {});
-                        },
-                        onTapDown: (TapDownDetails details) {
-                          tappedPage = 3;
-                          setState(() {});
-                        },
-                        onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
-                        },
-                        child: AnimatedContainer(
-                          duration: Durations.short2,
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: currentPage == 3 ?
-                              Colors.black :
-                              (tappedPage == 3 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
-                            borderRadius: BorderRadius.circular(40),
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 1,
-                            ),
-                          ),
-                          child: currentPage == 3 ?
-                            Icon(CupertinoIcons.calendar, color: Colors.white) :
-                            Icon(CupertinoIcons.calendar, color: Colors.black)
-                        ),
-                      ), // planner
-
-                      GestureDetector( // saved/library/gespeichert
-                        onTap: () {
-                          currentPage = 4;
-                          setState(() {});
-                        },
-                        onTapDown: (TapDownDetails details) {
-                          tappedPage = 4;
-                          setState(() {});
-                        },
-                        onTapUp: (TapUpDetails details) {
-                          tappedPage = -1;
-                          setState(() {});
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: AnimatedContainer(
-                            duration: Durations.short2,
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: currentPage == 4 ?
-                                Colors.black :
-                                (tappedPage == 4 ? Color.fromARGB(255, 220, 220, 220) : Colors.white ),
-                              borderRadius: BorderRadius.circular(40),
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 1,
-                              ),
-                            ),
-                            child: currentPage == 4 ?
-                              Icon(CupertinoIcons.heart, color: Colors.white) :
-                              Icon(CupertinoIcons.heart, color: Colors.black)
-                          ),
-                        ),
-                      ), // saved/library/gespeichert
-                    ],
-                  ),
                 ),
-
               ),
 
             ],

@@ -66,7 +66,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -94,64 +94,73 @@ class _SearchScreenState extends State<SearchScreen> {
                 onChanged: (query) => filterFoodcards(query),
               ),
               SizedBox(height: 10),
-              Text(
-                "Beliebt",
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22, // Ändere die Schriftgröße nach Bedarf
-                ),
-              ),
-              SizedBox(height: 10),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: popularTags.map((tag) {
-                  return GestureDetector(
-                    onTap: () {
-                      searchController.text = tag;
-                      filterFoodcards(tag);
-                    },
-                    child: Chip(
-                      label: Text(
-                        tag,
-                        style: TextStyle(
-                          fontSize: 16,
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Beliebt",
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
+                          fontSize: 22, // Ändere die Schriftgröße nach Bedarf
                         ),
                       ),
-                      backgroundColor: Theme.of(context).colorScheme.onPrimary, // Gelbe Hintergrundfarbe
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                      SizedBox(height: 10),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: popularTags.map((tag) {
+                          return GestureDetector(
+                            onTap: () {
+                              searchController.text = tag;
+                              filterFoodcards(tag);
+                            },
+                            child: Chip(
+                              label: Text(
+                                tag,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              backgroundColor: Theme.of(context).colorScheme.onPrimary, // Gelbe Hintergrundfarbe
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          );
+                        }).toList(),
                       ),
-                    ),
-                  );
-                }).toList(),
-              ),
-              SizedBox(height: 10),
-              if (filteredFoodcards.isNotEmpty)
-                Text(
-                  "Vorschläge",
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 28, // Ändere die Schriftgröße nach Bedarf
+                      SizedBox(height: 10),
+                      if (filteredFoodcards.isNotEmpty)
+                        Text(
+                          "Vorschläge",
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28, // Ändere die Schriftgröße nach Bedarf
+                          ),
+                        ),
+                      SizedBox(height: 10),
+                      ...List.generate(filteredFoodcards.isNotEmpty ? filteredFoodcards.length : 1, (int index){
+                        if(filteredFoodcards.isNotEmpty){
+                          return FoodcardDesign(foodcard: filteredFoodcards[index]);
+                        }else{
+                          return Center(
+                            child: Text(
+                              'Keine Rezepte gefunden',
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                          );
+                        }
+                      }),
+                      const SizedBox(
+                        height: 75,
+                      )
+                    ],
                   ),
                 ),
-              SizedBox(height: 10),
-              Expanded(
-                child: filteredFoodcards.isNotEmpty
-                    ? ListView.builder(
-                  itemCount: filteredFoodcards.length,
-                  itemBuilder: (context, index) {
-                    return FoodcardDesign(foodcard: filteredFoodcards[index]);
-                  },
-                )
-                    : Center(
-                  child: Text(
-                    'Keine Rezepte gefunden',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-              ),
+              )
             ],
           ),
         ),

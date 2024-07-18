@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'food_card.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:foodfinder_app/Data/foodcard.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // import 'package:foodfinder_app/data.dart';
@@ -16,10 +17,11 @@ List<List<String>> zutatenCopy = [[]];
 
 
 class RecipePage extends StatefulWidget {
+  Foodcard recipe;
   List<List<String>> zutaten;
   int portionen;
 
-  RecipePage({super.key, required this.zutaten, required this.portionen});
+  RecipePage({super.key, required this.recipe, required this.zutaten, required this.portionen});
 
   @override
   State<RecipePage> createState() => _RecipePageState();
@@ -82,36 +84,7 @@ class _RecipePageState extends State<RecipePage> {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-              title: GestureDetector(
-                  onTap: () {
-                    // TODO: go back to the page we were before
-                    setState(() {});
-                  },
-                  child: Icon(CupertinoIcons.arrow_left)
-              ),
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(36),
-                      color: Colors.black,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "F", // Initialien
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: 27,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+
             ),
             body: SingleChildScrollView(
               child: Container(
@@ -131,7 +104,7 @@ class _RecipePageState extends State<RecipePage> {
                             child: ClipRRect( // Ausnahme für bilder!! clipROUNDEDrect notwendig
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
-                                'lib/assets/images/nudeln_mit_walnuessen.png',
+                                widget.recipe.imageURL,
                                 fit: BoxFit.cover,
                                 height: 250,
                                 // width: 150,
@@ -146,12 +119,14 @@ class _RecipePageState extends State<RecipePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Nudeln mit Walnüssen',
-                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                fontSize: 24,
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: Text(
+                                widget.recipe.title,
+                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  fontSize: 24,
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             const Row(
@@ -177,18 +152,18 @@ class _RecipePageState extends State<RecipePage> {
                               height: 24,
                               margin: const EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
-                                color: Theme.of(context).colorScheme.onSecondary,
+                                color: widget.recipe.foodart == "Fleisch" ? Theme.of(context).colorScheme.secondary : widget.recipe.foodart == "Veggie" ? Theme.of(context).colorScheme.onPrimary : Theme.of(context).colorScheme.onSecondary,
                                 borderRadius: BorderRadius.circular(1000),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.only(right: 12, left: 12),
                                 child: Text(
-                                  "vegan",
+                                  widget.recipe.foodart,
                                   style:Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      letterSpacing: 1,
-                                      color: Colors.white
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 1,
+                                    color: Colors.black
                                   ),
                                 ),
                               ),
@@ -200,16 +175,14 @@ class _RecipePageState extends State<RecipePage> {
                                   borderRadius: BorderRadius.circular(1000),
                                   border: Border.all(color: Colors.black, width: 1),
                                 ),
-                                child: const Padding(
-                                  padding: EdgeInsets.only(right: 4, left: 4),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 4, left: 4),
                                   child: Row(
                                     mainAxisAlignment:
                                     MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.euro, size: 16),
-                                      Icon(Icons.euro, size: 16),
-                                      Icon(Icons.euro, size: 16),
-                                    ],
+                                    children: List.generate(int.parse(widget.recipe.price), (int index){
+                                      return const Icon(Icons.euro, size: 14);
+                                    }),
                                   ),
                                 )
                             ),
@@ -220,11 +193,12 @@ class _RecipePageState extends State<RecipePage> {
                                 borderRadius: BorderRadius.circular(1000),
                                 border: Border.all(color: Colors.black, width: 1),
                               ),
-                              child: const Padding(
-                                padding: EdgeInsets.only(right: 12, left: 12),
-                                child: Icon(
-                                  Icons.schedule,
-                                  size: 16,
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 4, left: 4),
+                                child: Row(
+                                  children: List.generate(int.parse(widget.recipe.time), (int index){
+                                    return const Icon(Icons.schedule, size: 14);
+                                  }),
                                 ),
                               ),
                             ),
@@ -235,22 +209,15 @@ class _RecipePageState extends State<RecipePage> {
                                   borderRadius: BorderRadius.circular(1000),
                                   border: Border.all(color: Colors.black, width: 1),
                                 ),
-                                child: const Padding(
-                                    padding: EdgeInsets.only(right: 12, left: 12),
+                                child: Padding(
+                                    padding: const EdgeInsets.only(right: 4, left: 4),
                                     child: Row(
                                       //crossAxisAlignment: CrossAxisAlignment.center,
                                       mainAxisAlignment:
                                       MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.water_drop_outlined,
-                                          size: 16,
-                                        ),
-                                        Icon(
-                                          Icons.water_drop_outlined,
-                                          size: 16,
-                                        ),
-                                      ],
+                                      children: List.generate(int.parse(widget.recipe.waterneed), (int index){
+                                        return const Icon(Icons.water_drop_outlined, size: 14);
+                                      }),
                                     )
                                 )
                             )
@@ -261,7 +228,7 @@ class _RecipePageState extends State<RecipePage> {
                       Container(
                         margin: const EdgeInsets.only(top: 12),
                         child: Text(
-                          'Der frische und gesunde Klassiker für den schnellen Genuss lorem impsum lorem ipsum frische und gesunde Klassiker für den schnellen Genuss lorem impsum lorem ipsum frische und gesunde Klassiker für den.',
+                          widget.recipe.description,
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontSize: 18,
                             fontWeight: FontWeight.normal,
@@ -386,12 +353,8 @@ class _RecipePageState extends State<RecipePage> {
                       // ZUBEREITUNG - Content
                       Container(
                         margin: const EdgeInsets.only(top: 6),
-                        child: const OrderedList(
-                          items: [
-                            'Lass das Mehl mit Wasser quellen und dann 2h stehen.',
-                            'Kratze das Innere aus der Zucchini und mische es mit dem Käse und dem Hackfleisch.',
-                            'Die gefüllte Zucchini muss bei 200°C für 35 Minuten gebacken werden.'
-                          ],
+                        child: OrderedList(
+                          items: widget.recipe.preparation
                         ),
                       )
                     ]
