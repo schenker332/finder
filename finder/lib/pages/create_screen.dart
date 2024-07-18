@@ -3,7 +3,7 @@ import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Data/foodcard_storage.dart';
-import '../Data/sharedpreferenceshelper.dart';  // Import the helper
+import '../Data/SharedPreferencesHelper.dart';  // Import the helper
 
 class CreateScreen extends StatefulWidget {
   const CreateScreen({super.key});
@@ -71,29 +71,6 @@ class _CreateScreenState extends State<CreateScreen> {
               "Erstellen",
               style: Theme.of(context).textTheme.titleLarge!.copyWith(),
             ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: 36,
-                  height: 36,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(36),
-                    color: Colors.black,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "F",
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: Colors.white,
-                        fontSize: 27,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
             bottom: TabBar(
               indicatorColor: Colors.black,
               indicatorWeight: 2,

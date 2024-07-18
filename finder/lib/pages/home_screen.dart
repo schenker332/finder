@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadFoodcards();
     _loadTopThreeItems();
-    Future.delayed(const Duration(milliseconds: 500)).then((_){
+    Future.delayed(const Duration(milliseconds: 0)).then((_){
       _loadTopThreeItems();
     });
   }

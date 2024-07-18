@@ -17,8 +17,7 @@ class _SearchScreenState extends State<SearchScreen> {
   List<Foodcard> allFoodcards = [];
   List<Foodcard> filteredFoodcards = [];
   List<String> popularTags = [
-    "Vegan", "Vegetarisch", "Nudeln", "Günstig", "Hühnchen",
-    "Reis", "Fleisch"
+    "Vegan", "Veggie", "Nudeln", "Reis", "Fleisch", "Salat"
   ];
 
   @override
@@ -28,7 +27,6 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Future<void> loadFoodcards() async {
-    //final String response = await rootBundle.loadString('assets/given_recipes.json');
     final data = await json.decode(given_recipes);
     List<dynamic> recipes = data['recipes'];
     for (var x in recipes) {
@@ -66,29 +64,6 @@ class _SearchScreenState extends State<SearchScreen> {
             "Suche",
             style: Theme.of(context).textTheme.titleLarge!.copyWith(),
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: 36,
-                height: 36,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(36),
-                  color: Colors.black,
-                ),
-                child: Center(
-                  child: Text(
-                    "F", // Initialien
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 27,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -102,16 +77,34 @@ class _SearchScreenState extends State<SearchScreen> {
                   hintText: 'Was willst Du heute essen?',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25),
-                    borderSide: BorderSide.none,
+                    borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                    borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25),
+                    borderSide: BorderSide(color: Colors.black), // Schwarze Umrandung
                   ),
                   filled: true,
+                  fillColor: Colors.white,  // Hintergrundfarbe auf weiß gesetzt
                   contentPadding: EdgeInsets.symmetric(vertical: 10),
                 ),
                 onChanged: (query) => filterFoodcards(query),
               ),
               SizedBox(height: 10),
+              Text(
+                "Beliebt",
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22, // Ändere die Schriftgröße nach Bedarf
+                ),
+              ),
+              SizedBox(height: 10),
               Wrap(
                 spacing: 8,
+                runSpacing: 8,
                 children: popularTags.map((tag) {
                   return GestureDetector(
                     onTap: () {
@@ -119,12 +112,30 @@ class _SearchScreenState extends State<SearchScreen> {
                       filterFoodcards(tag);
                     },
                     child: Chip(
-                      label: Text(tag),
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      label: Text(
+                        tag,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      backgroundColor: Theme.of(context).colorScheme.onPrimary, // Gelbe Hintergrundfarbe
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                   );
                 }).toList(),
               ),
+              SizedBox(height: 10),
+              if (filteredFoodcards.isNotEmpty)
+                Text(
+                  "Vorschläge",
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28, // Ändere die Schriftgröße nach Bedarf
+                  ),
+                ),
               SizedBox(height: 10),
               Expanded(
                 child: filteredFoodcards.isNotEmpty
