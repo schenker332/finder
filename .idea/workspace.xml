@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="SharedPreferencesHelper.dart implemented siehe https://stackoverflow.com/questions/66881654/image-storing-in-shared-preferences-in-flutter &#10;&#10;&#10;KONVERTIERUNG ZUR IMAGE SPEICHERUNG">
-      <change afterPath="$PROJECT_DIR$/finder/lib/Data/SharedPreferencesHelper.dart" afterDir="false" />
+    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="save half&#10; version">
+      <change beforePath="$PROJECT_DIR$/finder/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/finder/ios/Podfile.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
