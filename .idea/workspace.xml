@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="SALWAS CREATE SCREEN ADDED TO MAIN">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/Data/foodcard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Data/foodcard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" afterDir="false" />
+    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="SharedPreferencesHelper.dart implemented siehe https://stackoverflow.com/questions/66881654/image-storing-in-shared-preferences-in-flutter &#10;&#10;&#10;KONVERTIERUNG ZUR IMAGE SPEICHERUNG">
+      <change afterPath="$PROJECT_DIR$/finder/lib/Data/SharedPreferencesHelper.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,24 +43,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Flutter.main.dart.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "com.google.services.firebase.aqiPopupShown": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "io.flutter.reload.alreadyRun": "true",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/finder/lib/main.dart" />
@@ -158,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721252299977</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="SharedPreferencesHelper.dart implemented siehe https://stackoverflow.com/questions/66881654/image-storing-in-shared-preferences-in-flutter &#10;&#10;&#10;KONVERTIERUNG ZUR IMAGE SPEICHERUNG">
+      <option name="closed" value="true" />
+      <created>1721253371778</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721253371779</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,6 +175,7 @@
     <MESSAGE value="newest version" />
     <MESSAGE value="save half&#10; version" />
     <MESSAGE value="SALWAS CREATE SCREEN ADDED TO MAIN" />
-    <option name="LAST_COMMIT_MESSAGE" value="SALWAS CREATE SCREEN ADDED TO MAIN" />
+    <MESSAGE value="SharedPreferencesHelper.dart implemented siehe https://stackoverflow.com/questions/66881654/image-storing-in-shared-preferences-in-flutter &#10;&#10;&#10;KONVERTIERUNG ZUR IMAGE SPEICHERUNG" />
+    <option name="LAST_COMMIT_MESSAGE" value="SharedPreferencesHelper.dart implemented siehe https://stackoverflow.com/questions/66881654/image-storing-in-shared-preferences-in-flutter &#10;&#10;&#10;KONVERTIERUNG ZUR IMAGE SPEICHERUNG" />
   </component>
 </project>
