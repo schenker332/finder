@@ -123,17 +123,17 @@ class _RecipePageState extends State<RecipePage> {
                               child: Text(
                                 widget.recipe.title,
                                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                  fontSize: 24,
-                                  letterSpacing: 1,
+                                  fontSize: 28,
+                                  letterSpacing: 0.3,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
                             const Row(
                               children: [
-                                Icon(CupertinoIcons.add_circled, size: 32),
-                                SizedBox(width: 6), // Add some space between the icons if needed
-                                Icon(CupertinoIcons.heart, size: 32, ),
+                                // Icon(CupertinoIcons.add_circled, size: 32),
+                                // SizedBox(width: 6), // Add some space between the icons if needed
+                                Icon(Icons.favorite_border, size: 32, ),
                               ],
                             ),
                           ],
@@ -141,28 +141,27 @@ class _RecipePageState extends State<RecipePage> {
                       ),
                       // TAGS
                       Container(
-                        // width: 190,
                         height: 24,
-                        // color: Theme.of(context).colorScheme.primary,
                         margin: const EdgeInsets.only(top: 6),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
                               height: 24,
+                              padding: EdgeInsets.symmetric(vertical: 2),
                               margin: const EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
                                 color: widget.recipe.foodart == "Fleisch" ? Theme.of(context).colorScheme.secondary : widget.recipe.foodart == "Veggie" ? Theme.of(context).colorScheme.onPrimary : Theme.of(context).colorScheme.onSecondary,
                                 borderRadius: BorderRadius.circular(1000),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.only(right: 12, left: 12),
+                                padding: const EdgeInsets.symmetric(horizontal: 16),
                                 child: Text(
                                   widget.recipe.foodart,
                                   style:Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 1,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 0.5,
                                     color: Colors.black
                                   ),
                                 ),
@@ -172,16 +171,19 @@ class _RecipePageState extends State<RecipePage> {
                                 height: 24,
                                 margin: const EdgeInsets.only(right: 4),
                                 decoration: BoxDecoration(
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(1000),
                                   border: Border.all(color: Colors.black, width: 1),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.only(right: 4, left: 4),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: int.parse(widget.recipe.price) == 1 ? 10 : 8,
+                                      vertical: 3
+                                  ),
+                                  child: Wrap(
+                                    spacing: -1.0,
                                     children: List.generate(int.parse(widget.recipe.price), (int index){
-                                      return const Icon(Icons.euro, size: 14);
+                                      return const Icon(Icons.euro, size: 16);
                                     }),
                                   ),
                                 )
@@ -190,14 +192,19 @@ class _RecipePageState extends State<RecipePage> {
                               height: 24,
                               margin: const EdgeInsets.only(right: 4),
                               decoration: BoxDecoration(
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(1000),
                                 border: Border.all(color: Colors.black, width: 1),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.only(right: 4, left: 4),
-                                child: Row(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: int.parse(widget.recipe.time) == 1 ? 10 : 8,
+                                    vertical: 3
+                                ),
+                                child: Wrap(
+                                  spacing: -1,
                                   children: List.generate(int.parse(widget.recipe.time), (int index){
-                                    return const Icon(Icons.schedule, size: 14);
+                                    return const Icon(Icons.schedule, size: 16);
                                   }),
                                 ),
                               ),
@@ -206,17 +213,19 @@ class _RecipePageState extends State<RecipePage> {
                                 height: 24,
                                 margin: EdgeInsets.only(right: 4),
                                 decoration: BoxDecoration(
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(1000),
                                   border: Border.all(color: Colors.black, width: 1),
                                 ),
                                 child: Padding(
-                                    padding: const EdgeInsets.only(right: 4, left: 4),
-                                    child: Row(
-                                      //crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: int.parse(widget.recipe.waterneed) == 1 ? 10 : 8,
+                                        vertical: 3
+                                    ),
+                                    child: Wrap(
+                                      spacing: -3,
                                       children: List.generate(int.parse(widget.recipe.waterneed), (int index){
-                                        return const Icon(Icons.water_drop_outlined, size: 14);
+                                        return const Icon(Icons.water_drop_outlined, size: 16);
                                       }),
                                     )
                                 )
@@ -226,12 +235,13 @@ class _RecipePageState extends State<RecipePage> {
                       ),
                       // DESCRIPTION
                       Container(
-                        margin: const EdgeInsets.only(top: 12),
+                        margin: const EdgeInsets.only(top: 12, bottom: 12),
                         child: Text(
                           widget.recipe.description,
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontSize: 18,
                             fontWeight: FontWeight.normal,
+                            height: 1.3
                           ),
                         ),
                       ),
@@ -244,8 +254,8 @@ class _RecipePageState extends State<RecipePage> {
                             Text(
                               'Zutaten',
                               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                fontSize: 20,
-                                letterSpacing: 1,
+                                fontSize: 22,
+                                letterSpacing: 0.3,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -254,8 +264,8 @@ class _RecipePageState extends State<RecipePage> {
                                 Text(
                                   'Portionen',
                                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontSize: 20,
-                                    letterSpacing: 1,
+                                    fontSize: 22,
+                                    letterSpacing: 0.3,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -263,6 +273,7 @@ class _RecipePageState extends State<RecipePage> {
                                   margin: EdgeInsets.only(left: 20), // Margin to the left
                                   width: 70, // Fixed width
                                   height: 32,
+                                  color: Colors.white,
                                   child: TextField(
                                     controller: _controller, // definiert, was im textField steht
                                     focusNode: _focusNode,  // guckt, ob textfield fokus verliert, um auch _onSubmitted zu triggern
@@ -270,7 +281,6 @@ class _RecipePageState extends State<RecipePage> {
                                       inputDisplay = inputValue;
                                     },
                                     onSubmitted: _onSubmitted,
-
                                     cursorColor: Colors.black,
                                     textAlign: TextAlign.center,
                                     decoration: InputDecoration(
@@ -340,19 +350,19 @@ class _RecipePageState extends State<RecipePage> {
                       ),
                       // ZUBEREITUNG - Heading
                       Padding(
-                        padding: const EdgeInsets.only(top: 24),
+                        padding: const EdgeInsets.only(top: 34),
                         child: Text(
                           'Zubereitung',
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontSize: 20,
-                            letterSpacing: 1,
+                            fontSize: 22,
+                            letterSpacing: 0.3,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       // ZUBEREITUNG - Content
                       Container(
-                        margin: const EdgeInsets.only(top: 6),
+                        margin: const EdgeInsets.only(top: 6, bottom: 85),
                         child: OrderedList(
                           items: widget.recipe.preparation
                         ),
@@ -408,7 +418,7 @@ class _ZutatenListState extends State<ZutatenList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(widget.zutaten.length, (index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0),
+            padding: const EdgeInsets.symmetric(vertical: 1.0),
             child: GestureDetector(
               onTap: () {
                 isZutatSelected[index] = !isZutatSelected[index];
@@ -472,7 +482,7 @@ class _ZutatenListState extends State<ZutatenList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: List.generate(widget.zutaten.length, (index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0),
+            padding: const EdgeInsets.symmetric(vertical: 1.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -599,20 +609,23 @@ class OrderedList extends StatelessWidget {
       children: List.generate(items.length, (index) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 2.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '${index + 1}. ',
-                style: TextStyle(fontSize: 18),
-              ),
-              Expanded(
-                child: Text(
-                  items[index],
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 4.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${index + 1}. ',
                   style: TextStyle(fontSize: 18),
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Text(
+                    items[index],
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       }),
