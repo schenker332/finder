@@ -209,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           top: recentlyLiked != null ? 20 : 0
                       ),
                       child: Text(
-                        "Alle Rezepte",
+                        "Vorschläge für Dich",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
