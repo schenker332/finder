@@ -24,6 +24,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - lib/assets/cheeseburger-7580676_1280.jpg
+    - lib/assets/Fleisch.png
+    - lib/assets/nudeln_mit_walnuessen.png
+    - lib/assets/pizza-7863713_1280.jpg
 
   fonts:
     - family: Afacad
