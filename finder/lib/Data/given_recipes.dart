@@ -3,7 +3,7 @@ String given_recipes = """{
     {
       "id": "1",
       "title": "Lasagne",
-      "imageURL": "/lib/assets/lasagne.jpg",
+      "imageURL": "assets/lasagne.jpg",
       "price": "2",
       "foodart": "Fleisch",
       "description": "Eine köstliche Lasagne mit einer reichhaltigen Bolognese-Sauce und cremiger Béchamelsauce, perfekt für ein gemütliches Familienessen.",
@@ -48,7 +48,7 @@ String given_recipes = """{
     {
       "id": "2",
       "title": "One-Pot-Spätzle mit Hähnchen",
-      "imageURL": "/lib/assets/one-pot-spaetzle-mit-haehnchen.jpg",
+      "imageURL": "assets/one-pot-spaetzle-mit-haehnchen.jpg",
       "price": "2",
       "foodart": "Fleisch",
       "description": "Ein schnelles und einfaches Gericht mit zarten Hähnchenstücken, frischem Gemüse und cremigen Spätzle, perfekt für eine stressfreie Mahlzeit.",
@@ -82,7 +82,7 @@ String given_recipes = """{
     {
       "id": "3",
       "title": "Gyros-Nudelauflauf in Metaxasoße",
-      "imageURL": "/lib/assets/gyros_nudelauflauf.jpg",
+      "imageURL": "assets/gyros_nudelauflauf.jpg",
       "price": "3",
       "foodart": "Fleisch",
       "description": "Ein herzhafter und würziger Nudelauflauf mit Gyrosfleisch und einer cremigen Metaxasoße, ideal für ein sättigendes Abendessen.",
@@ -115,7 +115,7 @@ String given_recipes = """{
     {
       "id": "4",
       "title": "Indisches Butter Chicken aus dem Ofen",
-      "imageURL": "/lib/assets/butter_chicken.jpg",
+      "imageURL": "assets/butter_chicken.jpg",
       "price": "3",
       "foodart": "Fleisch",
       "description": "Ein köstliches und aromatisches indisches Gericht mit zartem Hähnchen und einer cremigen Buttersauce, perfekt für ein exotisches Abendessen.",
@@ -160,7 +160,7 @@ String given_recipes = """{
     {
       "id": "5",
       "title": "Tagliatelle al Salmone",
-      "imageURL": "/lib/assets/tagliatelle_al_salmone.jpg",
+      "imageURL": "assets/tagliatelle_al_salmone.jpg",
       "price": "2",
       "foodart": "Fleisch",
       "description": "Eine delikate Pasta mit frischem Lachs in einer cremigen Weißwein-Tomatensauce, perfekt für ein elegantes Abendessen.",
@@ -196,7 +196,7 @@ String given_recipes = """{
     {
       "id": "6",
       "title": "Entenbraten mit Gelinggarantie",
-      "imageURL": "/lib/assets/entenbraten.jpg",
+      "imageURL": "assets/entenbraten.jpg",
       "price": "3",
       "foodart": "Fleisch",
       "description": "Ein klassischer Entenbraten mit knuspriger Haut und saftigem Fleisch, perfekt für ein festliches Essen mit der Familie.",
@@ -223,7 +223,7 @@ String given_recipes = """{
     {
       "id": "7",
       "title": "Hirschgulasch",
-      "imageURL": "/lib/assets/hirschgulasch.jpg",
+      "imageURL": "assets/hirschgulasch.jpg",
       "price": "3",
       "foodart": "Fleisch",
       "description": "Ein reichhaltiges und herzhaftes Hirschgulasch, perfekt für besondere Anlässe oder ein gemütliches Abendessen.",
@@ -264,9 +264,9 @@ String given_recipes = """{
     {
       "id": "8",
       "title": "Rote Linsen-Curry mit Süßkartoffeln",
-      "imageURL": "/lib/assets/rote_linsen_curry.jpg",
+      "imageURL": "assets/rote_linsen_curry.jpg",
       "price": "1",
-      "foodart": "vegan",
+      "foodart": "Vegan",
       "description": "Ein gesundes und aromatisches Curry mit roten Linsen und Süßkartoffeln, perfekt für ein wärmendes und sättigendes Essen.",
       "time": "2",
       "waterneed": "1",
@@ -294,14 +294,14 @@ String given_recipes = """{
         "Das Curry schmeckt am nächsten Tag meist noch besser und lässt sich auch gut einfrieren."
       ],
       "Kommentar": "https://www.chefkoch.de/rezepte/3023041455110341/Rote-Linsen-Curry-mit-Suesskartoffeln.html",
-      "tags": ["vegan", "gesund", "wärmend"]
+      "tags": ["Vegan", "gesund", "wärmend"]
     },
     {
       "id": "9",
       "title": "Kichererbsen-Salat",
-      "imageURL": "/lib/assets/kichererbsen_salat.jpg",
+      "imageURL": "assets/kichererbsen_salat.jpg",
       "price": "1",
-      "foodart": "vegan",
+      "foodart": "Vegan",
       "description": "Ein erfrischender und nahrhafter Kichererbsen-Salat, ideal als Beilage oder leichte Hauptspeise.",
       "time": "1",
       "waterneed": "1",
@@ -325,14 +325,14 @@ String given_recipes = """{
         "Die Kräuter in feine Streifen schneiden und zusammen mit den Kernen des Granatapfels unter die Kichererbsen mischen."
       ],
       "Kommentar": "https://www.chefkoch.de/rezepte/4045481625128358/Kichererbsen-Salat.html",
-      "tags": ["vegan", "nahrhaft", "leicht"]
+      "tags": ["Vegan", "nahrhaft", "leicht"]
     },
     {
       "id": "10",
       "title": "Nudelsalat auf italienisch",
-      "imageURL": "/lib/assets/nudelsalat_italienisch.jpg",
+      "imageURL": "assets/nudelsalat_italienisch.jpg",
       "price": "2",
-      "foodart": "vegetarisch",
+      "foodart": "Veggie",
       "description": "Ein frischer und herzhafter Nudelsalat mit italienischen Aromen, perfekt als Beilage oder leichtes Hauptgericht.",
       "time": "1",
       "waterneed": "2",
@@ -364,9 +364,9 @@ String given_recipes = """{
     {
       "id": "11",
       "title": "Italienischer Pizzateig",
-      "imageURL": "/lib/assets/italienischer_pizzateig.jpg",
+      "imageURL": "assets/italienischer_pizzateig.jpg",
       "price": "1",
-      "foodart": "vegetarisch",
+      "foodart": "Veggie",
       "description": "Ein authentischer italienischer Pizzateig, der perfekte Grundlage für knusprige und köstliche hausgemachte Pizzen.",
       "time": "2",
       "waterneed": "2",
@@ -392,7 +392,7 @@ String given_recipes = """{
     {
       "id": "12",
       "title": "Hähnchen süßsauer wie im Chinarestaurant",
-      "imageURL": "/lib/assets/haehnchen_suesssauer.jpg",
+      "imageURL": "assets/haehnchen_suesssauer.jpg",
       "price": "2",
       "foodart": "Fleisch",
       "description": "Ein klassisches süßsaures Hähnchengericht, das perfekt den Geschmack des chinesischen Restaurants zu Hause nachahmt.",
@@ -432,7 +432,7 @@ String given_recipes = """{
     {
       "id": "13",
       "title": "Chicken Teriyaki - der japanische Klassiker",
-      "imageURL": "/lib/assets/chicken_teriyaki.jpg",
+      "imageURL": "assets/chicken_teriyaki.jpg",
       "price": "2",
       "foodart": "Fleisch",
       "description": "Ein klassisches Teriyaki-Gericht mit zartem Hähnchen und einer leckeren süß-salzigen Soße, perfekt für ein schnelles und köstliches Abendessen.",
@@ -472,7 +472,7 @@ String given_recipes = """{
     {
       "id": "14",
       "title": "Gebratene Nudeln",
-      "imageURL": "/lib/assets/gebratene_nudeln.jpg",
+      "imageURL": "assets/gebratene_nudeln.jpg",
       "price": "1",
       "foodart": "Fleisch",
       "description": "Ein einfaches und leckeres Rezept für gebratene Nudeln mit Sojasprossen und Geflügelfleisch, ideal für ein schnelles Abendessen.",
@@ -502,7 +502,7 @@ String given_recipes = """{
     {
       "id": "15",
       "title": "Schnelles Thai-Curry mit Huhn, Paprika und feiner Erdnussnote",
-      "imageURL": "/lib/assets/thai_curry_huhn.jpg",
+      "imageURL": "assets/thai_curry_huhn.jpg",
       "price": "2",
       "foodart": "Fleisch",
       "description": "Ein aromatisches und schnelles Thai-Curry mit Hähnchen, Paprika und einer leckeren Erdnussnote, perfekt für ein exotisches Abendessen.",
@@ -541,7 +541,7 @@ String given_recipes = """{
     {
       "id": "16",
       "title": "Fisch mit Dill-Curry-Honig-Sauce",
-      "imageURL": "/lib/assets/fisch_dill_curry_honig.jpg",
+      "imageURL": "assets/fisch_dill_curry_honig.jpg",
       "price": "2",
       "foodart": "Fleisch",
       "description": "Ein köstliches Fischgericht mit einer cremigen Sauce aus Dill, Curry und Honig, perfekt für ein schnelles und aromatisches Abendessen.",
@@ -577,7 +577,7 @@ String given_recipes = """{
     {
       "id": "17",
       "title": "Lachs mit Parmesan-Kräuter-Walnuss-Kruste",
-      "imageURL": "/lib/assets/lachs_parmesan_krauter.jpg",
+      "imageURL": "assets/lachs_parmesan_krauter.jpg",
       "price": "3",
       "foodart": "Fleisch",
       "description": "Ein köstlicher Lachs mit einer knusprigen Parmesan-Kräuter-Walnuss-Kruste, ideal für ein elegantes Abendessen.",
@@ -611,9 +611,9 @@ String given_recipes = """{
     {
       "id": "19",
       "title": "Schnelles Spinat-Kichererbsen-Gericht",
-      "imageURL": "/lib/assets/spinat_kichererbsen_gericht.jpg",
+      "imageURL": "assets/spinat_kichererbsen_gericht.jpg",
       "price": "1",
-      "foodart": "vegan",
+      "foodart": "Vegan",
       "description": "Ein schnelles und gesundes Gericht mit Spinat und Kichererbsen, perfekt für ein nahrhaftes Mittag- oder Abendessen.",
       "time": "1",
       "waterneed": "1",
@@ -641,7 +641,7 @@ String given_recipes = """{
         "Alles bei schwacher Hitze, leicht blubbernd ca. 10 Min. köcheln lassen. Zum Schluss die Kichererbsen dazugeben, verrühren und kurz ziehen lassen. Eventuell alles noch mal abschmecken und mit Chiliflocken bestreut servieren."
       ],
       "Kommentar": "https://www.chefkoch.de/rezepte/3207211477346212/Schnelles-Spinat-Kichererbsen-Gericht.html",
-      "tags": ["schnell", "gesund", "vegan"]
+      "tags": ["schnell", "gesund", "Vegan"]
     }
   ]
 }

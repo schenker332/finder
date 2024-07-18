@@ -13,6 +13,9 @@ dependencies:
   cupertino_icons: ^1.0.6
   json_annotation: ^4.8.0
   shared_preferences: ^2.0.15
+  smooth_page_indicator: ^1.1.0
+  dash_chat_2: ^0.0.21
+  chat_gpt_sdk: ^3.0.9
 
 dev_dependencies:
   flutter_test:
@@ -25,7 +28,24 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/given_recipies.json
+    - assets/lasagne.jpg
+    - assets/one-pot-spaetzle-mit-haehnchen.jpg
+    - assets/gyros_nudelauflauf.jpg
+    - assets/butter_chicken.jpg
+    - assets/tagliatelle_al_salmone.jpg
+    - assets/entenbraten.jpg
+    - assets/hirschgulasch.jpg
+    - assets/rote_linsen_curry.jpg
+    - assets/kichererbsen_salat.jpg
+    - assets/nudelsalat_italienisch.jpg
+    - assets/italienischer_pizzateig.jpg
+    - assets/haehnchen_suesssauer.jpg
+    - assets/chicken_teriyaki.jpg
+    - assets/gebratene_nudeln.jpg
+    - assets/thai_curry_huhn.jpg
+    - assets/fisch_dill_curry_honig.jpg
+    - assets/lachs_parmesan_krauter.jpg
+    - assets/spinat_kichererbsen_gericht.jpg
 
   fonts:
     - family: Afacad

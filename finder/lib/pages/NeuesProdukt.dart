@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
 class Neuesprodukt extends StatefulWidget {
   String Produktname;
   String Menge;
   bool Abgehakt;
   final int stelle;
   final bool isInteractive;
+  final VoidCallback onSave;
 
   Neuesprodukt({
     super.key,
@@ -17,6 +16,7 @@ class Neuesprodukt extends StatefulWidget {
     required this.Abgehakt,
     required this.stelle,
     this.isInteractive = true,
+    required this.onSave
   });
 
   @override
@@ -45,13 +45,11 @@ class _NeuesproduktState extends State<Neuesprodukt> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.only(bottom: 10),
       child: Container( // Container welcher ein element der einkaufsliste enthält
-        //width: 300,
-        height: 35, // width passt sich an seite an, padding links und rechts ist 30
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(1000),
           border: Border.all( // umrandung des containers
             color: widget.Abgehakt ? Colors.grey : Colors.black,
             width: 1,
@@ -80,12 +78,12 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                     width: 20,
                     height: 20,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.white,
-                        border: Border.all(
-                          color: widget.Abgehakt ? Colors.grey : Colors.black,
-                          width: 1,
-                        )
+                      borderRadius: BorderRadius.circular(25),
+                      color: Colors.white,
+                      border: Border.all(
+                        color: widget.Abgehakt ? Colors.grey : Colors.black,
+                        width: 1,
+                      )
                     ),
                     child: Center(
                       child: Container(
@@ -104,51 +102,14 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                 // Eingabe Produkt:
                 const SizedBox(width: 10), // space zwischen kreis und "produktname eingeben"
                 Expanded(
-                  child:Padding(
-                    padding: const EdgeInsets.only(bottom: 9),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: TextField(
-                        controller: ProduktnameController,// text feld zum eingeben des produktes
-                        decoration: const InputDecoration( //textstil des texts
-                          border: InputBorder.none,
-                          hintText: 'Produktname eingeben', // text welcher dem user darauf hinweist dass er da ein produktnamen eingaben kann
-                          hintStyle: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        onChanged: (String value){
-                          widget.Produktname = value;
-                          if (widget.isInteractive) {
-                            saveListElement();
-                          }
-                        },
-                        style: Theme.of(context).textTheme.titleLarge!.copyWith( //textstil des texts welcher dann eingegeben wird
-                          fontSize: 18,
-                          color: widget.Abgehakt ? Colors.grey : Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        readOnly: !widget.isInteractive,
-                      ),
-                    ),
-                  ),
-                ),
-
-                // Eingabe Menge :
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 9,
-                      left: 110,
-                    ),
+                  flex: 8,
+                  child:Align(
+                    alignment: Alignment.center,
                     child: TextField(
-                      controller: MengeController,// textfeld um menge einzugeben
-                      decoration: const InputDecoration(
+                      controller: ProduktnameController,// text feld zum eingeben des produktes
+                      decoration: const InputDecoration( //textstil des texts
                         border: InputBorder.none,
-                        hintText: 'Menge',
+                        hintText: 'Produktname eingeben', // text welcher dem user darauf hinweist dass er da ein produktnamen eingaben kann
                         hintStyle: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.normal,
@@ -156,18 +117,48 @@ class _NeuesproduktState extends State<Neuesprodukt> {
                         ),
                       ),
                       onChanged: (String value){
-                        widget.Menge = value;
+                        widget.Produktname = value;
                         if (widget.isInteractive) {
                           saveListElement();
                         }
                       },
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith( //textstil des texts welcher dann eingegeben wird
                         fontSize: 18,
                         color: widget.Abgehakt ? Colors.grey : Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                       readOnly: !widget.isInteractive,
                     ),
+                  ),
+                ),
+
+                // Eingabe Menge :
+                const SizedBox(width: 10),
+                Expanded(
+                  flex: 2,
+                  child: TextField(
+                    controller: MengeController,// textfeld um menge einzugeben
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Menge',
+                      hintStyle: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    onChanged: (String value){
+                      widget.Menge = value;
+                      if (widget.isInteractive) {
+                        saveListElement();
+                      }
+                    },
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 18,
+                      color: widget.Abgehakt ? Colors.grey : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    readOnly: !widget.isInteractive,
                   ),
                 ),
               ],
@@ -190,6 +181,7 @@ class _NeuesproduktState extends State<Neuesprodukt> {
         //prefs.setStringList("SavedList", items);
       }
       prefs.setStringList("SavedList", items);
+      widget.onSave();
     }
 
 }

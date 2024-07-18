@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:foodfinder_app/Widgets/einkaufsliste.dart';
+import 'package:foodfinder_app/pages/einkaufsliste.dart';
 
 
 class PlanScreen extends StatelessWidget {

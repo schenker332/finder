@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="save half&#10; version">
+    <list default="true" id="754becc2-fafe-4857-b9c8-d42e0c6c07e4" name="Changes" comment="SALWAS CREATE SCREEN ADDED TO MAIN">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/lib/Data/foodcard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/Data/foodcard.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/create_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/finder/lib/pages/home_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="salwas-branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +56,7 @@
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "merdans-branch",
+    "git-widget-placeholder": "main",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
@@ -150,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718976955975</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="SALWAS CREATE SCREEN ADDED TO MAIN">
+      <option name="closed" value="true" />
+      <created>1721252299977</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1721252299977</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,6 +168,7 @@
     <MESSAGE value="hi" />
     <MESSAGE value="newest version" />
     <MESSAGE value="save half&#10; version" />
-    <option name="LAST_COMMIT_MESSAGE" value="save half&#10; version" />
+    <MESSAGE value="SALWAS CREATE SCREEN ADDED TO MAIN" />
+    <option name="LAST_COMMIT_MESSAGE" value="SALWAS CREATE SCREEN ADDED TO MAIN" />
   </component>
 </project>
