@@ -28,7 +28,7 @@ class _CreateScreenState extends State<CreateScreen> {
   final _Currentuser = ChatUser(id: "1", firstName: "Franziska");
   final ChatUser _gptChatUser = ChatUser(id: "2", firstName: "ChatGPT");
   final _chatGpt = OpenAI.instance.build(
-    token: "...",
+    token: "[TOKEN]",
     baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)),
     enableLog: true,
   );
@@ -600,16 +600,71 @@ class _CreateScreenState extends State<CreateScreen> {
                 ),
               ),
               //KI_Page
-              DashChat(
-                messages: messages,
-                messageOptions: const MessageOptions(
-                  currentUserContainerColor: Color(0xFFCFD8CD),
-                  containerColor: Color.fromRGBO(0, 166, 126, 1),
-                  textColor: Colors.black,
-                  currentUserTextColor: Colors.black,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 88.0),
+                child: DashChat(
+                  messages: messages,
+                  inputOptions: InputOptions(
+                    cursorStyle: const CursorStyle(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                    inputDecoration: InputDecoration(
+                      fillColor: Colors.white,
+                      hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 20,
+                        letterSpacing: 0,
+                        height: 1,
+                        color: Colors.grey
+                      ),
+                      hintText: 'Schreib deinen Wunsch auf!',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(99.0)),
+                          borderSide: BorderSide(color: Colors.black)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(99.0)),
+                          borderSide: BorderSide(color: Colors.black)
+                      ),
+                    ),
+                    inputTextStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 20,
+                      letterSpacing: 0,
+                      height: 1,
+                    ),
+                    alwaysShowSend: true,
+                    sendOnEnter: true,
+                    sendButtonBuilder: (fct) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(99),
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 1,
+                            ),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 11.0, right: 9.0),
+                            child: Icon(Icons.send),
+                          ),
+                        ),
+                      );
+                    }
+                  ),
+                  //scrollToBottomOptions: DefaultScrollToBottom(),
+                  messageOptions: MessageOptions(
+                    currentUserContainerColor: Theme.of(context).colorScheme.onPrimary,
+                    containerColor: Colors.grey,
+                    textColor: Colors.black,
+                    currentUserTextColor: Colors.black,
+                    showOtherUsersAvatar: false,
+                    showOtherUsersName: false,
+                  ),
+                  onSend: onSend,
+                  currentUser: _Currentuser,
                 ),
-                onSend: onSend,
-                currentUser: _Currentuser,
               ),
             ],
           ),
