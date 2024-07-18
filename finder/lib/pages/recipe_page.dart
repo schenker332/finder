@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodfinder_app/Data/foodcard.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../Data/foodcard_storage.dart';
+
 // import 'package:foodfinder_app/data.dart';
 
 // import 'package:foodfinder_app/data.dart';
@@ -35,9 +37,20 @@ class _RecipePageState extends State<RecipePage> {
   List<String> einkaufsliste = [];
   late SharedPreferences prefs;
 
+  bool isLiked = false;
+
   @override
   void initState() {
     super.initState();
+
+    // determine if this recipe is liked
+    FoodcardStorage().getLikedRecipeIds().then((List<String> likedIds){
+      if(likedIds.contains(widget.recipe.id)){
+        setState(() {
+          isLiked = true;
+        });
+      }
+    });
 
     // copy the zutaten that were handed to this widget (deep clone!)
     zutatenCopy = widget.zutaten.map((innerList) => List<String>.from(innerList)).toList();
@@ -71,8 +84,8 @@ class _RecipePageState extends State<RecipePage> {
       // calculate new amounts
       zutatenCopy = zutatenCopy.map((sublist) {
         if (sublist[0].isNotEmpty) {
-          int number = int.tryParse(sublist[0]) ?? 0;
-          sublist[0] = (number * multiplier).toString();
+          int number = int.tryParse(sublist[0]) ?? -1;
+          if(number != -1) sublist[0] = (number * multiplier).toString();
         }
         return sublist;
       }).toList();
@@ -84,7 +97,7 @@ class _RecipePageState extends State<RecipePage> {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
-
+              scrolledUnderElevation: 0.0,
             ),
             body: SingleChildScrollView(
               child: Container(
@@ -129,11 +142,41 @@ class _RecipePageState extends State<RecipePage> {
                                 ),
                               ),
                             ),
-                            const Row(
+                            Row(
                               children: [
                                 // Icon(CupertinoIcons.add_circled, size: 32),
                                 // SizedBox(width: 6), // Add some space between the icons if needed
-                                Icon(Icons.favorite_border, size: 32, ),
+                                GestureDetector(
+                                  onTap: (){
+                                    isLiked = !isLiked;
+
+                                    if(isLiked){
+                                      FoodcardStorage().likeRecipe(widget.recipe.id);
+                                    } else {
+                                      FoodcardStorage().unlikeRecipe(widget.recipe.id);
+                                    }
+
+                                    setState(() {});
+                                  },
+                                  child: AnimatedSwitcher(
+                                    duration: Duration(milliseconds: 200),
+                                    transitionBuilder: (Widget child, Animation<double> animation) {
+                                      final curvedAnimation = CurvedAnimation(
+                                        parent: animation,
+                                        curve: Curves.easeOut,
+                                      );
+                                      return ScaleTransition(
+                                        scale: curvedAnimation,
+                                        child: child,
+                                      );
+                                    },
+                                    child: Icon(
+                                      isLiked ? Icons.favorite : Icons.favorite_border,
+                                      key: ValueKey<bool>(isLiked),
+                                      size: 32,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ],

@@ -78,11 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _loadTopThreeItems() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> items = prefs.getStringList('SavedList') ?? [];
-    print("Loaded items: $items");
+    // print("Loaded items: $items");
 
     setState(() {
       topThreeItems = items.take(10).toList();
-      print("Top three items: $topThreeItems");
+      // print("Top three items: $topThreeItems");
     });
   }
 

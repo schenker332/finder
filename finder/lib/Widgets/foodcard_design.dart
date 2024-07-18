@@ -14,7 +14,7 @@ class FoodcardDesign extends StatefulWidget {
 }
 
 class _FoodcardDesignState extends State<FoodcardDesign> {
-  bool isLiked = false; // ADDED
+  bool isLiked = false;
 
   @override
   void initState() {
