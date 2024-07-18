@@ -9,7 +9,7 @@ import 'package:foodfinder_app/pages/plan_screen.dart';
 import 'package:foodfinder_app/pages/search_screen.dart';
 
 void main() {
-  runApp(MyFirstApp(currentPage: 3));
+  runApp(MyFirstApp(currentPage: 0));
 }
 
 class MyFirstApp extends StatefulWidget {

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/foodcard.dart';
 import 'package:foodfinder_app/Data/foodcard_storage.dart';
@@ -71,8 +73,13 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
+                      child: widget.foodcard.imageURL.contains("assets") ? Image.asset(
                         widget.foodcard.imageURL, // MODIFIED
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover,
+                      ) : Image.file(
+                        File(widget.foodcard.imageURL), // MODIFIED
                         width: double.infinity,
                         height: double.infinity,
                         fit: BoxFit.cover,
@@ -110,81 +117,84 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                           Container(
                             padding: EdgeInsets.only(bottom: 6),
                             color: Theme.of(context).colorScheme.primary,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                    vertical: 0
-                                  ),
-                                  margin: EdgeInsets.only(right: 4),
-                                  decoration: BoxDecoration(
-                                    color: widget.foodcard.foodart == "Fleisch" ? Theme.of(context).colorScheme.secondary : widget.foodcard.foodart == "Veggie" ? Theme.of(context).colorScheme.onPrimary : Theme.of(context).colorScheme.onSecondary,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      widget.foodcard.foodart, // MODIFIED
-                                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                        fontSize: 11,
-                                        letterSpacing: 0.6,
-                                        fontWeight: FontWeight.bold,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 0
+                                    ),
+                                    margin: EdgeInsets.only(right: 4),
+                                    decoration: BoxDecoration(
+                                      color: widget.foodcard.foodart == "Fleisch" ? Theme.of(context).colorScheme.secondary : widget.foodcard.foodart == "Veggie" ? Theme.of(context).colorScheme.onPrimary : Theme.of(context).colorScheme.onSecondary,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        widget.foodcard.foodart, // MODIFIED
+                                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                          fontSize: 11,
+                                          letterSpacing: 0.6,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ), // vegan/veggie/fleisch
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: int.parse(widget.foodcard.price) == 1 ? 6 : 4,
-                                    vertical: 1
-                                  ),
-                                  margin: EdgeInsets.only(right: 4),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(color: Colors.black, width: 1),
-                                  ),
-                                  child: Wrap(
-                                    spacing: -1.0,
-                                    children: List.generate(int.parse(widget.foodcard.price), (int index){
-                                      return const Icon(Icons.euro, size: 12);
-                                    }),
-                                  ),
-                                ), // preis
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: int.parse(widget.foodcard.time) == 1 ? 6 : 4,
-                                    vertical: 1
-                                  ),
-                                  margin: EdgeInsets.only(right: 4),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(color: Colors.black, width: 1),
-                                  ),
-                                  child: Wrap(
-                                    spacing: -1,
-                                    children: List.generate(int.parse(widget.foodcard.time), (int index){
-                                      return const Icon(Icons.schedule, size: 12);
-                                    }),
-                                  ),
-                                ), // zeit
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: int.parse(widget.foodcard.waterneed) == 1 ? 6 : 4,
-                                    vertical: 1
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(color: Colors.black, width: 1),
-                                  ),
-                                  child: Wrap(
-                                    spacing: -2,
-                                    children: List.generate(int.parse(widget.foodcard.waterneed), (int index){
-                                      return const Icon(Icons.water_drop_outlined, size: 12);
-                                    }),
-                                  ),
-                                ), // wasser
-                              ],
+                                  ), // vegan/veggie/fleisch
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: int.parse(widget.foodcard.price) == 1 ? 6 : 4,
+                                      vertical: 1
+                                    ),
+                                    margin: EdgeInsets.only(right: 4),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(color: Colors.black, width: 1),
+                                    ),
+                                    child: Wrap(
+                                      spacing: -1.0,
+                                      children: List.generate(int.parse(widget.foodcard.price), (int index){
+                                        return const Icon(Icons.euro, size: 12);
+                                      }),
+                                    ),
+                                  ), // preis
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: int.parse(widget.foodcard.time) == 1 ? 6 : 4,
+                                      vertical: 1
+                                    ),
+                                    margin: EdgeInsets.only(right: 4),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(color: Colors.black, width: 1),
+                                    ),
+                                    child: Wrap(
+                                      spacing: -1,
+                                      children: List.generate(int.parse(widget.foodcard.time), (int index){
+                                        return const Icon(Icons.schedule, size: 12);
+                                      }),
+                                    ),
+                                  ), // zeit
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: int.parse(widget.foodcard.waterneed) == 1 ? 6 : 4,
+                                      vertical: 1
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(color: Colors.black, width: 1),
+                                    ),
+                                    child: Wrap(
+                                      spacing: -2,
+                                      children: List.generate(int.parse(widget.foodcard.waterneed), (int index){
+                                        return const Icon(Icons.water_drop_outlined, size: 12);
+                                      }),
+                                    ),
+                                  ), // wasser
+                                ],
+                              ),
                             ),
                           ),
                         ],

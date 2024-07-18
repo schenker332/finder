@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../Data/foodcard.dart';
 import '../Data/given_recipes.dart';
 import '../Widgets/foodcard_design.dart';
@@ -28,56 +29,42 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Future<void> loadFoodcards() async {
+    String recipeKey = "RECIPES";
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    List<String> savedRecipes = sharedPreferences.getStringList(recipeKey) ?? [];
     final data = await json.decode(given_recipes);
     List<dynamic> recipes = data['recipes'];
+    for(int i = 0; i < savedRecipes.length; i++){
+      recipes.add(json.decode(savedRecipes[i]));
+    }
     for (var x in recipes) {
       allFoodcards.add(Foodcard.fromJson(x));
     }
-
+    filteredFoodcards = allFoodcards;
+    filteredFoodcards.shuffle();
     setState(() {
-      filteredFoodcards = allFoodcards;
+
     });
   }
 
   void filterFoodcards(String query) {
-    setState(() {
-      if (query.isEmpty) {
-        filteredFoodcards = allFoodcards;
-      } else {
-        filteredFoodcards = allFoodcards.where((foodcard) {
-          return foodcard.title.toLowerCase().contains(query.toLowerCase()) ||
-              foodcard.description.toLowerCase().contains(query.toLowerCase()) ||
-              foodcard.foodart.toLowerCase().contains(query.toLowerCase()) ||
-              foodcard.tags.any((tag) => tag.toLowerCase().contains(query.toLowerCase())) ||
-              foodcard.ingredients.any((ingredient) =>
-                  ingredient.any((element) => element.toString().toLowerCase().contains(query.toLowerCase())));
-        }).toList();
-      }
-    });
+    if (query.isEmpty) {
+      filteredFoodcards = allFoodcards;
+    } else {
+      filteredFoodcards = allFoodcards.where((foodcard) {
+        return foodcard.title.toLowerCase().contains(query.toLowerCase()) ||
+            foodcard.description.toLowerCase().contains(query.toLowerCase()) ||
+            foodcard.foodart.toLowerCase().contains(query.toLowerCase()) ||
+            foodcard.tags.any((tag) => tag.toLowerCase().contains(query.toLowerCase())) ||
+            foodcard.ingredients.any((ingredient) =>
+                ingredient.any((element) => element.toString().toLowerCase().contains(query.toLowerCase())));
+      }).toList();
+    }
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    List<int> randomIndices = [];
-    if (filteredFoodcards.isNotEmpty) {
-      Random random = Random();
-      Set<int> chosenIndices = {};
-
-      while (chosenIndices.length < min(3, filteredFoodcards.length)) {
-        int randomIndex = random.nextInt(filteredFoodcards.length);
-        if (!chosenIndices.contains(randomIndex)) {
-          chosenIndices.add(randomIndex);
-        }
-      }
-
-      randomIndices = chosenIndices.toList();
-    }
-
-    // Generate widgets based on the randomly chosen indices
-    List<Widget> foodCardWidgets = randomIndices.map((index) {
-      return FoodcardDesign(foodcard: filteredFoodcards[index]);
-    }).toList();
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -185,8 +172,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             ),
                           ),
                         ),
-                      if(filteredFoodcards.isNotEmpty && filteredFoodcards == allFoodcards) ...foodCardWidgets
-                      else if(filteredFoodcards.isNotEmpty) ...List.generate(filteredFoodcards.length, (int index){
+                      if(filteredFoodcards.isNotEmpty) ...List.generate(filteredFoodcards.length, (int index){
                         return FoodcardDesign(foodcard: filteredFoodcards[index]);
                       })
                       else Center(

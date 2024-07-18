@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../Data/foodcard.dart';
 import '../Data/given_recipes.dart';
 import '../Widgets/foodcard_design.dart';
@@ -27,8 +28,14 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   Future<void> loadLikedFoodcards() async {
     List<Foodcard> allFoodcards = [];
+    String recipeKey = "RECIPES";
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    List<String> savedRecipes = sharedPreferences.getStringList(recipeKey) ?? [];
     final data = await json.decode(given_recipes);
     List<dynamic> recipes = data['recipes'];
+    for(int i = 0; i < savedRecipes.length; i++){
+      recipes.add(json.decode(savedRecipes[i]));
+    }
     for (var x in recipes) {
       allFoodcards.add(Foodcard.fromJson(x));
     }

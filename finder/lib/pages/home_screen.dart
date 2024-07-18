@@ -46,8 +46,14 @@ class _HomeScreenState extends State<HomeScreen> {
     List<Foodcard> loadedCards = await storage.getFoodcards();
     List<Ingredientcard> loadedIngredients = await storage.getIngredients();
 
+    String recipeKey = "RECIPES";
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    List<String> savedRecipes = sharedPreferences.getStringList(recipeKey) ?? [];
     final data = await json.decode(given_recipes);
     List<dynamic> recipes = data['recipes'];
+    for(int i = 0; i < savedRecipes.length; i++){
+      recipes.add(json.decode(savedRecipes[i]));
+    }
     for (var x in recipes) {
       allFoodcards.add(Foodcard.fromJson(x));
     }
