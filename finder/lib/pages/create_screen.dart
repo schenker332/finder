@@ -23,6 +23,7 @@ class CreateScreen extends StatefulWidget {
 
 class _CreateScreenState extends State<CreateScreen> {
   final TextEditingController titleController = TextEditingController();
+  final TextEditingController portionController = TextEditingController();
   final TextEditingController imageURLController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController preparationController = TextEditingController();
@@ -491,26 +492,102 @@ class _CreateScreenState extends State<CreateScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 10,
+                      height: 15,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25, top: 10),
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 30,
-                        child: Text(
-                          "Zutaten",
-                          style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            fontSize: 24,
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 25, top: 10),
+                          child: SizedBox(
+                            height: 30,
+                            child: Text(
+                              "Zutaten",
+                              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                                fontSize: 24,
+                                letterSpacing: 0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(right: 8),
+                                child: SizedBox(
+                                  height: 30,
+                                  child: Text(
+                                    "für",
+                                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                                      fontSize: 24,
+                                      letterSpacing: 0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 56,
+                                // height: 40,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(color: Colors.black, width: 1),
+                                    color: Colors.white
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                                  child: TextField(
+                                    controller: portionController,
+                                    textAlign: TextAlign.center,
+                                    keyboardType: TextInputType.number,
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: '4',
+
+                                        hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                          fontSize: 20,
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.bold,
+                                        )
+                                    ),
+                                    cursorColor: Colors.black,
+                                    cursorWidth: 1,
+                                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 25, left: 8),
+                                child: SizedBox(
+                                  height: 30,
+                                  child: Text(
+                                    "Portionen",
+                                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                                      fontSize: 24,
+                                      letterSpacing: 0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(
-                      height: 5,
+                      height: 10,
                     ),
                     ...ingredients,
                     const SizedBox(
@@ -659,7 +736,7 @@ class _CreateScreenState extends State<CreateScreen> {
                           "foodart": selectedfoodart,
                           "time": (["schnell","mittel","braucht Zeit"].indexOf(selectedtime) + 1).toString(),
                           "waterneed": (["wenig Wasser","normal","viel Wasser"].indexOf(selectedwaterneed) + 1).toString(),
-                          "portion": "4",
+                          "portion": portionController.text ?? "4",
                           "ingredients": List.generate(ingredients.length, (int index){
                             return [
                               ingredients[index].mengeController.text,
