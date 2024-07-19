@@ -13,7 +13,9 @@ import '../Data/SharedPreferencesHelper.dart';
 import '../Widgets/ingredient_input.dart';  // Import the helper
 
 class CreateScreen extends StatefulWidget {
-  const CreateScreen({super.key});
+  final Function(int) onSaveCallback;
+
+  const CreateScreen({super.key, required this.onSaveCallback});
 
   @override
   _CreateScreenState createState() => _CreateScreenState();
@@ -47,6 +49,8 @@ class _CreateScreenState extends State<CreateScreen> {
     mengeController: TextEditingController(),
     einheitController: TextEditingController(),
   )];
+
+  String saveButtonText = "Speichern";
 
   @override
   void initState() {
@@ -632,14 +636,24 @@ class _CreateScreenState extends State<CreateScreen> {
                     ),
                     GestureDetector(
                       onTap: () async{
-                        if(selectedprice == null || selectedfoodart == null || selectedtime == null || selectedwaterneed == null || imagePath.isEmpty){
+                        saveButtonText = "Lädt...";
+                        if(selectedprice == null || selectedfoodart == null || selectedtime == null || selectedwaterneed == null){
+                          saveButtonText = "Nicht alle Felder befüllt!";
+                          setState(() {});
+                          // Set a timeout of 6 seconds
+                          Future.delayed(Duration(seconds: 4), () {
+                            saveButtonText = 'Speichern';
+                            setState(() {});
+                          });
                           return;
                         }
 
+                        String newRecipeId = DateTime.now().millisecondsSinceEpoch.toString();
+
                         Map<String, dynamic> jsonData = {
-                          "id": DateTime.now().millisecondsSinceEpoch.toString(),
+                          "id": newRecipeId,
                           "title": titleController.text,
-                          "imageURL": imagePath,
+                          "imageURL": imagePath ?? "",
                           "description": descriptionController.text,
                           "price": (["€", "€€", "€€€"].indexOf(selectedprice) + 1).toString(),
                           "foodart": selectedfoodart,
@@ -663,6 +677,17 @@ class _CreateScreenState extends State<CreateScreen> {
                         List<String> savedRecipes = sharedPreferences.getStringList(recipeKey) ?? [];
                         savedRecipes.add(jsonEncode(jsonData));
                         sharedPreferences.setStringList(recipeKey, savedRecipes);
+
+                        FoodcardStorage().likeRecipe(newRecipeId); // always like own recipes
+
+                        saveButtonText = "Gespeichert!";
+                        setState(() {});
+                        // Set a timeout of 6 seconds
+                        Future.delayed(Duration(seconds: 2), () {
+                          saveButtonText = 'Speichern';
+                          widget.onSaveCallback(0);
+                          setState(() {});
+                        });
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(right: 10.0),
@@ -681,7 +706,7 @@ class _CreateScreenState extends State<CreateScreen> {
                                   borderRadius: BorderRadius.circular(1000)
                                 ),
                                 child: Text(
-                                  "Speichern",
+                                  saveButtonText,
                                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,

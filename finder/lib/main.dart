@@ -22,7 +22,26 @@ class MyFirstApp extends StatefulWidget {
 
 class _MyFirstAppState extends State<MyFirstApp> {
   int tappedPage = -1;
-  List<Widget> screens = [HomeScreen(), SearchScreen(), CreateScreen(), PlanScreen(), FavoriteScreen() ];
+  List<Widget> screens = [];
+
+  void _updateCurrentPage(int newCurrentPage) {
+    setState(() {
+      widget.currentPage = newCurrentPage;
+    });
+  }
+
+  @override
+  void initState() {
+    screens = [
+      HomeScreen(),
+      SearchScreen(),
+      CreateScreen(onSaveCallback: _updateCurrentPage),
+      PlanScreen(),
+      FavoriteScreen()
+    ];
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
