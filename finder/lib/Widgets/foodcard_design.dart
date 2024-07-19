@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:foodfinder_app/Data/foodcard.dart';
 import 'package:foodfinder_app/Data/foodcard_storage.dart';
@@ -73,17 +73,19 @@ class _FoodcardDesignState extends State<FoodcardDesign> {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: widget.foodcard.imageURL.contains("assets") ? Image.asset(
-                        widget.foodcard.imageURL, // MODIFIED
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.cover,
-                      ) : Image.file(
-                        File(widget.foodcard.imageURL), // MODIFIED
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
+                      child: widget.foodcard.imageURL.isEmpty ?
+                        Container(color: const Color(0xDDDDDDDD)) :
+                        (widget.foodcard.imageURL.contains("assets") ? Image.asset(
+                          widget.foodcard.imageURL, // MODIFIED
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover,
+                        ) : (kIsWeb ? Container(color: const Color(0xDDDDDDDD)) : Image.file(
+                          File(widget.foodcard.imageURL), // MODIFIED
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.cover,
+                        ))),
                     ),
                   ),
                 ),

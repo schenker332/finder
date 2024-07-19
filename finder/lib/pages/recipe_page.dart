@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // import 'food_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -116,12 +118,23 @@ class _RecipePageState extends State<RecipePage> {
                           Expanded(
                             child: ClipRRect( // Ausnahme für bilder!! clipROUNDEDrect notwendig
                               borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                widget.recipe.imageURL,
-                                fit: BoxFit.cover,
-                                height: 250,
-                                // width: 150,
-                              ),
+                              child: widget.recipe.imageURL.isEmpty ?
+                                SizedBox() :
+                                (widget.recipe.imageURL.contains("assets") ?
+                                  Image.asset(
+                                    widget.recipe.imageURL,
+                                    fit: BoxFit.cover,
+                                    height: 250,
+                                    // width: 150,
+                                  ) : (kIsWeb ?
+                                    SizedBox() : Image.file(
+                                      File(widget.recipe.imageURL), // MODIFIED
+                                      width: double.infinity,
+                                      height: 250,
+                                      fit: BoxFit.cover,
+                                    )
+                                  )
+                                ),
                             ),
                           )
                         ],
